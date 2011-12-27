@@ -4,8 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
 <head>
-meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Pagina de Inicio</title>
+     <link rel="stylesheet" type="text/css"  href="estilos/estilo.css" />
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	 <script type="text/javascript" src="javascript/login.js" charset="utf-8"></script>
+	 <title>Pagina de Inicio</title>
 	
 </head>
 
@@ -21,11 +23,86 @@ meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     	?>
 		
 		
-		<!--  div con la logotipo de fondo del index  -->
+		<!--  div con la logotipo de fondo-->
     	  	
     	<div id="div_logo" >
-    	<img src="imagenes/logo.JPG"></img>
+    	<img src="imagenes/opendown.JPG"></img>
          </div>
 	Esta va ser nuestra pagina web para la practica.
-</body>
+	
+	<!-- div login  -->
+      
+       	<div id="div_login">    
+        	<fieldset id="fieldset2">
+        	
+        	<div class="logoLogin">  
+						<img src="imagenes/logo1.jpg"  alt="logoLogin" title="OpenDown" />
+		
+			</div>
+        	
+        	<form id="form_login" "method="post" onsubmit="return principal()" action="PHP/tratamientoIndex.php">
+        		<fieldset id="fieldset1">
+        			<label id="label_usuario" for="usuario">Usuario</label>
+					<input id="usuario" type="text" value="" name="usuario"/>
+        			
+					<label id="label_password" for="password">Contrase&ntilde;a</label>
+					<input id="password" type="password" value="" name="password"/>
+												
+					<div id="div_submit">
+						<button id="submit">Entrar</button>
+					</div>
+        		</fieldset>
+        		
+        	</form>
+			
+			<div id="div_registrarse">
+				<a href="registro.php">Registrate</a>
+			</div>
+			
+			<div id="div-recupera">
+			<a href="recupera.php">¿Olvidaste tu contraseña? </a>
+			</div>
+			
+			</fieldset>	
+			
+        </div>
+		<!-- div validacion css  -->
+		<div id="div_valcss">
+        	<a href="http://jigsaw.w3.org/css-validator/check/referer">
+        		<img class="val"
+            		src="http://jigsaw.w3.org/css-validator/images/vcss"
+            		alt="�CSS V�lido!" />
+   			 </a>
+        
+    	</div>
+		
+		<!-- div pie  -->
+		<div id="div_linea" class="colorb">  	
+			<div id="div_copyright" class="colorb" >
+					Copyright ® 2011 ABD-US
+			</div>
+				
+			<div id="div_ayuda" >
+				<a href ="informacion.php" class="colorb" target="_blank" >INFORMACI&Oacute;N</a>					
+			</div>
+		
+			<div id="div_contacto" class="colorb" >
+				<a href="" onclick="location.href='mailto:opendown@opendown.es?subject=Asunto del mensaje&body=Texto del mensaje'" class="colorb">CONTACTA CON NOSOTROS</a>
+			</div>
+		</div>
+        
+    	<?php 
+        	$errores=$_SESSION["errores_index"];
+        	if(isset($errores) && is_array($errores)){
+				echo "<div id='errores' class='error'>";
+				foreach($errores as $error){
+					echo "$error<br/>";
+				}
+				echo "</div>";
+			}
+        ?>
+     </div>   
+		
+		
+    </body>
 </html>

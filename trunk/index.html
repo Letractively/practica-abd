@@ -4,11 +4,28 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
 <head>
-	<title>Inicio</title>
+meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Pagina de Inicio</title>
 	
 </head>
 
 <body>
+
+<div id="paginacompleta">
+    	<?php 
+    		$login=$_SESSION["login"];
+    		if(!isset($login)){//Comprobamos si tenemos la variable de sesion creada
+    			$login=array();
+    			$_SESSION["login"]=$login;
+    		}
+    	?>
+		
+		
+		<!--  div con la logotipo de fondo del index  -->
+    	  	
+    	<div id="div_logo" >
+    	<img src="imagenes/logo.JPG"></img>
+         </div>
 	Esta va ser nuestra pagina web para la practica.
 </body>
 </html>

@@ -67,13 +67,13 @@ INSERT INTO `usuarios` (`idusuario`, `usuario`, `password`, `nombre`, `apellidos
 
 
 
--- Constraint para tabla `usuario-aplicacion`
+-- Constraint para tabla `Aplicacion`
 
 ALTER TABLE `Aplicacion`
   ADD CONSTRAINT `FK_aplicacion_2` FOREIGN KEY (`idUsuario`) REFERENCES `Usuarios` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraint para tabla `usuario-juego`
+-- Constraint para tabla `Juego`
 --
 ALTER TABLE `Juego`
   ADD CONSTRAINT `FK_Juego_2` FOREIGN KEY (`idUsuario`) REFERENCES `Usuarios` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;

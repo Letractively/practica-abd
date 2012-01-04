@@ -26,7 +26,7 @@
 		<!--  div con la logotipo de fondo-->
     	  	
     	<div id="div_logo" >
-    	<img src="imagenes/opendown.JPG" alt="logo"/>
+    	        <img src="imagenes/opendown.JPG" alt="logo"/>
          </div>
 	Esta va ser nuestra pagina web para la practica.
 	
@@ -43,6 +43,7 @@
         						<li><a href="estrategia.php">Estrategia</a></li> 
         						<li><a href="Deportes.php">Deportes</a></li>       						
       						    <li><a href="Infantil.php">Infantil</a></li> 
+								li><a href="Otros.php">Otros</a></li> 
        						</ul> 
     					</li> 
     					<li><a>Aplicaciones</a>
@@ -52,11 +53,42 @@
 								<li><a href="utilidades.php">Utilidades</a></li> 
 								<li><a href="seguridad.php">Seguridad</a></li>
 								<li><a href="personalizacion.php">Personalizacion</a></li>
+								li><a href=" sinCatalogar.php">Otros</a></li>
       						</ul> 
     					</li>
     			
   					</ul>		
 			</div>	
+			
+			
+	<div id="contenidocentral">
+	        <div id="ultimas_aplicaciones">
+ 			    <ul>
+ 				    <?php 
+ 					  $conexion=CrearConexionBD();
+ 					  $aplicaciones=getAplicacion($conexion);//Devuelve las 5 ultimos aplicaciones subidas.
+ 					  CerrarConexionBD($conexion);
+ 					  foreach ($aplicaciones as $row){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
+ 						 echo "<li>";
+ 						 echo "<div>";
+ 						 echo "<fieldset>";
+ 						 echo "<legend>$row[Nombre]</legend>";
+ 						 echo "<img id='tamano' src='imagenes/img_aplicaciones$row[Foto]' alt='img_apli'>";
+ 						 echo "<br>";
+ 						 echo "<br>";
+ 						 echo "$row[descripcion]";
+ 						 echo "<br>";
+ 						 echo "<a href='masInfo.php?idAplicacion=$row[idAplicacion]'>Mas info</a>";//Paso una variable en la url para saber sobre que masInfo de los 5 he pinchado
+ 						 echo "</fieldset>";
+ 						 echo"</div>";
+ 						 echo "</li>";
+ 					    }
+ 				     ?>
+  			    </ul>	
+            </div>			
+  	</div>
+		
+			
 	
 	<!-- div login  -->
       

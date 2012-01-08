@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
@@ -15,6 +14,7 @@
 
 <div id="container">
     	<?php 
+    		session_start();
     		$login=$_SESSION["login"];
     		if(!isset($login)){//Comprobamos si tenemos la variable de sesion creada
     			$login=array();
@@ -159,11 +159,11 @@
     	<?php 
         	$errores=$_SESSION["errores_index"];
         	if(isset($errores) && is_array($errores)){
-				echo "<div id='errores' class='error'>"
+				echo "<div id='errores' class='error'>";
 				foreach($errores as $error){
-					echo "$error<br/>"
+					echo "$error<br/>";
 				}
-				echo "</div>"
+				echo "</div>";
 			}
          ?>
      </div>   

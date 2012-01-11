@@ -14,6 +14,10 @@
 
 <div id="container">
     	<?php 
+		      include_once("PHP/gestionarConexionBD.php");
+	          include_once("PHP/gestionUsuarios.php");
+			  include_once("PHP/gestionAplicaciones.php");
+			  include_once("PHP/gestionJuegos.php");
     		session_start();
     		$login=$_SESSION["login"];
     		if(!isset($login)){//Comprobamos si tenemos la variable de sesion creada
@@ -65,7 +69,7 @@
 	        <div id="ultimas_aplicaciones">
  			    <ul>
  				    <?php 
- 					  $conexion=CrearConexionBD();
+ 					  $conexion=crearConexionBD();
  					  $aplicaciones=getAplicacion($conexion);//Devuelve las 5 ultimos aplicaciones subidas.
  					  CerrarConexionBD($conexion);
  					  foreach ($aplicaciones as $row){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
@@ -76,7 +80,7 @@
  						 echo "<img id='tamano' src='imagenes/img_aplicaciones$row[Foto]' alt='img_apli'>";
  						 echo "<br>";
  						 echo "<br>";
- 						 echo "$row[descripcion]";
+ 						 echo "$row[Descripcion]";
  						 echo "<br>";
  						 echo "<a href='masInfoAplicaciones.php?idAplicacion=$row[idAplicacion]'>Mas info</a>";//Paso una variable en la url para saber sobre que masInfo de los 5 he pinchado
  						 echo "</fieldset>";
@@ -85,7 +89,31 @@
  					    }
  				     ?>
   			    </ul>	
-            </div>			
+            </div>		
+           <div id="ultimos_juegos">
+ 			    <ul>
+ 				    <?php 
+ 					  $conexion=crearConexionBD();
+ 					  $Juegos=getJuego($conexion);//Devuelve los 5 ultimos Juegos subidos.
+ 					  CerrarConexionBD($conexion);
+ 					  foreach ($Juegos as $row){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
+ 						 echo "<li>";
+ 						 echo "<div>";
+ 						 echo "<fieldset>";
+ 						 echo "<legend>$row[Nombre]</legend>";
+ 						 echo "<img id='tamano' src='imagenes/img_juegos$row[Foto]' alt='img_juego'>";
+ 						 echo "<br>";
+ 						 echo "<br>";
+ 						 echo "$row[descripcion]";
+ 						 echo "<br>";
+ 						 echo "<a href='masInfoJuegos.php?idJuego=$row[idJuego]'>Mas info</a>";//Paso una variable en la url para saber sobre que masInfo de los 5 
+ 						 echo "</fieldset>";
+ 						 echo"</div>";
+ 						 echo "</li>";
+ 					    }
+ 				     ?>
+  			    </ul>	
+            </div>						
   	</div>
 		
 			

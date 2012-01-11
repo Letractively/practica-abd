@@ -1,5 +1,5 @@
 <?php
-	include_once("gestionBD.php");
+	include_once("gestionarConexionBD.php");
 
 	session_start();
 	$registro= $_SESSION["registro"];

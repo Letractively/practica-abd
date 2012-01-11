@@ -18,6 +18,7 @@
 	          include_once("PHP/gestionUsuarios.php");
 			  include_once("PHP/gestionAplicaciones.php");
 			  include_once("PHP/gestionJuegos.php");
+			  
     		session_start();
     		$login=$_SESSION["login"];
     		if(!isset($login)){//Comprobamos si tenemos la variable de sesion creada
@@ -128,7 +129,7 @@
 		
 			</div>
         	
-        	<form id="form_login" method="post" onsubmit="return principal()" action="PHP/tratamientoIndex.php">
+        	<form id="form_login" method="post" onsubmit="return principal()" action="PHP/logeadoIndex.php">
         		<fieldset id="fieldset1">
         			<label id="label_usuario" for="usuario">Usuario</label>
 					<input id="usuario" type="text" value="" name="usuario"/>

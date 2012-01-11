@@ -5,7 +5,7 @@ function validarFormulario() {
         var nick= document.getElementById("nick").value;
         var password= document.getElementById("password").value;
         var mail= document.getElementById("mail").value;
-        var patronEmail=/^(.+)@(.+)$/;
+        var patronEmail=/^(.+)@(.+)\.(.+)$/;
         if (nick==""){
                 alert("Debe introducir un nick");
                 return false;

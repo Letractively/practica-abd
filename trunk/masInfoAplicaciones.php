@@ -8,10 +8,10 @@
 		session_destroy();
 		header("Location: index.html");
 	}else{
-		$idaplicacion=$_REQUEST["idAplicacion"]; // Obtiene la variable de la url.
+		$idAplicacion=$_REQUEST["idAplicacion"]; // Obtiene la variable de la url.
 		if($idAplicacion!=""){ // Comprueba que el parametro pasado en la url no es nulo.
 			$conexion=CrearConexionBD();
-			$aplicacion=getAplicacion($idAplicacion,$conexion);// Obtiene la aplicacion solicitada.
+			$aplicacion=getAplicacionId($idAplicacion,$conexion);// Obtiene la aplicacion solicitada.
 			CerrarConexionBD($conexion);
 			if($aplicacion=="")// Comprueba que la aplicacion exista.
 				header("Location: index.html");
@@ -35,72 +35,39 @@
 	<?php include_once("cabecera.php");?>
 	
 	<div id="centro"> 
-		<div id="div_tituloevento">
-			<legend><?php echo "$evento[titulo]"?></legend>
+		<div id="div_nombreAplicacion">
+			<legend><?php echo "$aplicacion[Nombre]"?></legend>
 		</div>
 		
 		<br/>
 		
 		<div id="div_imagen" class="marco">
-			<img class="fotoevento" src="imagenes/fotosEventos/<?php echo "$evento[imagen]"?>"title="foto del evento" alt="fotoevento"/>
+			<img class="img_apli" src="imagenes/img_apli/<?php echo "$aplicacion[Foto]"?>"title="Imagen Aplicacion" alt="imgAplicacion"/>
 		</div>
 		
 		<div id="div_descripcion">
-			<div id="div_datos">
-				<label id="label_datos">Fecha y hora:</label>
-				<fieldset>
-					<p>
-						<?php echo "$evento[fecha] $evento[hora]"?>
-					</p>
-				</fieldset>	
-			</div>
-			
-			<div>
-				<label id="label_direccion">Lugar:</label>
-				<fieldset>
-					<p>
-						<?php echo "$evento[direccion], $evento[ciudad]"?>
-					</p>
-				</fieldset>
-			</div>
-			
 			<div>
 				<label id="label_descripcion">Descripci&oacute;n:</label>
 				<fieldset>
 					<p>
-						<?php echo "$evento[descripcion]"?>
+						<?php echo "$aplicacion[Descripcion]"?>
 					</p>
 				</fieldset>
 			</div>
-		
+			
+		<div id="div_descarga">
 			<div>
-				<label id="label_recomendaciones">Recomendaciones:</label>
+				<label id="label_descarga">Descarga</label>
 				<fieldset>
 					<p>
-						<?php echo "$evento[recomendar]"?>
+						<?php echo "PNER AKI CODIGO DE DESCARGA"?>
 					</p>
 				</fieldset>
-			</div>
+			</div>	
+		
+			
 		</div>
 		
-		<?php
-			$conexion=CrearConexionBD();
-			$estasDentro=$_SESSION["estasDentro"];
-			$unido=usuarioUnido($estasDentro["idusuario"],$idevento,$conexion);//Compruebo si el usuario ya esta unido a este evento
-			CerrarConexionBD($conexion);
-			echo "<form id='form_masInfo' method='post' action='PHP/tratamientoUnirseEvento.php?unido=$unido'>";//Paso la funcion a realizar mediante una variable en la url
-				if(!$unido){//Si no lo esta le doy la opcion de unirse
-					echo "<div id='div_unirse'>";
-						echo" <button id='unirse'>Unirse</button>";
-					echo "</div>";
-				}else{//Si ya esta unido le doy la opcion de borrarse
-					echo "<span><h3>Ya estas unido a este evento</h3></span>";
-					echo "<div id='div_borrarse'>";
-						echo" <button id='borrarse'>Borrarse</button>";
-					echo "</div>";
-				}	
-			echo"</form>";
-		?>
 		
 		<div id="div_valcss">
 			<a href="http://jigsaw.w3.org/css-validator/check/referer">

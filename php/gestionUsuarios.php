@@ -1,5 +1,5 @@
 <?php
-	session_start();
+
 
 	//Registra un usuario en la BD
 	function registrarUsuario($usuario,$password,$nombre,$apellidos,$email,$direccion,$provincia,$cp,$sexo,$conexion){

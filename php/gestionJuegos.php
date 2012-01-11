@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	
 	
 	//Crea juego.
 	function crearJuego($Nombre,$Descripcion,$Imagen,$idUsuario,$conexion){

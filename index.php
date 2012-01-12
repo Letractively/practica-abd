@@ -19,7 +19,7 @@
 			  include_once("PHP/gestionAplicaciones.php");
 			  include_once("PHP/gestionJuegos.php");
 			  
-    		session_start();
+    		
     		$login=$_SESSION["login"];
     		if(!isset($login)){//Comprobamos si tenemos la variable de sesion creada
     			$login=array();

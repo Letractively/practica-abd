@@ -55,10 +55,13 @@
 			array_push($errores,"Debe introducir una direccion de correo valida");
 			$verificado=false;
 		}
-		/**if($_FILES["foto"]["type"]!="image/jpeg" || $_FILES["foto"]["type"]!="image/png"){
-			array_push($errores,"Solo son valida imagenes en formato jpeg o png");
-			$verificado=false;
-		}*/
+		if($_FILES["foto"]["name"]!=null && $_FILES["foto"]["name"]!=""){
+			if ($_FILES["foto"]["type"]!="image/jpeg" && $_FILES["foto"]["type"]!="image/png"){
+				$tipo= $_FILES["foto"]["type"];
+				array_push($errores,"Solo son valida imagenes en formato jpeg o png. El tipo insertado es $tipo");
+				$verificado=false;	
+			}
+		}
 		$_SESSION["erroresRegistro"]=$errores;
 		return $verificado;
 	}
@@ -76,7 +79,7 @@
 			}
 		}catch(PDOException $e){
 			$_SESSION["exception"]="Error al obtener los datos del usuario";
-			//header("Location: ../exception.php");
+			header("Location: ../exception.php");
 			echo "Imposible leer de la BD";
 			die();
 		}
@@ -88,6 +91,7 @@
 		$conexion=crearConexionBD();
 		$insertado=false;
 		$fecha= date("Y-m-d",time());
+		$insertado=uploadImagen($registro);
 		try{
 			$query="insert into Usuarios (nick, pass, mail, fechaRegistro, nombre, apellidos, poblacion, 
 			provincia, codigoPostal, sexo, foto) values ('$registro[nick]', '$registro[password]', '$registro[mail]', 
@@ -97,11 +101,23 @@
 			$insertado=true;
 		}catch(PDOException $e){
 			$_SESSION["exception"]="Error al obtener los datos del usuario";
-			//header("Location: ../exception.php");
+			header("Location: ../exception.php");
 			echo "Imposible escribir en la BD";
 			die();
 		}
 		cerrarConexionBD($conexion);
 		return $insertado;
+	}
+	
+	function uploadImagen($registro){
+		$nombre= $registro["nick"];
+		if($_FILES["foto"]["name"]!=null && $_FILES["foto"]["name"]!=""){
+			if($_FILES["foto"]["type"]!="image/jpeg"){
+				move_uploaded_file($_FILES["foto"]["tmp_name"], "../res/avatar/" . $nick.".avatar.jpg");	
+			}
+			if($_FILES["foto"]["type"]!="image/png"){
+				move_uploaded_file($_FILES["foto"]["tmp_name"], "../res/avatar/" . $nick.".avatar.png");
+			}	
+		}
 	}
 ?>

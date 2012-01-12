@@ -1,9 +1,5 @@
-
-
 CREATE DATABASE IF NOT EXISTS `abd`;
 USE abd;
-
-
 
 DROP TABLE IF EXISTS `Aplicaciones`;
 CREATE TABLE IF NOT EXISTS `Aplicaciones` (
@@ -16,10 +12,6 @@ CREATE TABLE IF NOT EXISTS `Aplicaciones` (
   KEY `FK_evento_1` (`idusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-
-
-
-
 DROP TABLE IF EXISTS `Juegos`;
 CREATE TABLE IF NOT EXISTS `Juegos` (
   `idJuego` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -30,11 +22,6 @@ CREATE TABLE IF NOT EXISTS `Juegos` (
   PRIMARY KEY (`idJuego`),
   KEY `FK_evento_1` (`idusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
-
-
-
-
 
 drop table if exists Usuarios;
 create table if not exists Usuarios(
@@ -55,9 +42,3 @@ create table if not exists Usuarios(
 	
 insert into Usuarios (nick, pass, mail, fechaRegistro, nombre, apellidos, poblacion, provincia, codigoPostal, sexo) values
 	('Juanky', '1234', 'JuanC.Prieto.Silos@gmail.com', '2012-01-01', 'Juan Carlos', 'Prieto', 'Camas', 'Sevilla', '41900', 'hombre');
-
-
-
-
-
-

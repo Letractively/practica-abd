@@ -21,4 +21,11 @@ body {
 	width:240px; 
 	height:580px;
 }
-	
+
+
+#div_login{
+	background-color:#111721;
+	color:#040293;
+	width:197px; /*anchura del fono del menu derecho*/
+	height:300px; /*altura del fondo del menu derecho*/			
+}	

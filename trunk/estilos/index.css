@@ -1,0 +1,22 @@
+#paginacompleta{
+	position:absolute;
+}
+
+body {
+	background-color:#151721;
+}
+
+#container {
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+    width: 980px;
+}
+
+
+#div_menuizquierda{
+	background-color:#151721;
+	color:#808080;
+	float:left; 
+	width:220px; 
+	height:580px; 	

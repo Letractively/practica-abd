@@ -30,7 +30,8 @@
 		
 		<!--  div con la logotipo de fondo-->
     	  	<div id="div_logo"> 
-    	    	  <img src="imagenes/opendown.JPG" alt="logo"/>     
+    	    	  <img src="imagenes/opendown.JPG" alt="logo"/>    
+    	    
               </div>    
          
         <!-- div login dentro de cabecera  -->

@@ -28,15 +28,10 @@
     	?>
 		
 		
-		<!--  div con la logotipo de fondo-->
+		<!--  div con la logotipo de fondo y login-->
     	  	<div id="div_logo"> 
     	    	  <img src="imagenes/opendown.JPG" alt="logo"/>    
-    	    
-              </div>    
-         
-        <!-- div login dentro de cabecera  -->
-         
-          <div id="div_login"> 
+    	     	  <div id="div_login"> 
                   	
         	<fieldset id="fieldset2">
         	
@@ -71,6 +66,12 @@
 			</fieldset>	
 			
         </div>
+    	
+              </div>    
+         
+       
+         
+        
       
         
 	Esta va ser nuestra pagina web para la practica.
@@ -102,11 +103,35 @@
       						</ul> 
     					</li>
     			
-  					</ul>		
+  					</ul>	
+  					
+  					<!-- div validacion css  -->
+		<div id="div_valcss">
+        	<a href="http://jigsaw.w3.org/css-validator/check/referer">
+        		<img class="val"
+            		src="http://jigsaw.w3.org/css-validator/images/vcss"
+            		alt="�CSS V�lido!" />
+   			 </a>
+        
+    	</div>
+		
+		<!-- div pie  -->
+		<div id="div_linea" class="colorb">  	
+			<div id="div_copyright" class="colorb" >
+					Copyright ® 2011 ABD-US
+			</div>
+				
+			<div id="div_ayuda" >
+				<a href ="informacion.php" class="colorb" target="_blank" >INFORMACI&Oacute;N</a>					
+			</div>
+		
+			<div id="div_contacto" class="colorb" >
+				<a href="" onclick="location.href='mailto:opendown@opendown.es?subject=Asunto del mensaje&body=Texto del mensaje'" class="colorb">CONTACTA CON NOSOTROS</a>
+			</div>
+		</div>	
 			</div>	
 			
-			
-	<div id="contenidocentral">
+	<div id="centro">
 	        <div id="ultimas_aplicaciones">
  			    <ul>
  				    <?php 
@@ -162,30 +187,7 @@
 
       
        	
-		<!-- div validacion css  -->
-		<div id="div_valcss">
-        	<a href="http://jigsaw.w3.org/css-validator/check/referer">
-        		<img class="val"
-            		src="http://jigsaw.w3.org/css-validator/images/vcss"
-            		alt="�CSS V�lido!" />
-   			 </a>
-        
-    	</div>
 		
-		<!-- div pie  -->
-		<div id="div_linea" class="colorb">  	
-			<div id="div_copyright" class="colorb" >
-					Copyright ® 2011 ABD-US
-			</div>
-				
-			<div id="div_ayuda" >
-				<a href ="informacion.php" class="colorb" target="_blank" >INFORMACI&Oacute;N</a>					
-			</div>
-		
-			<div id="div_contacto" class="colorb" >
-				<a href="" onclick="location.href='mailto:opendown@opendown.es?subject=Asunto del mensaje&body=Texto del mensaje'" class="colorb">CONTACTA CON NOSOTROS</a>
-			</div>
-		</div>
 		
 		
 		

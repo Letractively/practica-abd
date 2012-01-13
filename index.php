@@ -121,7 +121,6 @@
  						 echo "<br>";
  						 echo "$row[Descripcion]";
  						 echo "<br>";
- 						 echo "<a href='masInfoAplicaciones.php?idAplicacion=$row[idAplicacion]'>Mas info</a>";//Paso una variable en la url para saber sobre que masInfo de los 5 he pinchado
  						 echo "</fieldset>";
  						 echo"</div>";
  						 echo "</li>";
@@ -145,7 +144,6 @@
  						 echo "<br>";
  						 echo "$row[Descripcion]";
  						 echo "<br>";
- 						 echo "<a href='masInfoJuegos.php?idJuego=$row[idJuego]'>Mas info</a>";//Paso una variable en la url para saber sobre que masInfo de los 5 
  						 echo "</fieldset>";
  						 echo"</div>";
  						 echo "</li>";

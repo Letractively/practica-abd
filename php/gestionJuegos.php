@@ -84,11 +84,11 @@
 		return $juego;
 	}
 	
-	//Devuelve todas las juegoes creadas.
-	function listaTodasjuegoes($conexion){
+	//Devuelve todas los juegos creadas.
+	function listaTodasjuegos($conexion){
 		$stmt=null;
 		try{
-			$stmt=$conexion->query("SELECT * FROM juegoes ORDER BY idjuego DESC");
+			$stmt=$conexion->query("SELECT * FROM juegos ORDER BY idjuego DESC");
 			$stmt->execute();
 		}catch(PDOException $e){
 			$_SESSION["exception"]="Error al obtener la lista de todas las juegoes";

@@ -19,7 +19,7 @@
 			  include_once("PHP/gestionAplicaciones.php");
 			  include_once("PHP/gestionJuegos.php");
 			  
-    		
+			    		
     		$login=$_SESSION["login"];
     		if(!isset($login)){//Comprobamos si tenemos la variable de sesion creada
     			$login=array();
@@ -29,48 +29,10 @@
 		
 		
 		<!--  div con la logotipo de fondo y login-->
-    	  	<div id="div_logo"> 
-    	  		
-    	    	  <img src="imagenes/opendown.JPG" alt="logo"/>    
-    	     	  <div id="div_login"> 
-                  	
-        	<fieldset id="fieldset2">
-        	
-        	<div class="logoLogin">  
-						<img src="imagenes/logo1.jpg"  alt="logoLogin" title="OpenDown" />
-		
-			</div>
-        	
-        	<form id="form_login" method="post" onsubmit="return principal()" action="PHP/logeadoIndex.php">
-        		<fieldset id="fieldset1">
-        			<label id="label_usuario" for="usuario">Usuario</label>
-					<input id="usuario" type="text" value="" name="usuario"/>
-        			
-					<label id="label_password" for="password">Contrase&ntilde;a</label>
-					<input id="password" type="password" value="" name="password"/>
-												
-					<div id="div_submit">
-						<button id="submit">Entrar</button>
-					</div>
-        		</fieldset>
-        		
-        	</form>
-			
-			<div id="div_registrarse">
-				<a href="registro.php">Registrate</a>
-			</div>
-			
-			<div id="div-recupera">
-			<a href="recupera.php">¿Olvidaste tu contraseña? </a>
-			</div>
-			
-			</fieldset>	
-			
-        </div>
-    	
-              </div>    
-         
-       
+    	  	 
+        <?php 
+       	include_once("cabecera.php");
+		?>
          
         
       
@@ -84,24 +46,24 @@
     				
     					<li><a>Juegos</a>
       						<ul> 
-        						<li><a href="accion.php">Accion</a></li> 
-        						<li><a href="simulacion.php">Simulacion</a></li> 
-        						<li><a href="aventura.php">Aventura Grafica</a></li> 
-        						<li><a href="rpg.php">RPG</a></li> 
-        						<li><a href="estrategia.php">Estrategia</a></li> 
-        						<li><a href="Deportes.php">Deportes</a></li>       						
-      						    <li><a href="Infantil.php">Infantil</a></li> 
-								<li><a href="Otros.php">Otros</a></li> 
+        						<li><a href="listajuegos.php?tipo=accion">Accion</a></li> 
+        						<li><a href="listajuegos.php?tipo=simulacion">Simulacion</a></li> 
+        						<li><a href="listajuegos.php?tipo=aventura">Aventura Grafica</a></li> 
+        						<li><a href="listajuegos.php?tipo=rpg">RPG</a></li> 
+        						<li><a href="listajuegos.php?tipo=estrategia">Estrategia</a></li> 
+        						<li><a href="listajuegos.php?tipo=deportes">Deportes</a></li>       						
+      						    <li><a href="listajuegos.php?tipo=infantil">Infantil</a></li> 
+								<li><a href="listajuegos.php?tipo=otros">Otros</a></li> 
        						</ul> 
     					</li> 
     					<li><a>Aplicaciones</a>
       						<ul> 
-       							<li><a href="imagen.php">Imagen/Audio/Video</a></li> 
-        						<li><a href="internet.php">Internet</a></li> 
-								<li><a href="utilidades.php">Utilidades</a></li> 
-								<li><a href="seguridad.php">Seguridad</a></li>
-								<li><a href="personalizacion.php">Personalizacion</a></li>
-								<li><a href=" sinCatalogar.php">Otros</a></li>
+       							<li><a href="listaaplicaciones.php?tipo=imagen">Imagen/Audio/Video</a></li> 
+        						<li><a href="listaaplicaciones.php?tipo=internet">Internet</a></li> 
+								<li><a href="listaaplicaciones.php?tipo=utilidades">Utilidades</a></li> 
+								<li><a href="listaaplicaciones.php?tipo=seguridad">Seguridad</a></li>
+								<li><a href="listaaplicaciones.php?tipo=personalizacion">Personalizacion</a></li>
+								<li><a href="listaaplicaciones.php?tipo=otros">Otros</a></li>
       						</ul> 
     					</li>
     			

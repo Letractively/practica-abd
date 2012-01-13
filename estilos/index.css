@@ -53,6 +53,22 @@ body {
     border-top: 1px solid #040293;
 }
 
+#lista_aplicaciones{
+	background-color:white; /*gris claro donde van los 5 eventos*/
+	color:black;  /*los puntos de comienzo de cada evento*/
+	float:none; /* he puesto none para que el elemento permita cosas flotantes a sus ladoas yeehhhaaa*/
+	width:26%;
+	position: absolute; 
+	
+	margin-right: 26%;
+	margin-left: 26%;  /* he puesto los margenes para colocarlo a una distacioa respecto al navegador pro la izquerda y derecha*/
+	
+	text-align:center;
+	border-bottom: 1px solid #040293; /* los bordes*/
+   border-left: 1px solid #040293;
+   border-top: 1px solid #040293;
+}
+
 #ultimos_juegos{
 	background-color:white; /*gris claro donde van los 5 eventos*/
 	color:black;  /*los puntos de comienzo de cada evento*/
@@ -62,6 +78,23 @@ body {
 	
 	margin-right: 26%;
 	margin-left: 46%;  /* he puesto los margenes para colocarlo a una distacioa respecto al navegador pro la izquerda y derecha*/
+	
+	text-align:center;
+	border-bottom: 1px solid #040293; /* los bordes*/
+   border-left: 1px solid #040293;
+   border-top: 1px solid #040293;
+}
+
+
+#lista_juegos{
+	background-color:white; /*gris claro donde van los 5 eventos*/
+	color:black;  /*los puntos de comienzo de cada evento*/
+	float:none; /* he puesto none para que el elemento permita cosas flotantes a sus ladoas yeehhhaaa*/
+	width:26%;
+	position: absolute; 
+	
+	margin-right: 26%;
+	margin-left: 26%;  /* he puesto los margenes para colocarlo a una distacioa respecto al navegador pro la izquerda y derecha*/
 	
 	text-align:center;
 	border-bottom: 1px solid #040293; /* los bordes*/

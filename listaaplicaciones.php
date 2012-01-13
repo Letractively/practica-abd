@@ -19,7 +19,8 @@
 			  include_once("PHP/gestionAplicaciones.php");
 			  include_once("PHP/gestionJuegos.php");
 			  
-    		
+    		$tipo=$_REQUEST["tipo"];
+			
     		$login=$_SESSION["login"];
     		if(!isset($login)){//Comprobamos si tenemos la variable de sesion creada
     			$login=array();
@@ -29,46 +30,11 @@
 		
 		
 		<!--  div con la logotipo de fondo y login-->
-    	  	<div id="div_logo"> 
-    	  		
-    	    	  <img src="imagenes/opendown.JPG" alt="logo"/>    
-    	     	  <div id="div_login"> 
-                  	
-        	<fieldset id="fieldset2">
-        	
-        	<div class="logoLogin">  
-						<img src="imagenes/logo1.jpg"  alt="logoLogin" title="OpenDown" />
-		
-			</div>
-        	
-        	<form id="form_login" method="post" onsubmit="return principal()" action="PHP/logeadoIndex.php">
-        		<fieldset id="fieldset1">
-        			<label id="label_usuario" for="usuario">Usuario</label>
-					<input id="usuario" type="text" value="" name="usuario"/>
-        			
-					<label id="label_password" for="password">Contrase&ntilde;a</label>
-					<input id="password" type="password" value="" name="password"/>
-												
-					<div id="div_submit">
-						<button id="submit">Entrar</button>
-					</div>
-        		</fieldset>
-        		
-        	</form>
-			
-			<div id="div_registrarse">
-				<a href="registro.php">Registrate</a>
-			</div>
-			
-			<div id="div-recupera">
-			<a href="recupera.php">¿Olvidaste tu contraseña? </a>
-			</div>
-			
-			</fieldset>	
-			
-        </div>
+    	  
     	
-              </div>    
+           <?php 
+       	include_once("cabecera.php");
+		?> 
          
        
          
@@ -78,30 +44,59 @@
 	Esta va ser nuestra pagina web para la practica.
 	
 	
+	<?php 
+			switch($tipo){
+	 			case "imagen":
+	 				echo "<img src='imagenes/listaimagen.JPG' alt='listaimagen' title='lista de aplicaciones de imagen/audio/video'/>";
+					echo "Imagen/Audio/Video";
+	 				break;
+	 			case "internet":
+	 				echo "<img src='imagenes/listainternet.JPG' alt='listainternet' title='lista de aplicaciones de internet'/>";
+	 				echo "Internet";
+	 				break;
+				case "utilidades":
+	 				echo "<img src='imagenes/listautilidades.JPG' alt='listautilidades' title='lista de utilidades'/>";
+	 				break;
+	 			case "seguridad":
+	 				echo "<img src='imagenes/listaseguridad.JPG' alt='listaseguridad' title='lista de aplicaciones de seguridad'/>";
+	 				break;
+	 			case "personalizacion":
+	 				echo "<img src='imagenes/listapersonalizacion.JPG' alt='listapersonalizacion' title='lista de aplicaciones de personalizacion'/>";
+	 				break;
+	 			case "otros":
+	 				echo "<img src='imagenes/listaotros.JPG' alt='listaotros' title='lista de otros'/>";
+	 				break;		
+	 		
+			}
+		?>
+	
+	<a href="index.php">Volver a portada</a>
+	
+	
 	<div id="div_menu_izq">
 		
 					<ul> 
     				
     					<li><a>Juegos</a>
       						<ul> 
-        						<li><a href="accion.php">Accion</a></li> 
-        						<li><a href="simulacion.php">Simulacion</a></li> 
-        						<li><a href="aventura.php">Aventura Grafica</a></li> 
-        						<li><a href="rpg.php">RPG</a></li> 
-        						<li><a href="estrategia.php">Estrategia</a></li> 
-        						<li><a href="Deportes.php">Deportes</a></li>       						
-      						    <li><a href="Infantil.php">Infantil</a></li> 
-								<li><a href="Otros.php">Otros</a></li> 
+        						<li><a href="listajuegos.php?tipo=accion">Accion</a></li> 
+        						<li><a href="listajuegos.php?tipo=simulacion">Simulacion</a></li> 
+        						<li><a href="listajuegos.php?tipo=aventura">Aventura Grafica</a></li> 
+        						<li><a href="listajuegos.php?tipo=rpg">RPG</a></li> 
+        						<li><a href="listajuegos.php?tipo=estrategia">Estrategia</a></li> 
+        						<li><a href="listajuegos.php?tipo=deportes">Deportes</a></li>       						
+      						    <li><a href="listajuegos.php?tipo=infantil">Infantil</a></li> 
+								<li><a href="listajuegos.php?tipo=otros">Otros</a></li> 
        						</ul> 
     					</li> 
     					<li><a>Aplicaciones</a>
       						<ul> 
-       							<li><a href="imagen.php">Imagen/Audio/Video</a></li> 
-        						<li><a href="internet.php">Internet</a></li> 
-								<li><a href="utilidades.php">Utilidades</a></li> 
-								<li><a href="seguridad.php">Seguridad</a></li>
-								<li><a href="personalizacion.php">Personalizacion</a></li>
-								<li><a href=" sinCatalogar.php">Otros</a></li>
+       							<li><a href="listaaplicaciones.php?tipo=imagen">Imagen/Audio/Video</a></li> 
+        						<li><a href="listaaplicaciones.php?tipo=internet">Internet</a></li> 
+								<li><a href="listaaplicaciones.php?tipo=utilidades">Utilidades</a></li> 
+								<li><a href="listaaplicaciones.php?tipo=seguridad">Seguridad</a></li>
+								<li><a href="listaaplicaciones.php?tipo=personalizacion">Personalizacion</a></li>
+								<li><a href="listaaplicaciones.php?tipo=otros">Otros</a></li>
       						</ul> 
     					</li>
     			
@@ -134,11 +129,14 @@
 	</div>	
 			
 	<div id="centro">
-	        <div id="ultimos_juegos">
+		
+		
+				
+	        <div id="lista_aplicaciones">
  			    <ul>
  				    <?php 
  					  $conexion=crearConexionBD();
- 					  $Juegos=listaTodasjuegos($conexion);//Devuelve todos los Juegos subidos.
+ 					  $Juegos=listaTodasaplicaciones($conexion);//Devuelve todos los Juegos subidos.
  					  CerrarConexionBD($conexion);
  					  foreach ($Juegos as $row){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
  						 echo "<li>";

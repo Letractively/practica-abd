@@ -1,30 +1,16 @@
-
-	
-		<div id="cabecera" class="cabecera">
-			<img alt="logoletra" src="imagenes/logof.jpg"> 
-			<a href="PHP/salirSesion.php">
-				<span><img alt="salida" src="imagenes/iconosalida.JPG" title="Cerrar sesi&oacute;n"></span>
-			</a>
-			<a href="informacion.php">
-				<span><img alt="iconoinformacion" src="imagenes/iconoinformacion.JPG" title="informaci&oacute;n"></span>
-			</a>
-			<a href="" onclick="location.href='mailto:opendown@opendown.com?subject=Asunto del mensaje& body=Texto del mensaje'">
-				<span><img alt="email" src="imagenes/iconoEmail.jpg" title="Contacta con nosotros"></span>
-			</a>
-			                  	<!--  el alt ndica un texto alternat�vo a un elemento no textual--> 
 			
-					
+		<div id="cabecera_menu_logeado" class="cabecera_menu_logeado">
+			 
+			<form id='logout' method='post' action='php/logout.php'>
+								<button id='submit'>Salir</button>
+							</form>
+			<form id='info' method='post' action='php/informacion.php'>
+								<button id='submit'>Informacion</button>
+							</form>				
 		</div>
 		
 	<div id="div_menuderecha">
-		
-			
-			<div class="marco">
-					<img class="foto" src='imagenes/fotosUsuarios/<?php echo "$estasDentro[foto]" ?>' alt="fotopersonal" title="mi foto">
-					<h3>Bienvenido <?php echo $estasDentro["usuario"]?></h3>
-								<!-- Muestra el nombre de usuario tomandolo de la sesion -->
-			</div> 
-			
+	
 			<div id="div_menu">
 					<ul> 
     				
@@ -55,15 +41,18 @@
 	</div>					
 	</div>
 				
-	<div id="div_verTodos_Juegos"  >  	
-		<a href="listaJuegos.php?index=verTodos">
-			<span><img alt="verTodosJuegos" src="imagenes/verTodosJuegos.jpg" title="Ver Todos Juegos"></span>
-		</a> 				
+	<div id="div_verTodos_Juegos">  
+
+	   <form id='verTodosJuegos' method='post' action='listaJuegos.php?index=verTodos'>
+								<button id='submit'>Ver todos mis Juegos.</button>
+							</form>				
 	</div>
 	
-	<div id="div_verTodas_Aplicaciones"  >  	
-		<a href="listaAplicaciones.php?index=verTodos">
-			<span><img alt="verTodasAplicaciones" src="imagenes/verTodasAplicaciones.jpg" title="Ver Todas Aplicaciones"></span>
-		</a> 				
+	<div id="div_verTodas_Aplicaciones">  
+	
+	 <form id='verTodosJuegos' method='post' action='listaAplicaciones.php?index=verTodos'>
+								<button id='submit'>Ver todas mis Aplicaciones.</button>
+							</form>	
+					
 	</div>
   

@@ -14,15 +14,14 @@
 
 <div id="container">
     	<?php 
-		      include_once("PHP/gestionarConexionBD.php");
-	          include_once("PHP/gestionUsuarios.php");
-			  include_once("PHP/gestionAplicaciones.php");
-			  include_once("PHP/gestionJuegos.php");
+		      include_once("php/gestionarConexionBD.php");
+	          include_once("php/gestionUsuarios.php");
+			  include_once("php/gestionAplicaciones.php");
+			  include_once("php/gestionJuegos.php");
 			  
     		$tipo=$_REQUEST["tipo"];
 			
-    		$login=$_SESSION["login"];
-    		if(!isset($login)){//Comprobamos si tenemos la variable de sesion creada
+    		if(!isset($_SESSION["login"])){//Comprobamos si tenemos la variable de sesion creada
     			$login=array();
     			$_SESSION["login"]=$login;
     		}

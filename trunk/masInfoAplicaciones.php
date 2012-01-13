@@ -1,8 +1,8 @@
 <?php
 	session_start();
-	include_once("PHP/gestionarConexionBD.php");
-	include_once("PHP/gestionAplicaciones.php");
-	include_once("PHP/gestionUsuarios.php");
+	include_once("php/gestionarConexionBD.php");
+	include_once("php/gestionAplicaciones.php");
+	include_once("php/gestionUsuarios.php");
 	
 	if(!isset($_SESSION["estasDentro"])){ // Comprueba que estamos logados.
 		session_destroy();

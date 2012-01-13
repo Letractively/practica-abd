@@ -10,7 +10,7 @@
 		
 			</div>
         	
-        	<form id="form_login" method="post" onsubmit="return principal()" action="PHP/logeadoIndex.php">
+        	<form id="form_login" method="post" onsubmit="return principal()" action="php/logeadoIndex.php">
         		<fieldset id="fieldset1">
         			<label id="label_usuario" for="usuario">Usuario</label>
 					<input id="usuario" type="text" value="" name="usuario"/>

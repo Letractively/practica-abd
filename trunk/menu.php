@@ -1,13 +1,12 @@
+	<div id="div_logo">
 			
 		<div id="cabecera_menu_logeado" class="cabecera_menu_logeado">
-			 
+			 <img src="imagenes/opendown.JPG" alt="logo"/>   
+			 <div id="div_login">
 			<form id='logout' method='post' action='php/logout.php'>
 								<button id='submit'>Salir</button>
 							</form>
-			<form id='info' method='post' action='php/informacion.php'>
-								<button id='submit'>Informacion</button>
-							</form>				
-		</div>
+			
 		
 	<div id="div_menuderecha">
 	
@@ -39,8 +38,7 @@
 		
 		
 	</div>					
-	</div>
-				
+					
 	<div id="div_verTodos_Juegos">  
 
 	   <form id='verTodosJuegos' method='post' action='listaJuegos.php?index=verTodos'>
@@ -55,4 +53,5 @@
 							</form>	
 					
 	</div>
-  
+	</div> 
+ </div>

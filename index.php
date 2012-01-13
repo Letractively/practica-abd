@@ -35,10 +35,8 @@
     			}else{
     				$dentro= $_SESSION["estasDentro"];
     				$nombre=$dentro["usuario"];
-					echo "<h3>Bienvenido $nombre</h3>";
-					echo "<form id='logout' method='post' action='php/logout.php'>
-								<button id='submit'>Salir</button>
-							</form>";
+					echo "<h3>Bienvenido $nombre </h3>";
+                    include_once("menu.php");
     			}
 			?>
     	</div>  	 

@@ -1,5 +1,6 @@
 	<div id="div_logo">
 			
+								
 		<div id="cabecera_menu_logeado" class="cabecera_menu_logeado">
 			 <img src="imagenes/opendown.JPG" alt="logo"/>   
 			 <div id="div_login">

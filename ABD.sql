@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-01-2012 a las 02:33:48
+-- Tiempo de generación: 13-01-2012 a las 02:46:08
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `abd`
 --
+CREATE DATABASE `abd` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `abd`;
 
 -- --------------------------------------------------------
 
@@ -34,18 +36,19 @@ CREATE TABLE IF NOT EXISTS `aplicaciones` (
   `idUsuario` int(10) unsigned NOT NULL,
   PRIMARY KEY (`idAplicacion`),
   KEY `FK_evento_1` (`idUsuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `aplicaciones`
 --
 
 INSERT INTO `aplicaciones` (`idAplicacion`, `Nombre`, `Descripcion`, `Foto`, `idUsuario`) VALUES
-(1, 'Aplicacion prueba', 'Aplicacion de prueba', '', 1),
-(2, 'Aplicacion prueba 2', 'Aplicacion de nuevo de prueba.', '', 1),
-(3, 'Aplicacion prueba 3', 'Apliiiii de pruebaaaaaaa como quedaaa', '', 1),
-(4, 'Apli 4', '4º aplicacionde prubea', '', 1),
-(5, 'Apli 5', 'º aplicacionde prubea', '', 1);
+(1, 'Aplicacion prueba 1', 'Aplicacion de Prueba numero 1', '', 1),
+(2, 'Aplicacion prueba 2', 'Aplicacion de prueba 2', '', 1),
+(3, 'Aplicacion prueba 3', 'Aplicacion de prueba 3', '', 1),
+(4, 'Aplicacion prueba 4', 'Aplicacion de prueba 4', '', 1),
+(5, 'Aplicacion prueba 5', 'Aplicacion de prueba 5', '', 1),
+(6, 'Aplicacion prueba 6', 'Aplicacion de prueba 6', '', 1);
 
 -- --------------------------------------------------------
 
@@ -68,11 +71,11 @@ CREATE TABLE IF NOT EXISTS `juegos` (
 --
 
 INSERT INTO `juegos` (`idJuego`, `Nombre`, `Descripcion`, `Foto`, `idUsuario`) VALUES
-(1, 'Juego 1', 'Juego de prueba 1', '', 1),
-(2, 'Juego 2', 'Juego de prueba 2', '', 1),
-(3, 'Juego 3', 'Juego de prueba 3', '', 1),
-(4, 'Juego 4', 'Juego de prueba 4', '', 1),
-(5, 'Juego 5', 'Juego de prueba 5', '', 1);
+(1, 'Juego de prueba 1', 'Juego de prueba 1', '', 1),
+(2, 'Juego de prueba 2', 'Juego de prueba 2', '', 1),
+(3, 'Juego de prueba 3', 'Juego de prueba 3', '', 1),
+(4, 'Juego de prueba 4', 'Juego de prueba 4', '', 1),
+(5, 'Juego de prueba 5', 'Juego de prueba 5', '', 1);
 
 -- --------------------------------------------------------
 

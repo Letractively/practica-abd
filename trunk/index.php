@@ -30,6 +30,7 @@
 		
 		<!--  div con la logotipo de fondo y login-->
     	  	<div id="div_logo"> 
+    	  		
     	    	  <img src="imagenes/opendown.JPG" alt="logo"/>    
     	     	  <div id="div_login"> 
                   	
@@ -78,6 +79,7 @@
 	
 	
 	<div id="div_menu_izq">
+		
 					<ul> 
     				
     					<li><a>Juegos</a>
@@ -129,7 +131,7 @@
 				<a href="" onclick="location.href='mailto:opendown@opendown.es?subject=Asunto del mensaje&body=Texto del mensaje'" class="colorb">CONTACTA CON NOSOTROS</a>
 			</div>
 		</div>	
-			</div>	
+	</div>	
 			
 	<div id="centro">
 	        <div id="ultimas_aplicaciones">
@@ -170,7 +172,7 @@
  						 echo "<img id='tamano' src='imagenes/img_juegos$row[Foto]' alt='img_juego'>";
  						 echo "<br>";
  						 echo "<br>";
- 						 echo "$row[descripcion]";
+ 						 echo "$row[Descripcion]";
  						 echo "<br>";
  						 echo "<a href='masInfoJuegos.php?idJuego=$row[idJuego]'>Mas info</a>";//Paso una variable en la url para saber sobre que masInfo de los 5 
  						 echo "</fieldset>";

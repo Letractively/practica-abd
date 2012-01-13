@@ -14,14 +14,13 @@
 
 <div id="container">
     	<?php 
-		      include_once("PHP/gestionarConexionBD.php");
-	          include_once("PHP/gestionUsuarios.php");
-			  include_once("PHP/gestionAplicaciones.php");
-			  include_once("PHP/gestionJuegos.php");
-			  
+		      include_once("php/gestionarConexionBD.php");
+	          include_once("php/gestionUsuarios.php");
+			  include_once("php/gestionAplicaciones.php");
+			  include_once("php/gestionJuegos.php");
+			  session_start();
 			    		
-    		$login=$_SESSION["login"];
-    		if(!isset($login)){//Comprobamos si tenemos la variable de sesion creada
+    		if(!isset($_SESSION["login"])){//Comprobamos si tenemos la variable de sesion creada
     			$login=array();
     			$_SESSION["login"]=$login;
     		}
@@ -29,10 +28,20 @@
 		
 		
 		<!--  div con la logotipo de fondo y login-->
-    	  	 
-        <?php 
-       	include_once("cabecera.php");
-		?>
+    	<div id="cabecera">
+    		<?php 
+    			if (!isset($_SESSION["estasDentro"])){
+    				include_once("cabecera.php");	
+    			}else{
+    				$dentro= $_SESSION["estasDentro"];
+    				$nombre=$dentro["usuario"];
+					echo "<h3>Bienvenido $nombre</h3>";
+					echo "<form id='logout' method='post' action='php/logout.php'>
+								<button id='submit'>Salir</button>
+							</form>";
+    			}
+			?>
+    	</div>  	 
          
         
       
@@ -145,27 +154,19 @@
   			    </ul>	
             </div>						
   	</div>
-		
-			
-	
-
-      
-       	
-		
-		
-		
-		
-	
-		
-        
-    	<?php 
-        	$errores=$_SESSION["errores_index"];
-        	if(isset($errores) && is_array($errores)){
-				echo "<div id='errores' class='error'>";
-				foreach($errores as $error){
-					echo "$error<br/>";
-				}
-				echo "</div>";
+		<?php 
+			if(!isset($_SESSION["errores_index"])){
+				$errores= array();
+				$_SESSION["errores_index"]=$errores;
+			}else{
+				$errores=$_SESSION["errores_index"];
+	        	if(is_array($errores)){
+					echo "<div id='errores' class='error'>";
+					foreach($errores as $error){
+						echo "$error<br/>";
+					}
+					echo "</div>";
+				}	
 			}
          ?>
      </div>   

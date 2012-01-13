@@ -17,12 +17,12 @@
 				array_push($errores,"Introduzca su contrase&ntilde;a");
 			$_SESSION["errores_index"]=$errores;
 			if(count($errores)==0){//Si no hay errores nos conectamos a la BD y comprobamos que el usuario esta registrado
-				$conexion=CrearConexionBD();
+				$conexion=crearConexionBD();
 				$registrado=estaRegistrado($login["usuario"],$login["password"],$conexion);
 				if($registrado){
 					unset($_SESSION["errores_index"]);//Borramos los  errores de index.php
 					$usuario=getUsuario($login["usuario"],$conexion);
-					CerrarConexionBD($conexion);
+					cerrarConexionBD($conexion);
 					$estasDentro=array();//Creamos una variable para saber que nos hemos logueado
 					$estasDentro["idusuario"]=$usuario["idusuario"];//Guardamos los datos que utilizaremos una vez dentro
 					$estasDentro["usuario"]=$usuario["usuario"];
@@ -30,7 +30,7 @@
 					$_SESSION["estasDentro"]=$estasDentro;//Y la guardamos en la sesion
 					header("Location: ../index.php");//Redireccionamos a index
 				}else{//Si se produce algun error redireccionamos a index.php y guardamos el error, pero en este caso no lleva el estasDentro
-					CerrarConexionBD($conexion);
+					cerrarConexionBD($conexion);
 					array_push($errores,"Debes estar registrado");
 					$_SESSION["errores_index"]=$errores;
 					header("Location: ../index.php");

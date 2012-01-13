@@ -1,26 +1,32 @@
 <?php
 
 
-	//Registra un usuario en la BD
-	function registrarUsuario($usuario,$password,$nombre,$apellidos,$email,$direccion,$provincia,$cp,$sexo,$conexion){
-		$stmt=null;
+	function insertarUsuario($registro){
+		$conexion=crearConexionBD();
+		$insertado=false;
+		$fecha= date("Y-m-d",time());
+		//$insertado=uploadImagen($registro);
 		try{
-			$SQL="INSERT INTO usuarios (idusuario,usuario,password,nombre,apellidos,email,direccion,provincia,cp,sexo,foto) 
-			VALUES('NULL','$usuario','$password','$nombre','$apellidos','$email','$direccion','$provincia','$cp','$sexo','default.jpg')";
-			$stmt=$conexion->exec($SQL);
+			$query="insert into usuarios (nick, pass, mail, fechaRegistro, nombre, apellidos, poblacion, 
+			provincia, codigoPostal, sexo) values ('$registro[nick]', '$registro[password]', '$registro[mail]', 
+			'$fecha', '$registro[nombre]', '$registro[apellidos]', '$registro[poblacion]', '$registro[provincia]', 
+			'$registro[codigoPostal]', '$registro[sexo]');";
+			$conexion->exec($query);
+			$insertado=true;
 		}catch(PDOException $e){
-			$_SESSION["exception"]="Error al registrar al usuario";
+			$_SESSION["exception"]="Error al insertar los datos del usuario";
 			header("Location: ../exception.php");
 			die();
-		}		
-		return $stmt;
+		}
+		cerrarConexionBD($conexion);
+		return $insertado;
 	}
 	
 	//Modifica los datos de un usuario
 	function cambiarPerfil($perfil,$conexion){
 		$stmt=null;
 		try{
-			$stmt=$conexion->prepare("UPDATE usuarios SET usuario=:usuario,password=:password,nombre=:nombre,
+			$stmt=$conexion->prepare("UPDATE usuarios SET usuario=:nick,pass=:password,nombre=:nombre,
 			apellidos=:apellidos,email=:email,direccion=:direccion,provincia=:provincia,cp=:cp,sexo=:sexo 
 			WHERE idusuario=:idusuario");
 			$stmt->bindParam(':idusuario',$perfil["idusuario"]);
@@ -83,13 +89,15 @@
 	function estaRegistrado($usuario,$password,$conexion){
 		$registrado=false;
 		try{
-			$stmt=$conexion->prepare("SELECT * FROM usuarios WHERE usuario=:usuario AND password=:password");
-			$stmt->bindParam(':usuario',$usuario);
-			$stmt->bindParam(':password',$password);
+			$stmt=$conexion->prepare("SELECT nick, pass FROM usuarios WHERE nick=:nick");
+			$stmt->bindParam(':nick',$usuario);
 			$stmt->execute();
-			$usuario=$stmt->fetch();;
-			if($usuario!="")
-				$registrado=true;
+			$user=$stmt->fetch();
+			if($user!=null){
+				if($user["pass"]==$password){
+					$registrado=true;
+				}
+			}
 		}catch(PDOException $e){
 			$_SESSION["exception"]="Error al comprobar si el usuario esta registrado";
 			header("Location: ../exception.php");
@@ -100,32 +108,41 @@
 	}
 	
 	//Comprueba si ya existe otro usuario con el mismo nombre registrado
-	function nombreOcupado($usuario,$conexion){
-		$estasDentro=$_SESSION["estasDentro"];
-		$usuario=getUsuario($usuario,$conexion);
+	function nombreOcupado($nick){
+		$conexion=crearConexionBD();
 		$ocupado=false;
-		if($usuario!=null && isset($estasDentro)&& $usuario["idusuario"]!=$estasDentro["idusuario"])//Si estamos cambiando el perfil y
-			$ocupado=true; //existe un usuario con el mismo nombre que no somos nosostros
-		else if($usuario!=null && !isset($estasDentro))//Si nos estamos registrando y existe otro usuario con el mismo nombre
-			$ocupado=true;
-		return $ocupado;
-		
+		try{
+			$stmt=$conexion->prepare("SELECT * FROM usuarios WHERE nick=:nick");
+			$stmt->bindParam(':nick',$nick);
+			$stmt->execute();
+			$usuario=$stmt->fetch();
+			if($usuario!=null){
+				$ocupado=true;
+			}
+			
+		}catch(PDOException $e){
+			$_SESSION["exception"]="Error al obtener los datos del usuario";
+			header("Location: ../exception.php");
+			die();
+		}
+		cerrarConexionBD($conexion);
+		return $ocupado;	
 	}
 	
 	//Devuelve todos los datos del usuario con ese nombre
 	function getUsuario($usuario,$conexion){
 		$stmt=null;
 		try{
-			$stmt=$conexion->prepare("SELECT * FROM usuarios WHERE usuario=:usuario");
-			$stmt->bindParam(':usuario',$usuario);
+			$stmt=$conexion->prepare("SELECT * FROM usuarios WHERE nick=:nick");
+			$stmt->bindParam(':nick',$usuario);
 			$stmt->execute();
-			$usuario=$stmt->fetch();
+			$user=$stmt->fetch();
 		}catch(PDOException $e){
 			$_SESSION["exception"]="Error al obtener los datos del usuario";
 			header("Location: ../exception.php");
 			die();
 		}
-		return $usuario;
+		return $user;
 	}
 	
 	function getNombreUsuario($idusuario,$conexion){
@@ -157,7 +174,7 @@
 		return $stmt;
 	}
 	
-	//Cuenta el nº de tuplas de la lista pasada por parametro
+	//Cuenta el nï¿½ de tuplas de la lista pasada por parametro
 	function cuentaTuplas($stmt){
 		$num=0;
 		foreach ($stmt as $row){

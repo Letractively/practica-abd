@@ -22,38 +22,38 @@
 	action="php/tratarRegistro.php">
 		<div id="imprescindibles">
 			<fieldset>
-				<label for="nick"><b>Nick:</b></label><br>
+				<label for="nick"><b>Nick:</b></label><br />
 				<input type="text" name="nick" id="nick" title="Nick del usuario" size="16" 
-					value="<?php if (isset($registro["nick"])) echo $registro["nick"];?>"/><br>
-				<label for="password"><b>Contraseña:</b></label><br>
+					value="<?php if (isset($registro["nick"])) echo $registro["nick"];?>"/><br />
+				<label for="password"><b>Contraseña:</b></label><br />
 				<input id="password" name="password" type="password" size="8" maxlength="8" title="La contraseña
-				debe de tener entre 4 y 8 caracteres"/><br>
-				<label for="passwordBis"><b>Repite la contraseña:</b></label><br>
+				debe de tener entre 4 y 8 caracteres"/><br />
+				<label for="passwordBis"><b>Repite la contraseña:</b></label><br />
 				<input id="passwordBis" name="passwordBis" type="password" size="8" maxlength="8" title="La contraseña
-				debe de ser identica a la anterior" onchange="verificarContraseña()"/><br>
-				<label for="mail"><b>E-Mail:</b></label><br>
+				debe de ser identica a la anterior" onchange="verificarContraseña()"/><br />
+				<label for="mail"><b>E-Mail:</b></label><br />
 				<input id="mail" name="mail" type="email" title="Direccion de correo electronico valida"
-					value="<?php if (isset($registro["mail"])) echo $registro["mail"]; ?>"/><br>
+					value="<?php if (isset($registro["mail"])) echo $registro["mail"]; ?>"/><br />
 			</fieldset>
 		</div>
 		<div id="datosPersonales">
 			<fieldset>
 				<legend><b><u>Datos personales</u></b></legend>
-				<label for="nombre">Nombre:</label><br>
+				<label for="nombre">Nombre:</label><br />
 				<input id="nombre" name="nombre" type="text" title="Nombre de usuario" 
-					value="<?php if (isset($registro["nombre"])) echo $registro["nombre"]; ?>"/><br>
-				<label for="apellidos">Apellidos:</label><br>
+					value="<?php if (isset($registro["nombre"])) echo $registro["nombre"]; ?>"/><br />
+				<label for="apellidos">Apellidos:</label><br />
 				<input id="apellidos" name="apellidos" type="text" title="Apellidos de usuario"
-					value="<?php if (isset($registro["apellidos"])) echo $registro["apellidos"]; ?>"/><br>
-				<label for="poblacion">Población:</label><br>
+					value="<?php if (isset($registro["apellidos"])) echo $registro["apellidos"]; ?>"/><br />
+				<label for="poblacion">Población:</label><br />
 				<input id="poblacion" name="poblacion" type="text" title="Localidad de residencia"
-					value="<?php if (isset($registro["poblacion"])) echo $registro["poblacion"];?>"/><br>
-				<label for="provincia">Provincia:</label><br>
+					value="<?php if (isset($registro["poblacion"])) echo $registro["poblacion"];?>"/><br />
+				<label for="provincia">Provincia:</label><br />
 				<input id="provincia" name="provincia" type="text" title="Provincia de residencia"
-					value="<?php if (isset($registro["provincia"])) echo $registro["provincia"];?>"/><br>
-				<label for="codigoPostal">CP:</label><br>
+					value="<?php if (isset($registro["provincia"])) echo $registro["provincia"];?>"/><br />
+				<label for="codigoPostal">CP:</label><br />
 				<input id="codigoPostal" name="codigoPostal" type="number" size="5" maxlength="5" title="Codigo Postal"
-					value="<?php if (isset($registro["codigoPostal"])) echo $registro["codigoPostal"];?>"/><br>
+					value="<?php if (isset($registro["codigoPostal"])) echo $registro["codigoPostal"];?>"/><br />
 				Sexo: <input id="varon" name="sexo" type="radio" title="Hombre" value="hombre"
 				<?php if (isset($registro["sexo"])) {
 						if($registro["sexo"]=="hombre") echo "checked=checked";

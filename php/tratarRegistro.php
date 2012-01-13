@@ -1,5 +1,6 @@
 <?php
 	include_once("gestionarConexionBD.php");
+	include_once("gestionUsuarios.php");
 
 	session_start();
 	$registro= $_SESSION["registro"];
@@ -21,6 +22,7 @@
 				array_push($_SESSION["erroresRegistro"],"Se ha producido un error, intenrelo de nuevo");
 				header("Location: ../registro.php");
 			}else{
+				iniciarSesion($registro["nick"]);
 				header("Location: ../index.php");	
 			}
 		}else{
@@ -66,49 +68,6 @@
 		return $verificado;
 	}
 	
-	function nombreOcupado($nick){
-		$conexion=crearConexionBD();
-		$ocupado=false;
-		try{
-			$stmt=$conexion->prepare("SELECT * FROM Usuarios WHERE nick=:nick");
-			$stmt->bindParam(':nick',$nick);
-			$stmt->execute();
-			$usuario=$stmt->fetch();
-			if($usuario!=null){
-				$ocupado=true;
-			}
-		}catch(PDOException $e){
-			$_SESSION["exception"]="Error al obtener los datos del usuario";
-			header("Location: ../exception.php");
-			echo "Imposible leer de la BD";
-			die();
-		}
-		cerrarConexionBD($conexion);
-		return $ocupado;
-	}
-	
-	function insertarUsuario($registro){
-		$conexion=crearConexionBD();
-		$insertado=false;
-		$fecha= date("Y-m-d",time());
-		$insertado=uploadImagen($registro);
-		try{
-			$query="insert into Usuarios (nick, pass, mail, fechaRegistro, nombre, apellidos, poblacion, 
-			provincia, codigoPostal, sexo, foto) values ('$registro[nick]', '$registro[password]', '$registro[mail]', 
-			'$fecha', '$registro[nombre]', '$registro[apellidos]', '$registro[poblacion]', '$registro[provincia]', 
-			'$registro[codigoPostal]', '$registro[sexo]', '$registro[foto]');";
-			$conexion->exec($query);
-			$insertado=true;
-		}catch(PDOException $e){
-			$_SESSION["exception"]="Error al obtener los datos del usuario";
-			header("Location: ../exception.php");
-			echo "Imposible escribir en la BD";
-			die();
-		}
-		cerrarConexionBD($conexion);
-		return $insertado;
-	}
-	
 	function uploadImagen($registro){
 		$nombre= $registro["nick"];
 		if($_FILES["foto"]["name"]!=null && $_FILES["foto"]["name"]!=""){
@@ -119,5 +78,16 @@
 				move_uploaded_file($_FILES["foto"]["tmp_name"], "../res/avatar/" . $nick.".avatar.png");
 			}	
 		}
+	}
+	
+	function iniciarSesion($nick){
+		$conexion=crearConexionBD();
+		$usuario=getUsuario($nick, $conexion);
+		cerrarConexionBD($conexion);
+		$estasDentro=array();//Creamos una variable para saber que nos hemos logueado
+		$estasDentro["idusuario"]=$usuario["idusuario"];//Guardamos los datos que utilizaremos una vez dentro
+		$estasDentro["usuario"]=$usuario["nick"];
+		$estasDentro["foto"]=$usuario["foto"];
+		$_SESSION["estasDentro"]=$estasDentro;
 	}
 ?>

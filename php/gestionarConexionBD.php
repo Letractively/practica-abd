@@ -1,9 +1,7 @@
 <?php
-	
-	
-	function CrearConexionBD(){
+	function crearConexionBD(){
 		$host="localhost";
-		$usuario="root";//Usuario y contraseña por defecto en xampp
+		$usuario="root";//Usuario y contraseï¿½a por defecto en xampp
 		$password="";
 		$conexion=null;
 		try{
@@ -11,12 +9,13 @@
 			$conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		}catch(PDOException $e){
 			$_SESSION["exception"]="Error al tratar de conectarse con la base de datos";
-			header("Location: ../exception.php");
+			//header("Location: ../exception.php");
+			echo "Imposible conectar";
 		}
 		return $conexion;
 	}
 	
-	function CerrarConexionBD($conexion){
+	function cerrarConexionBD($conexion){
 		$conexion=null;
 	}
 ?>

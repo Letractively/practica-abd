@@ -36,7 +36,7 @@
     				$dentro= $_SESSION["estasDentro"];
     				$nombre=$dentro["usuario"];
 					echo "<h3>Bienvenido $nombre </h3>";
-                    include_once("menu.php");
+                    include_once("cabeceralogeado.php");
     			}
 			?>
     	</div>  	 

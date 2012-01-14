@@ -6,21 +6,20 @@
      <link rel="stylesheet" type="text/css"  href="estilos/index.css" />
      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	 <script type="text/javascript" src="javascript/login.js" charset="utf-8"></script>
-	 <title>Pagina de Inicio</title>
+	 <title>Juegos</title>
 	
 </head>
 
 <body>
 
 <div id="container">
-    	<?php 
+	<?php 
 		      include_once("php/gestionarConexionBD.php");
 	          include_once("php/gestionUsuarios.php");
 			  include_once("php/gestionAplicaciones.php");
 			  include_once("php/gestionJuegos.php");
-			  
-    		$tipo=$_REQUEST["tipo"];
-			
+			  session_start();
+			    		
     		if(!isset($_SESSION["login"])){//Comprobamos si tenemos la variable de sesion creada
     			$login=array();
     			$_SESSION["login"]=$login;
@@ -29,55 +28,17 @@
 		
 		
 		<!--  div con la logotipo de fondo y login-->
-    	  
+    	<div id="cabecera">
+    		<?php 
+    			if (!isset($_SESSION["estasDentro"])){
+    				include_once("cabecera.php");	
+    			}else{
+    				$dentro= $_SESSION["estasDentro"];
+    				include_once("cabeceralogueado.php");
+    			}
+			?>
+    	</div> 
     	
-           <?php 
-       	include_once("cabecera.php");
-		?> 
-         
-       
-         
-        
-      
-        
-	Esta va ser nuestra pagina web para la practica.
-	
-	
-	<?php 
-			switch($tipo){
-	 			case "accion":
-	 				echo "<img src='imagenes/listaaccion.JPG' alt='listaaccion' title='lista de juegos de accion'/>";
-					echo "Accion";
-	 				break;
-	 			case "simulacion":
-	 				echo "<img src='imagenes/listasimulacion.JPG' alt='listasimulacion' title='lista de juegos de simulacion'/>";
-	 				echo "Simulacion";
-	 				break;
-				case "aventura":
-	 				echo "<img src='imagenes/listaaventura.JPG' alt='listaaventura' title='lista de juegos de aventuras graficas'/>";
-	 				break;
-	 			case "rpg":
-	 				echo "<img src='imagenes/listarpg.JPG' alt='listarpg' title='lista de Juegos de RPG'/>";
-	 				break;
-	 			case "estrategia":
-	 				echo "<img src='imagenes/listaestrategia.JPG' alt='listaestrategia' title='lista de juegos de estrategia'/>";
-	 				break;
-	 			case "deportes":
-	 				echo "<img src='imagenes/listadeportes.JPG' alt='listadeportes' title='lista de juegos de deportes'/>";
-	 				break;
-				case "infantil":
-	 				echo "<img src='imagenes/listainfantil.JPG' alt='listainfantil' title='lista de juegos infantiles'/>";
-	 				break;	
-				case "otros":
-	 				echo "<img src='imagenes/listaotros.JPG' alt='listaotros' title='lista de otros'/>";
-	 				break;		
-	 		
-			}
-		?>
-	
-	<a href="index.php">Volver a portada</a>
-	
-	
 	<div id="div_menu_izq">
 		
 					<ul> 
@@ -106,38 +67,71 @@
     					</li>
     			
   					</ul>	
-  					
-  					<!-- div validacion css  -->
-		<div id="div_valcss">
+  								<!-- div validacion css  -->
+		<p>
         	<a href="http://jigsaw.w3.org/css-validator/check/referer">
         		<img class="val"
             		src="http://jigsaw.w3.org/css-validator/images/vcss"
             		alt="�CSS V�lido!" />
    			 </a>
         
-    	</div>
+    	</p>
 		
 		<!-- div pie  -->
-		<div id="div_linea" class="colorb">  	
-			<div id="div_copyright" class="colorb" >
-					Copyright ® 2011 ABD-US
-			</div>
-				
-			<div id="div_ayuda" >
-				<a href ="informacion.php" class="colorb" target="_blank" >INFORMACI&Oacute;N</a>					
-			</div>
 		
-			<div id="div_contacto" class="colorb" >
+			<p>
+					Copyright ® 2011 ABD-US
+			</p>
+			<p>
+				<a href ="informacion.php" class="colorb" target="_blank" >INFORMACI&Oacute;N</a>					
+			</p>
+		
+			<p>
 				<a href="" onclick="location.href='mailto:opendown@opendown.es?subject=Asunto del mensaje&body=Texto del mensaje'" class="colorb">CONTACTA CON NOSOTROS</a>
-			</div>
+			</p>
+		
 		</div>	
-	</div>	
 			
 	<div id="centro">
 		
-		
-				
-	        <div id="lista_juegos">
+		<p>
+	<?php 
+			switch($tipo){
+	 			case "accion":
+	 				echo "<img src='imagenes/listaaccion.JPG' alt='listaaccion' title='lista de juegos de accion'/>";
+					echo "Accion";
+	 				break;
+	 			case "simulacion":
+	 				echo "<img src='imagenes/listasimulacion.JPG' alt='listasimulacion' title='lista de juegos de simulacion'/>";
+	 				echo "Simulacion";
+	 				break;
+				case "aventura":
+	 				echo "<img src='imagenes/listaaventura.JPG' alt='listaaventura' title='lista de juegos de aventuras graficas'/>";
+	 				break;
+	 			case "rpg":
+	 				echo "<img src='imagenes/listarpg.JPG' alt='listarpg' title='lista de Juegos de RPG'/>";
+	 				break;
+	 			case "estrategia":
+	 				echo "<img src='imagenes/listaestrategia.JPG' alt='listaestrategia' title='lista de juegos de estrategia'/>";
+	 				break;
+	 			case "deportes":
+	 				echo "<img src='imagenes/listadeportes.JPG' alt='listadeportes' title='lista de juegos de deportes'/>";
+	 				break;
+				case "infantil":
+	 				echo "<img src='imagenes/listainfantil.JPG' alt='listainfantil' title='lista de juegos infantiles'/>";
+	 				break;	
+				case "otros":
+	 				echo "<img src='imagenes/listaotros.JPG' alt='listaotros' title='lista de otros'/>";
+	 				break;		
+			}
+		?>
+	
+	<a href="index.php">Volver a portada</a>
+	
+		</p>
+			<center>	
+	        
+	        	
  			    <ul>
  				    <?php 
  					  $conexion=crearConexionBD();
@@ -160,7 +154,9 @@
  					    }
  				     ?>
   			    </ul>	
-            </div>						
+  			    
+            
+           	 </center>				
   	</div>
 		
 			
@@ -190,3 +186,14 @@
 		
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

@@ -110,16 +110,17 @@
  					  $conexion=crearConexionBD();
  					  $aplicaciones=getAplicacion($conexion);//Devuelve las 5 ultimos aplicaciones subidas.
  					  CerrarConexionBD($conexion);
- 					  foreach ($aplicaciones as $row){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
+ 					  foreach ($aplicaciones as $row1){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
  						 echo "<li>";
  						 echo "<div>";
  						 echo "<fieldset>";
- 						 echo "<legend>$row[Nombre]</legend>";
- 						 echo "<img id='tamano' src='imagenes/img_aplicaciones$row[Foto]' alt='img_apli'>";
+ 						 echo "<legend>$row1[Nombre]</legend>";
+ 						 echo "<img id='tamano' src='imagenes/img_aplicaciones$row1[Foto]' alt='img_apli'>";
  						 echo "<br>";
  						 echo "<br>";
- 						 echo "$row[Descripcion]";
+ 						 echo "$row1[Descripcion]";
  						 echo "<br>";
+						 echo "<a href='masInfoAplicaciones.php?idAplicacion=$row1[idAplicacion]'>Mas info</a>";
  						 echo "</fieldset>";
  						 echo"</div>";
  						 echo "</li>";
@@ -136,16 +137,17 @@
  					  $conexion=crearConexionBD();
  					  $Juegos=getJuego($conexion);//Devuelve los 5 ultimos Juegos subidos.
  					  CerrarConexionBD($conexion);
- 					  foreach ($Juegos as $row){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
+ 					  foreach ($Juegos as $row2){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
  						 echo "<li>";
  						 echo "<div>";
  						 echo "<fieldset>";
- 						 echo "<legend>$row[Nombre]</legend>";
- 						 echo "<img id='tamano' src='imagenes/img_juegos$row[Foto]' alt='img_juego'>";
+ 						 echo "<legend>$row2[Nombre]</legend>";
+ 						 echo "<img id='tamano' src='imagenes/img_juegos$row2[Foto]' alt='img_juego'>";
  						 echo "<br>";
  						 echo "<br>";
- 						 echo "$row[Descripcion]";
+ 						 echo "$row2[Descripcion]";
  						 echo "<br>";
+ 						 echo "<a href='masInfoJuegos.php?idJuego=$row2[idJuego]'>Mas info</a>";
  						 echo "</fieldset>";
  						 echo"</div>";
  						 echo "</li>";

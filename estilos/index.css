@@ -25,8 +25,21 @@ body {
 	
 	float:right;
 	width:200px; /*anchura del fono del menu derecho*/
-	height:250px; /*altura del fondo del menu derecho*/			
+	height:250px; /*altura del fondo del menu derecho*/	
 }	
+
+#div_logeo{
+	
+	float:right;
+	width:200px; /*anchura del fono del menu derecho*/
+	height:250px; /*altura del fondo del menu derecho*/	
+	margin-right: 26%;
+	margin-left: 58%;  /* he puesto los margenes para colocarlo a una distacioa respecto al navegador pro la izquerda y derecha*/
+	margin-top:-16.5%;
+	position: absolute; 
+	overflow-y:auto; /* esto lo usamos para poner la barra de desplazamiento ponemos y para que sea solo vertical k es lo k nos interesa*/
+	height:35%;   /* tenemos k definir tambien un height para que se pueda mover la barra de desplazamiento */	
+}
 
 #fieldset1{
 	color:#54fa10;

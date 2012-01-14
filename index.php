@@ -34,9 +34,7 @@
     				include_once("cabecera.php");	
     			}else{
     				$dentro= $_SESSION["estasDentro"];
-    				$nombre=$dentro["usuario"];
-					echo "<h3>Bienvenido $nombre </h3>";
-                    include_once("cabeceralogueado.php");
+    				include_once("cabeceralogueado.php");
     			}
 			?>
     	</div>  	 

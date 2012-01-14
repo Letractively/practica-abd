@@ -1,15 +1,20 @@
-	<div id="div_logo">
+
+	 
+			 <img src="imagenes/opendown.JPG" alt="logo"/>  
+			  
+			 <div id="div_logeo">
+			 	<fieldset>
+			<?
+			$nombre=$dentro["usuario"];
+					echo "<h4>Bienvenido $nombre </h4>";
+			?>
 			
-								
-		<div id="cabecera_menu_logeado" class="cabecera_menu_logeado">
-			 <img src="imagenes/opendown.JPG" alt="logo"/>   
-			 <div id="div_login">
 			<form id='logout' method='post' action='php/logout.php'>
 								<button id='submit'>Salir</button>
 							</form>
 			
+			
 		
-	<div id="div_menuderecha">
 	
 			<div id="div_menu">
 					<ul> 
@@ -38,8 +43,7 @@
 			</div>	
 		
 		
-	</div>					
-					
+			
 	<div id="div_verTodos_Juegos">  
 
 	   <form id='verTodosJuegos' method='post' action='listaJuegos.php?index=verTodos'>
@@ -54,5 +58,5 @@
 							</form>	
 					
 	</div>
+	</fieldset>
 	</div> 
- </div>

@@ -1,12 +1,8 @@
-#paginacompleta{
-	position:absolute;
-}
-
 body {
 	background-color:white;
 }
 
-#container {
+#pagina_entera {
     margin: 0 auto;
     padding: 0;
     text-align: left;
@@ -43,9 +39,6 @@ body {
 	overflow-y:auto;
 }
 
-#fieldset1{
-	color:#54fa10;
-}
 
 
 #centro{

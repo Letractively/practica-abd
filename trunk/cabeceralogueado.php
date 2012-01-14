@@ -3,7 +3,7 @@
 			 <img src="imagenes/opendown.JPG" alt="logo"/>  
 			  
 			 <div id="div_logeo">
-			 	<fieldset>
+			 	 <fieldset>
 			<?
 			$nombre=$dentro["usuario"];
 					echo "<h4>Bienvenido $nombre </h4>";

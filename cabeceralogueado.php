@@ -44,14 +44,14 @@
 		
 		
 			
-	<div id="div_verTodos_Juegos">  
+	<div>  
 
 	   <form id='verTodosJuegos' method='post' action='listaJuegos.php?index=verTodos'>
 								<button id='submit'>Ver todos mis Juegos.</button>
 							</form>				
 	</div>
 	
-	<div id="div_verTodas_Aplicaciones">  
+	<div>  
 	
 	 <form id='verTodosJuegos' method='post' action='listaAplicaciones.php?index=verTodos'>
 								<button id='submit'>Ver todas mis Aplicaciones.</button>

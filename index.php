@@ -4,16 +4,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
      <link rel="stylesheet" type="text/css"  href="estilos/index.css" />
-     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	 <script type="text/javascript" src="javascript/login.js" charset="utf-8"></script>
 	 <title>Pagina de Inicio</title>
 	
 </head>
 
 <body>
-
 <div id="pagina_entera">
-    	<?php 
+	<?php 
 		      include_once("php/gestionarConexionBD.php");
 	          include_once("php/gestionUsuarios.php");
 			  include_once("php/gestionAplicaciones.php");

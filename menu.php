@@ -1,5 +1,5 @@
 <div id="div_menu_izq">
-		
+	
 					<ul> 
     				
     					<li><a>Juegos</a>

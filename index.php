@@ -40,9 +40,7 @@
     	</div>  	 
          
         
-      
-        
-	Esta va ser nuestra pagina web para la practica.
+  
 	
 	
 	<div id="div_menu_izq">
@@ -75,32 +73,37 @@
   					</ul>	
   					
   					<!-- div validacion css  -->
-		<div id="div_valcss">
+		<p>
         	<a href="http://jigsaw.w3.org/css-validator/check/referer">
         		<img class="val"
             		src="http://jigsaw.w3.org/css-validator/images/vcss"
             		alt="�CSS V�lido!" />
    			 </a>
         
-    	</div>
+    	</p>
 		
 		<!-- div pie  -->
-		<div id="div_linea" class="colorb">  	
-			<div id="div_copyright" class="colorb" >
-					Copyright ® 2011 ABD-US
-			</div>
-				
-			<div id="div_ayuda" >
-				<a href ="informacion.php" class="colorb" target="_blank" >INFORMACI&Oacute;N</a>					
-			</div>
 		
-			<div id="div_contacto" class="colorb" >
+			<p>
+					Copyright ® 2011 ABD-US
+			</p>
+			<p>
+				<a href ="informacion.php" class="colorb" target="_blank" >INFORMACI&Oacute;N</a>					
+			</p>
+		
+			<p>
 				<a href="" onclick="location.href='mailto:opendown@opendown.es?subject=Asunto del mensaje&body=Texto del mensaje'" class="colorb">CONTACTA CON NOSOTROS</a>
-			</div>
-		</div>	
+			</p>
+		
 	</div>	
 			
 	<div id="centro">
+		
+	    
+    
+   	<p>Esta va ser nuestra pagina web para la practica.
+	</p>	
+		<div id="centro_izq">
 	        <div id="ultimas_aplicaciones">
  			    <ul>
  				    <?php 
@@ -123,7 +126,10 @@
  					    }
  				     ?>
   			    </ul>	
-            </div>		
+            </div>	
+            </div>	
+            
+       <div id="centro_der">
            <div id="ultimos_juegos">
  			    <ul>
  				    <?php 
@@ -146,7 +152,8 @@
  					    }
  				     ?>
   			    </ul>	
-            </div>						
+            </div>	
+           </div>					
   	</div>
 		<?php 
 			if(!isset($_SESSION["errores_index"])){

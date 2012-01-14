@@ -1,4 +1,4 @@
-
+<div id="div_logo"> 
 	 
 			 <img src="imagenes/opendown.JPG" alt="logo"/>  
 			  
@@ -58,5 +58,6 @@
 							</form>	
 					
 	</div>
-	</fieldset>
 	</div> 
+	</fieldset>
+</div>

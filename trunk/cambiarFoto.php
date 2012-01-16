@@ -25,7 +25,7 @@
 		</div>
 		
 		<div id="div_form">
-			<form method="post" onsubmit="return vacio()" action="PHP/cambiaFoto.php" enctype="multipart/form-data">
+			<form method="post" onsubmit="return vacio()" action="php/cambiaFoto.php" enctype="multipart/form-data">
 				<div id="div_imagen">
 	  				<label id="label_imagen" for="imagen">Nueva imagen: </label>
 	  				<input id="imagen" type="file" name="imagen"/>
@@ -38,13 +38,19 @@
 		</div>
 		
 		<?php //En caso de que halla errores se creara un div para mostrarlos
-        	$errores=$_SESSION["errores_foto"];
-        	if(isset($errores) && is_array($errores)){
-				echo "<div id='errores' class='error'>";
-				foreach($errores as $error){
-					echo "$error<br/>";
+			if (!isset($_SESSION["errores_foto"])){
+				$errores= array();
+				$_SESSION["errores_foto"]= $errores;
+			}
+			else{
+				$errores=$_SESSION["errores_foto"];
+				if(is_array($errores)){
+					echo "<div id='errores' class='error'>";
+					foreach($errores as $error){
+						echo "$error<br/>";
+					}
+					echo "</div>";
 				}
-				echo "</div>";
 			}
         ?>
         

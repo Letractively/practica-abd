@@ -27,15 +27,15 @@
 		$stmt=null;
 		try{
 			$stmt=$conexion->prepare("UPDATE usuarios SET usuario=:nick,pass=:password,nombre=:nombre,
-			apellidos=:apellidos,email=:email,direccion=:direccion,provincia=:provincia,cp=:cp,sexo=:sexo 
+			apellidos=:apellidos,mail=:email,poblacion=:poblacion,provincia=:provincia,codigoPostal=:cp,sexo=:sexo 
 			WHERE idusuario=:idusuario");
-			$stmt->bindParam(':idusuario',$perfil["idusuario"]);
+			$stmt->bindParam(':idUsuario',$perfil["idUsuario"]);
 			$stmt->bindParam(':usuario',$perfil["usuario"]);
 			$stmt->bindParam(':password',$perfil["password"]);
 			$stmt->bindParam(':nombre',$perfil["nombre"]);
 			$stmt->bindParam(':apellidos',$perfil["apellidos"]);
-			$stmt->bindParam(':email',$perfil["email"]);
-			$stmt->bindParam(':direccion',$perfil["direccion"]);
+			$stmt->bindParam(':mail',$perfil["mail"]);
+			$stmt->bindParam(':poblacion',$perfil["poblacion"]);
 			$stmt->bindParam(':provincia',$perfil["provincia"]);
 			$stmt->bindParam(':cp',$perfil["cp"]);
 			$stmt->bindParam(':sexo',$perfil["sexo"]);
@@ -55,8 +55,8 @@
 		$stmt=null;
 		if(file_exists("../imagenes/fotosUsuarios/".$fotoAct)){
 			try{
-				$stmt=$conexion->prepare("UPDATE usuarios SET foto=:foto WHERE idusuario=:idusuario");
-				$stmt->bindParam(':idusuario',$idusuario);
+				$stmt=$conexion->prepare("UPDATE usuarios SET foto=:foto WHERE idUsuario=:idUsuario");
+				$stmt->bindParam(':idUsuario',$idusuario);
 				$stmt->bindParam(':foto',$fotoAct);
 				$stmt->execute();
 			}catch(PDOException $e){
@@ -74,8 +74,8 @@
 			unlink("../imagenes/fotosUsuarios/".$foto);
 		$stmt=null;
 		try{
-			$stmt=$conexion->prepare("DELETE FROM usuarios WHERE idusuario=:idusuario");
-			$stmt->bindParam(':idusuario',$idusuario);
+			$stmt=$conexion->prepare("DELETE FROM usuarios WHERE idUsuario=:idUsuario");
+			$stmt->bindParam(':idUsuario',$idusuario);
 			$stmt->execute();
 		}catch(PDOException $e){
 			$_SESSION["exception"]="Error al eliminar el usuario";
@@ -148,8 +148,8 @@
 	function getNombreUsuario($idusuario,$conexion){
 		$stmt=null;
 		try{
-			$stmt=$conexion->prepare("SELECT usuario FROM usuarios WHERE idusuario=:idusuario");
-			$stmt->bindParam(':idusuario',$idusuario);
+			$stmt=$conexion->prepare("SELECT usuario FROM usuarios WHERE idUsuario=:idUsuario");
+			$stmt->bindParam(':idUsuario',$idusuario);
 			$stmt->execute();
 			$usuario=$stmt->fetch();
 		}catch(PDOException $e){

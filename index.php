@@ -7,10 +7,10 @@
      <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	 <script type="text/javascript" src="javascript/login.js" charset="utf-8"></script>
 	 <title>Pagina de Inicio</title>
-	
+	 	
 </head>
 
-<body>
+<body> 
 <div id="pagina_entera">
 	<?php 
 		      include_once("php/gestionarConexionBD.php");
@@ -27,7 +27,7 @@
 		
 		
 		<!--  div con la logotipo de fondo y login-->
-    	<div>
+    	
     		<?php 
     			if (!isset($_SESSION["estasDentro"])){
     				include_once("cabecera.php");	
@@ -36,24 +36,24 @@
     				include_once("cabeceralogueado.php");
     			}
 			?>
-    	</div>  	 
+    		 
          
         
   
-	<div>
+	
 	<?php 
 	include_once("menu.php");
 	?>
-	</div>
+	
 			
 	<div id="centro">
-		
+	
 	    
     
    	<p>Esta va ser nuestra pagina web para la practica.
 	</p>	
 		<div id="centro_izq">
-	        <div id="ultimas_aplicaciones">
+	        
  			    <ul>
  				    <?php 
  					  $conexion=crearConexionBD();
@@ -76,11 +76,11 @@
  					    }
  				     ?>
   			    </ul>	
-            </div>	
+            
             </div>	
             
        <div id="centro_der">
-           <div id="ultimos_juegos">
+           
  			    <ul>
  				    <?php 
  					  $conexion=crearConexionBD();
@@ -103,7 +103,7 @@
  					    }
  				     ?>
   			    </ul>	
-            </div>	
+          	
            </div>					
   	</div>
 		<?php 
@@ -121,7 +121,8 @@
 				}	
 			}
          ?>
-     </div>   
+     </div> 
+    
 		
 		
     </body>

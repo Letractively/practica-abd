@@ -1,6 +1,6 @@
 <div id="div_logo"> 
 	 
-			 <a href="index.php"><img src="imagenes/opendown.JPG" alt="logo"/></a>    
+			 <a href="index.php"><img src="imagenes/opendown.jpg" alt="logo"/></a>    
 			  
 			 <div id="div_logeo">
 			 	 <fieldset>

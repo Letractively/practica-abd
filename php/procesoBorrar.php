@@ -8,7 +8,6 @@
 		header("Location: ../index.php");
 	}else{
 		$estasDentro=$_SESSION["estasDentro"];//Esta variable guardara los datos de usuario
-		
 		$conexion=CrearConexionBD();
 		eliminarUsuario($estasDentro["idusuario"],$estasDentro["foto"],$conexion);
 		CerrarConexionBD($conexion);

@@ -1,14 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Registro</title>
+	<link rel="stylesheet" type="text/css"  href="estilos/index.css" />
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="javascript/registro.js"></script>
 </head>
 
 <body>
+<div id="pagina_entera">	
+	
+	<div>
+	<?php 
+	include_once("cabecera.php");
+	?>
+	</div>
+	<div>
+	<?php 
+	include_once("menu.php");
+	?>
+	</div>
+			
+	<div id="centro">
+		
+	<center>
 	<?php
 		session_start();
   		if(!isset($_SESSION["registro"])){//Creamos la variable formularioRegistro si es la primera vez que accedemos a esta pagina
@@ -22,6 +39,7 @@
 	action="php/tratarRegistro.php">
 		<div id="imprescindibles">
 			<fieldset>
+				<legend><b><u>Datos de registro</u></b></legend>
 				<label for="nick"><b>Nick:</b></label><br />
 				<input type="text" name="nick" id="nick" title="Nick del usuario" size="16" 
 					value="<?php if (isset($registro["nick"])) echo $registro["nick"];?>"/><br />
@@ -90,5 +108,8 @@
 			}	
 		}
     ?>
+		</center>    
+       </div>					
+  	</div>
 </body>
 </html>

@@ -1,17 +1,14 @@
 <?php
 	session_start();
-	include_once("PHP/gestionarConexionBD.php");
-	include_once("PHP/gestionAplicaciones.php");
-	include_once("PHP/funciones.php");
+	include_once("php/gestionarConexionBD.php");
+	include_once("php/gestionAplicaciones.php");
+	include_once("php/funciones.php");
 	
 	if(!isset($_SESSION["estasDentro"])){
 		session_destroy();
 		header("Location: index.php");
 	  }else{
 		$estasDentro=$_SESSION["estasDentro"];
-	
-
-	  
 	}
 		
 ?>
@@ -23,11 +20,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link rel="stylesheet" type="text/css"  href="estilos/cambiar.css" />
 		<link rel="stylesheet" type="text/css"  href="estilos/cabecera.css" />
-		<title>
-			<?php 
-				echo "Borrar Perfil";
-			?>
-		</title>	
+		<title>Borrar Perfil</title>	
 	</head>
 	
 	<body>
@@ -41,12 +34,12 @@
 			echo "<img class='cambiarotro' src='imagenes/fotosUsuarios/$estasDentro[foto]' alt='fotopersonal' title='mi foto'/>";
 				
 			echo "<h2>Est&aacute;s a punto de darte de baja en nuestro portal, si continuas perder&aacute;s todos tus datos y no 
-						podr&aacute;s acceder en nuestra p&aacute;gina con este usuario y contrase&ntilde;a.¿Deseas continuar?</h2>";
+						podr&aacute;s acceder en nuestra p&aacute;gina con este usuario y contrase&ntilde;a.ï¿½Deseas continuar?</h2>";
 	
 		?>
 			
 		<div id="div_form">
-			<form method="post" action="PHP/procesoBorrar.php"> 	
+			<form method="post" action="php/procesoBorrar.php"> 	
 				<div id="div_submit">
 					<button id="submit">Confirmar</button>
 				</div> 		
@@ -59,13 +52,19 @@
 			</a> 
 		</div>
 		<?php //En caso de que halla errores se creara un div para mostrarlos
-        	$errores=$_SESSION["errores_foto"];
-        	if(isset($errores) && is_array($errores)){
-				echo "<div id='errores' class='error'>";
-				foreach($errores as $error){
-					echo "$error<br/>";
+			if(!isset($_SESSION["errores_foto"])){
+				$errores= array();
+				$_SESSION["errores_foto"]=$errores;
+			}
+			else{
+				$errores= $_SESSION["errores_foto"];
+				if(isset($errores) && is_array($errores)){
+					echo "<div id='errores' class='error'>";
+					foreach($errores as $error){
+						echo "$error<br/>";
+					}
+					echo "</div>";
 				}
-				echo "</div>";
 			}
         ?>
        <div id="div_valcss">

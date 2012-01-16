@@ -1,12 +1,12 @@
 <div id="div_logo"> 
     	  		
-    	    	  <img src="imagenes/opendown.JPG" alt="logo"/>    
+    	    	  <a href="index.php"><img src="imagenes/opendown.JPG" alt="logo"/></a>    
     	     	  <div id="div_login"> 
                   	
         	<fieldset>
         	
         	<div>  
-						<img src="imagenes/logo1.jpg"  alt="logoLogin" title="OpenDown" />
+						<img src="imagenes/logo1.jpg" alt="logoLogin" title="OpenDown" />
 		
 			</div>
         	

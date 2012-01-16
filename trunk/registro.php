@@ -35,6 +35,8 @@
   			$registro= $_SESSION["registro"];
   		}
 	?>
+	
+	<a href="index.php">Volver a portada</a>
 	<form id="registroUsuario" enctype="multipart/form-data" method="post" onsubmit="return validarFormulario()" 
 	action="php/tratarRegistro.php">
 		<div id="imprescindibles">

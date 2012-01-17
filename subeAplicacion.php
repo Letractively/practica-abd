@@ -16,7 +16,7 @@
 			$conexion=CrearConexionBD();
 			$apli=getAplicacion($idAplicacion,$conexion);
 			CerrarConexionBD($conexion);
-			if(isset($apli) && ($apli["idusuario"]==$estasDentro["idusuario"])){
+			if(isset($apli) && ($apli["idUsuario"]==$estasDentro["idUsuario"])){
 				$_SESSION["modificar"]=$apli["idAplicacion"];//Guardo el id en la sesion para poder utilizarla en tratamientoAplicacion.php
 			}
 		}

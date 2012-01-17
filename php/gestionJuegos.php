@@ -103,7 +103,7 @@
 		$stmt=null;
 		try{
 			$stmt=$conexion->prepare("SELECT * FROM juegoes WHERE idjuego=:idjuego");
-			$stmt->bindParam(':idusuario',$idusuario);
+			$stmt->bindParam(':idUsuario',$idusuario);
 			$stmt->execute();
 		}catch(PDOException $e){
 			$_SESSION["exception"]="Error al obtener las juegoes subidas por el usuario";

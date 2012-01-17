@@ -23,7 +23,7 @@
 					$usuario=getUsuario($login["usuario"],$conexion);
 					cerrarConexionBD($conexion);
 					$estasDentro=array();//Creamos una variable para saber que nos hemos logueado
-					$estasDentro["idusuario"]=$usuario["idusuario"];//Guardamos los datos que utilizaremos una vez dentro
+					$estasDentro["idUsuario"]=$usuario["idUsuario"];//Guardamos los datos que utilizaremos una vez dentro
 					$estasDentro["usuario"]=$usuario["nick"];
 					$estasDentro["foto"]=$usuario["foto"];
 					$_SESSION["estasDentro"]=$estasDentro;//Y la guardamos en la sesion

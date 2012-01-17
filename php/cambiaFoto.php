@@ -25,7 +25,7 @@
 		if(count($errores)==0){
 			$conexion=CrearConexionBD();
 			subirFoto($_FILES['imagen'],"fotosUsuarios");
-			cambiarFoto($estasDentro["idusuario"],$estasDentro["foto"],$_FILES['imagen']['name'],$conexion);
+			cambiarFoto($estasDentro["idUsuario"],$estasDentro["foto"],$_FILES['imagen']['name'],$conexion);
 			CerrarConexionBD($conexion);
 			$estasDentro["foto"]=$_FILES['imagen']['name'];
 			$_SESSION["estasDentro"]=$estasDentro;

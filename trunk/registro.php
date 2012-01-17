@@ -13,8 +13,23 @@
 <div id="pagina_entera">	
 	
 	<div>
-	<?php 
-	include_once("cabecera.php");
+	<?php
+		session_start(); 
+    	if (!isset($_SESSION["estasDentro"])){
+    		include_once("cabecera.php");
+			if(!isset($_SESSION["registro"])){//Creamos la variable formularioRegistro si es la primera vez que accedemos a esta pagina
+	  			$registro=array();
+	  			$_SESSION["registro"]=$registro;
+	  		}else{
+	  			$registro= $_SESSION["registro"];
+	  		}
+    	}else{
+    		$dentro= $_SESSION["estasDentro"];
+    		include_once("cabeceralogueado.php");
+			include_once ("php/gestionUsuarios.php");
+			$registro= recuperarUsuario($dentro["usuario"]);
+			$_SESSION["registro"]=$registro;
+    	}
 	?>
 	</div>
 	<div>
@@ -26,16 +41,6 @@
 	<div id="centro">
 		
 	<center>
-	<?php
-		session_start();
-  		if(!isset($_SESSION["registro"])){//Creamos la variable formularioRegistro si es la primera vez que accedemos a esta pagina
-  			$registro=array();
-  			$_SESSION["registro"]=$registro;
-  		}else{
-  			$registro= $_SESSION["registro"];
-  		}
-	?>
-	
 	<a href="index.php">Volver a portada</a>
 	<form id="registroUsuario" enctype="multipart/form-data" method="post" onsubmit="return validarFormulario()" 
 	action="php/tratarRegistro.php">
@@ -46,7 +51,7 @@
 				<input type="text" name="nick" id="nick" title="Nick del usuario" size="16" 
 					value="<?php if (isset($registro["nick"])) echo $registro["nick"];?>"/><br />
 				<label for="password"><b>Contraseña:</b></label><br />
-				<input id="password" name="password" type="password" size="8" maxlength="8" title="La contraseña
+				<input id="pass" name="pass" type="password" size="8" maxlength="8" title="La contraseña
 				debe de tener entre 4 y 8 caracteres"/><br />
 				<label for="passwordBis"><b>Repite la contraseña:</b></label><br />
 				<input id="passwordBis" name="passwordBis" type="password" size="8" maxlength="8" title="La contraseña

@@ -47,11 +47,6 @@
 	
 			
 	<div id="centro">
-	
-	    
-    
-   	<p>Esta va ser nuestra pagina web para la practica.
-	</p>	
 		<div id="centro_izq">
 	        
  			    <ul>

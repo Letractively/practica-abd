@@ -103,7 +103,7 @@
 		$stmt=null;
 		try{
 			$stmt=$conexion->prepare("SELECT * FROM aplicaciones WHERE idAplicacion=:idAplicacion");
-			$stmt->bindParam(':idusuario',$idusuario);
+			$stmt->bindParam(':idUsuario',$idusuario);
 			$stmt->execute();
 		}catch(PDOException $e){
 			$_SESSION["exception"]="Error al obtener las aplicaciones subidas por el usuario";

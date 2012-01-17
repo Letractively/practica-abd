@@ -1,4 +1,6 @@
 <?php
+	
+	include_once("gestionarConexionBD.php");
 
 
 	function insertarUsuario($registro){
@@ -22,30 +24,25 @@
 		return $insertado;
 	}
 	
-	//Modifica los datos de un usuario
-	function cambiarPerfil($perfil,$conexion){
-		$stmt=null;
+	function actualizarUsuario($idUsuario, $registro){
+		$conexion=crearConexionBD();
+		$insertado=false;
+		$fecha= date("Y-m-d",time());
+		//$insertado=uploadImagen($registro);
 		try{
-			$stmt=$conexion->prepare("UPDATE usuarios SET usuario=:nick,pass=:password,nombre=:nombre,
-			apellidos=:apellidos,mail=:email,poblacion=:poblacion,provincia=:provincia,codigoPostal=:cp,sexo=:sexo 
-			WHERE idusuario=:idusuario");
-			$stmt->bindParam(':idUsuario',$perfil["idUsuario"]);
-			$stmt->bindParam(':usuario',$perfil["usuario"]);
-			$stmt->bindParam(':password',$perfil["password"]);
-			$stmt->bindParam(':nombre',$perfil["nombre"]);
-			$stmt->bindParam(':apellidos',$perfil["apellidos"]);
-			$stmt->bindParam(':mail',$perfil["mail"]);
-			$stmt->bindParam(':poblacion',$perfil["poblacion"]);
-			$stmt->bindParam(':provincia',$perfil["provincia"]);
-			$stmt->bindParam(':cp',$perfil["cp"]);
-			$stmt->bindParam(':sexo',$perfil["sexo"]);
-			$stmt->execute();
+			$query="update usuarios set nick='$registro[nick]', pass='$registro[password]', mail='$registro[mail]', 
+			nombre='$registro[nombre]', apellidos='$registro[apellidos]', poblacion='$registro[poblacion]', 
+			provincia='$registro[provincia]', codigoPostal='$registro[codigoPostal]', sexo='$registro[sexo]'
+				where idUsuario='$idUsuario';";
+			$conexion->exec($query);
+			$insertado=true;
 		}catch(PDOException $e){
-			$_SESSION["exception"]="Error al modificar el perfil de usuario";
+			$_SESSION["exception"]="Error al actualizar los datos del usuario";
 			header("Location: ../exception.php");
 			die();
 		}
-			return $stmt;		
+		cerrarConexionBD($conexion);
+		return $insertado;
 	}
 		
 	//Modifica la imagen del usuario
@@ -70,13 +67,13 @@
 	
 	//Elimina el usuario asociado al id de la BD y su foto
 	function eliminarUsuario($idusuario,$foto,$conexion){
-		if($foto!="default.jpg" && file_exists("../imagenes/fotosUsuarios/".$foto))
-			unlink("../imagenes/fotosUsuarios/".$foto);
 		$stmt=null;
 		try{
-			$stmt=$conexion->prepare("DELETE FROM usuarios WHERE idUsuario=:idUsuario");
+			$stmt=$conexion->prepare("delete from usuarios where idUsuario=:idUsuario");
 			$stmt->bindParam(':idUsuario',$idusuario);
 			$stmt->execute();
+			if($foto!="default.jpg" && file_exists("../imagenes/fotosUsuarios/".$foto))
+				unlink("../imagenes/fotosUsuarios/".$foto);
 		}catch(PDOException $e){
 			$_SESSION["exception"]="Error al eliminar el usuario";
 			header("Location: ../exception.php");
@@ -181,6 +178,22 @@
 			$num+=1;
 		}
 		return $num;
+	}
+	
+	function recuperarUsuario($nick){
+		$conexion=crearConexionBD();
+		$usuario=getUsuario($nick, $conexion);
+		cerrarConexionBD($conexion);
+		$registro=array();
+		$registro["nick"]=$usuario["nick"];
+		$registro["mail"]=$usuario["mail"];
+		$registro["nombre"]=$usuario["nombre"];
+		$registro["apellidos"]=$usuario["apellidos"];
+		$registro["poblacion"]=$usuario["poblacion"];
+		$registro["provincia"]=$usuario["provincia"];
+		$registro["codigoPostal"]=$usuario["codigoPostal"];
+		$registro["sexo"]=$usuario["sexo"];
+		return $registro;
 	}
 
 ?>

@@ -6,7 +6,7 @@
 	$registro= $_SESSION["registro"];
 	if (isset($registro)){
 		$registro["nick"]=$_REQUEST["nick"];
-		$registro["password"]=$_REQUEST["password"];
+		$registro["password"]=$_REQUEST["pass"];
 		$registro["passwordBis"]=$_REQUEST["passwordBis"];
 		$registro["mail"]=$_REQUEST["mail"];
 		$registro["nombre"]=$_REQUEST["nombre"];
@@ -18,12 +18,22 @@
 		$registro["foto"]=$_FILES["foto"];
 		$_SESSION["registro"]=$registro;
 		if(verificaDatos($registro)){
-			if (!insertarUsuario($registro)){
-				array_push($_SESSION["erroresRegistro"],"Se ha producido un error, intenrelo de nuevo");
-				header("Location: ../registro.php");
+			if(isset($_SESSION["estasDentro"])){
+				$dentro= $_SESSION["estasDentro"];
+				if (!actualizarUsuario($dentro["idUsuario"], $registro)){
+					array_push($_SESSION["erroresRegistro"],"Se ha producido un error, intenrelo de nuevo");
+					header("Location: ../registro.php");
+				}else{
+					header("Location: ../index.php");
+				}
 			}else{
-				iniciarSesion($registro["nick"]);
-				header("Location: ../index.php");	
+				if(!insertarUsuario($registro)){
+					array_push($_SESSION["erroresRegistro"],"Se ha producido un error, intenrelo de nuevo");
+					header("Location: ../registro.php");
+				}else{
+					iniciarSesion($registro["nick"]);
+					header("Location: ../index.php");	
+				}	
 			}
 		}else{
 			header("Location: ../registro.php");
@@ -36,12 +46,25 @@
 		$verificado=true;
 		$errores=array();
 		$patron='/^(.+)@(.+)\.(.+)$/';
-		if($registro["nick"]==""){
-			array_push($errores,"Introduzca el nick de usuario");
-			$verificado=false;
-		}elseif(nombreOcupado($registro["nick"])){
-			array_push($errores,"Ese nick ya esta en uso");
-			$verificado=false;
+		if(isset($_SESSION["estasDentro"])){
+			$dentro= $_SESSION["estasDentro"];
+			if ($registro["nick"]!=$dentro["usuario"]){
+				if($registro["nick"]==""){
+					array_push($errores,"Introduzca el nick de usuario");
+					$verificado=false;
+				}elseif(nombreOcupado($registro["nick"])){
+					array_push($errores,"Ese nick ya esta en uso");
+					$verificado=false;
+				}
+			}
+		}else{
+			if($registro["nick"]==""){
+				array_push($errores,"Introduzca el nick de usuario");
+				$verificado=false;
+			}elseif(nombreOcupado($registro["nick"])){
+				array_push($errores,"Ese nick ya esta en uso");
+				$verificado=false;
+			}	
 		}
 		if (strlen($registro["password"])<4 || strlen($registro["password"])>8){
 			array_push($errores,"La contraseña debe tener entre 4 y 8 caracteres");
@@ -70,14 +93,12 @@
 	
 	function uploadImagen($registro){
 		$nombre= $registro["nick"];
-		if($_FILES["foto"]["name"]!=null && $_FILES["foto"]["name"]!=""){
-			if($_FILES["foto"]["type"]!="image/jpeg"){
-				move_uploaded_file($_FILES["foto"]["tmp_name"], "../res/avatar/" . $nick.".avatar.jpg");	
-			}
-			if($_FILES["foto"]["type"]!="image/png"){
-				move_uploaded_file($_FILES["foto"]["tmp_name"], "../res/avatar/" . $nick.".avatar.png");
-			}	
+		if($_FILES["foto"]["type"]!="image/jpeg"){
+			move_uploaded_file($_FILES["foto"]["tmp_name"], "../imagenes/fotosUsuarios/" . $nick . ".jpg");	
 		}
+		if($_FILES["foto"]["type"]!="image/png"){
+			move_uploaded_file($_FILES["foto"]["tmp_name"], "../imagenes/fotosUsuarios/" . $nick . ".png");
+		}	
 	}
 	
 	function iniciarSesion($nick){
@@ -85,7 +106,7 @@
 		$usuario=getUsuario($nick, $conexion);
 		cerrarConexionBD($conexion);
 		$estasDentro=array();//Creamos una variable para saber que nos hemos logueado
-		$estasDentro["idusuario"]=$usuario["idusuario"];//Guardamos los datos que utilizaremos una vez dentro
+		$estasDentro["idUsuario"]=$usuario["idUsuario"];//Guardamos los datos que utilizaremos una vez dentro
 		$estasDentro["usuario"]=$usuario["nick"];
 		$estasDentro["foto"]=$usuario["foto"];
 		$_SESSION["estasDentro"]=$estasDentro;

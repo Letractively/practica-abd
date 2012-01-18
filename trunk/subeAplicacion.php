@@ -69,8 +69,7 @@
 		?>
 		
    		<div id="div_form">
-		<!-- El codigo php asociado al atributo value de los input sirve para que en caso de que halla errores no 
-		obligar al usuario a tener que escribir de new todos los campos, sino que conservan su valor -->
+		
 	    	<form id="form_aplicacion" method="post" onsubmit="return principal()" action="PHP/gestionSubeAplicacion.php" enctype="multipart/form-data">
 		  
 	        	<div id="div_datos_aplicacion">	
@@ -78,20 +77,20 @@
 						<legend>Datos aplicacion </legend>
 	              			<div id="div_nombre">
 	              				<label id="label_nombre" for="nombre">Nombre de la aplicacion</label>
-	              				<input id="nombre" name="nombre" type="text" maxlength="50" value="<?php if (isset($aplicacion["nombre"])) echo $aplicacion["nombre"];?>"/>
+	              				<input id="nombre" name="nombre" type="text" maxlength="50" value=""/>
 	              			</div>
 							<div id="div_descripcion">
 				             	<label id="label_descripcion" for="descripcion">Descripci&oacute;n </label>
-				              	<input id="descripcion" name="descripcion" type="text" value="<?php if (isset($aplicacion["descripcion"])) echo $aplicacion["descripcion"];?>"/>
+				              	<input id="descripcion" name="descripcion" type="text" value=""/>
 				            </div>
 							
 							<div id="div_imagen">
 	  							<label id="label_imagen" for="imagen">Seleccione imagen: </label>
-								<input id="imagen" type="file" name="imagen"/>
+								<input id="imagen" type="file" name="imagen" value="" />
 							</div> 
 							<div id="div_aaplicacion">
 	  							<label id="label_aaplicacion" for="aaplicacion">Seleccione Aplicacion: </label>
-								<input id="aaplicacion" type="file" name="aaplicacion"/>
+								<input id="aaplicacion" type="file" name="aaplicacion" value="" />
 							</div>
 				    </fieldset>
 	

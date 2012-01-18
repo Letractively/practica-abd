@@ -2,16 +2,18 @@
 
 <?php
 	session_start();
-	include_once("PHP/gestionarConexionBD.php");
-	include_once("PHP/gestionAplicaciones.php");
-	include_once("PHP/funciones.php");
+	include_once("php/gestionarConexionBD.php");
+	include_once("php/gestionAplicaciones.php");
+	include_once("php/funciones.php");
 	
 	if(!isset($_SESSION["estasDentro"])){
 		session_destroy();
 		header("Location: index.php");
 	}else{
 		$estasDentro=$_SESSION["estasDentro"];
-		$idAplicacion=$_REQUEST["idAplicacion"];
+		if (isset($_SESSION["aplicacion"]["idAplicacion"])){
+			$idAplicacion=$_SESSION["aplicacion"]["idAplicacion"];	
+		}
 		if(isset($idAplicacion) && !esNulo($_REQUEST,"index")){
 			$conexion=CrearConexionBD();
 			$apli=getAplicacion($idAplicacion,$conexion);
@@ -76,11 +78,11 @@
 						<legend>Datos aplicacion </legend>
 	              			<div id="div_nombre">
 	              				<label id="label_nombre" for="nombre">Nombre de la aplicacion</label>
-	              				<input id="nombre" name="nombre" type="text" maxlength="50" value="<?php echo $aplicacion["nombre"]?>"/>
+	              				<input id="nombre" name="nombre" type="text" maxlength="50" value="<?php if (isset($aplicacion["nombre"])) echo $aplicacion["nombre"];?>"/>
 	              			</div>
 							<div id="div_descripcion">
 				             	<label id="label_descripcion" for="descripcion">Descripci&oacute;n </label>
-				              	<input id="descripcion" name="descripcion" type="text" value="<?php echo $aplicacion["descripcion"]?>"/>
+				              	<input id="descripcion" name="descripcion" type="text" value="<?php if (isset($aplicacion["descripcion"])) echo $aplicacion["descripcion"];?>"/>
 				            </div>
 							
 							<div id="div_imagen">
@@ -110,15 +112,17 @@
 		
 	
 		<?php //En caso de que halla errores se creara un div para mostrarlos
-        	$errores=$_SESSION["errores_aplicacion"];
-        	if(isset($errores) && is_array($errores)){
-				echo "<div id='errores' class='error'>";
-				foreach($errores as $error){
-					echo "$error<br/>";
+			if(isset($_SESSION["errores_aplicacion"])){
+				$errores=$_SESSION["errores_aplicacion"];
+				if(isset($errores) && is_array($errores)){
+					echo "<div id='errores' class='error'>";
+					foreach($errores as $error){
+						echo "$error<br/>";
+					}
+					echo "</div>";
 				}
 				echo "</div>";
 			}
-			echo "</div>";
     	?>
 	</div>
 	</body>

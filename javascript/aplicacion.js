@@ -42,6 +42,7 @@
 				cadena+="Formato de imagen incorrecto\n";
 			}
 		}
+	}
 		
 	function validaAaplicacion(){
 		var aaplicacion=document.getElementById("aaplicacion").value;
@@ -52,4 +53,3 @@
 			}
 		}
 	}
-	

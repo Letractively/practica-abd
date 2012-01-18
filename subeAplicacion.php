@@ -34,7 +34,7 @@
 				echo "Subir Aplicacion";
 		?>
 		</title>
-		<link rel="stylesheet" type="text/css" href="estilos/cabecera.css" />
+		<link rel="stylesheet" type="text/css" href="estilos/index.css" />
 		<script type="text/javascript" src="javascript/aplicacion.js" charset="utf-8"></script>
             		
 	</head>
@@ -50,8 +50,6 @@
 				$aplicacion=$apli;
 				$_SESSION["aplicacion"]=$aplicacion;
 			}
-			
-			include_once("cabecera.php");
 		?>
 		
 		<div id="centro">
@@ -70,7 +68,7 @@
 		
    		<div id="div_form">
 		<!-- El codigo php asociado al atributo value de los input sirve para que en caso de que halla errores no 
-		obligar al usuario a tener que escribir de nuaplio todos los campos, sino que conservan su valor -->
+		obligar al usuario a tener que escribir de new todos los campos, sino que conservan su valor -->
 	    	<form id="form_aplicacion" method="post" onsubmit="return principal()" action="PHP/gestionSubeAplicacion.php" enctype="multipart/form-data">
 		  
 	        	<div id="div_datos_aplicacion">	
@@ -90,7 +88,7 @@
 								<input id="imagen" type="file" name="imagen"/>
 							</div> 
 							<div id="div_aaplicacion">
-	  							<label id="label_aaplicacion" for="imagen">Seleccione Aplicacion: </label>
+	  							<label id="label_aaplicacion" for="aaplicacion">Seleccione Aplicacion: </label>
 								<input id="aaplicacion" type="file" name="aaplicacion"/>
 							</div>
 				    </fieldset>
@@ -121,7 +119,6 @@
 				echo "</div>";
 			}
 			echo "</div>";
-			include_once("pie.php");
     	?>
 	</div>
 	</body>

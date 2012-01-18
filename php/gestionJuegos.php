@@ -69,10 +69,10 @@
 	}
 	
 	//Devuelve la juego asociado al id
-	function getjuego1($idjuego,$conexion){
+	function getJuegoid($idjuego,$conexion){
 		$stmt=null;
 		try{
-			$stmt=$conexion->prepare("SELECT * FROM juego WHERE idjuego=:idjuego");
+			$stmt=$conexion->prepare("SELECT * FROM juegos WHERE idjuego=:idjuego");
 			$stmt->bindParam(':idjuego',$idjuego);
 			$stmt->execute();
 			$juego=$stmt->fetch();

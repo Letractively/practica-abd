@@ -6,7 +6,7 @@
      <link rel="stylesheet" type="text/css"  href="estilos/index.css" />
      <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	 <script type="text/javascript" src="javascript/login.js" charset="utf-8"></script>
-	 <title>Aplicaciones</title>
+	 <title>Juegos</title>
 	 	
 </head>
 
@@ -50,15 +50,15 @@
 
 	<?php
 	
-	$idAplicacion=$_REQUEST["idAplicacion"]; 
-	if($idAplicacion!=""){ // Comprueba que el parametro pasado en la url no es nulo.
+	$idJuego=$_REQUEST["idJuego"]; 
+	if($idJuego!=""){ // Comprueba que el parametro pasado en la url no es nulo.
 			$conexion=CrearConexionBD();
-			$aplicacion=getAplicacionId($idAplicacion,$conexion);// Obtiene la aplicacion solicitada.
+			$juego=getJuegoId($idJuego,$conexion);// Obtiene la aplicacion solicitada.
 			CerrarConexionBD($conexion);
-			if($aplicacion=="")// Comprueba que la aplicacion exista.
+			if($juego=="")// Comprueba que la aplicacion exista.
 				header("Location: index.php");
 			else
-				$_SESSION["idAplicacion"]=$idAplicacion;// Si existe guardo el id de la aplicacion en la sesion.
+				$_SESSION["idJuego"]=$idJuego;// Si existe guardo el id de la aplicacion en la sesion.
 		}else
 			header("Location: index.html");
 	
@@ -66,19 +66,19 @@
 
 
 
-			<legend><?php echo "$aplicacion[Nombre]"?></legend>
+			<legend><?php echo "$juego[Nombre]"?></legend>
 		
 		<br/>
 		
 		
-			<img class="img_apli" src="imagenes/img_apli/<?php echo "$aplicacion[Foto]"?>"title="Imagen Aplicacion" alt="imgAplicacion"/>
+			<img class="img_apli" src="imagenes/img_apli/<?php echo "$juego[Foto]"?>"title="Imagen Juego" alt="imgJuego"/>
 		
 		
 		
 				<label id="label_descripcion">Descripci&oacute;n:</label>
 				<fieldset>
 					<p>
-						<?php echo "$aplicacion[Descripcion]"?>
+						<?php echo "$juego[Descripcion]"?>
 					</p>
 				</fieldset>
 					

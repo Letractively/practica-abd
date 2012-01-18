@@ -85,29 +85,25 @@
 			<center>	
 	        
 	        	
- 			    <ul>
+ 			    
  				    <?php 
  					  $conexion=crearConexionBD();
  					  $Juegos=listaTodasjuegos($conexion);//Devuelve todos los Juegos subidos.
  					  CerrarConexionBD($conexion);
  					  foreach ($Juegos as $row){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
- 						 echo "<li>";
  						 echo "<div>";
  						 echo "<fieldset>";
- 						 echo "<legend>$row[Nombre]</legend>";
+ 						 echo "<legend><a href='masInfoJuegos.php?idJuego=$row[idJuego]'>$row[Nombre]</a></legend>";
  						 echo "<img id='tamano' src='imagenes/img_juegos$row[Foto]' alt='img_juego'>";
  						 echo "<br>";
  						 echo "<br>";
  						 echo "$row[Descripcion]";
  						 echo "<br>";
- 						 echo "<a href='masInfoJuegos.php?idJuego=$row[idJuego]'>Mas info</a>";//Paso una variable en la url para saber sobre que masInfo de los 5 
  						 echo "</fieldset>";
  						 echo"</div>";
- 						 echo "</li>";
- 					    }
+ 						 }
  				     ?>
-  			    </ul>	
-  			    
+  			   
             
            	 </center>				
   	</div>

@@ -49,6 +49,7 @@
 		
 		<p>
 	<?php 
+	$tipo=$_REQUEST["tipo"];
 			switch($tipo){
 	 			case "accion":
 	 				echo "<img src='imagenes/listaaccion.JPG' alt='listaaccion' title='lista de juegos de accion'/>";
@@ -93,7 +94,7 @@
  					  foreach ($Juegos as $row){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
  						 echo "<div>";
  						 echo "<fieldset>";
- 						 echo "<legend><a href='masInfoJuegos.php?idJuego=$row[idJuego]'>$row[Nombre]</a></legend>";
+ 						 echo "<legend><a href='masinfojuegos.php?idJuego=$row[idJuego]'>$row[Nombre]</a></legend>";
  						 echo "<img id='tamano' src='imagenes/img_juegos$row[Foto]' alt='img_juego'>";
  						 echo "<br>";
  						 echo "<br>";

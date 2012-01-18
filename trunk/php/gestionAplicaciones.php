@@ -72,7 +72,7 @@
 	function getAplicacionId($idAplicacion,$conexion){
 		$stmt=null;
 		try{
-			$stmt=$conexion->prepare("SELECT * FROM aplicacion WHERE idAplicacion=:idAplicacion");
+			$stmt=$conexion->prepare("SELECT * FROM aplicaciones WHERE idAplicacion=:idAplicacion");
 			$stmt->bindParam(':idAplicacion',$idAplicacion);
 			$stmt->execute();
 			$aplicacion=$stmt->fetch();

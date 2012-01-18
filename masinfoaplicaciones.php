@@ -65,9 +65,9 @@
 ?>
 
 
-
-			<legend><?php echo "$aplicacion[Nombre]"?></legend>
-		
+			<center>
+			<h2><?php echo "$aplicacion[Nombre]"?></h2>
+		</center>
 		<br/>
 		
 		

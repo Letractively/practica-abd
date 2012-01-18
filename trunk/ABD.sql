@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-01-2012 a las 07:47:33
+-- Tiempo de generación: 18-01-2012 a las 19:42:36
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `aplicaciones` (
   `Descripcion` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `Foto` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `idUsuario` int(10) unsigned NOT NULL,
+  `tipo` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`idAplicacion`),
   KEY `FK_evento_1` (`idUsuario`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
@@ -42,13 +43,13 @@ CREATE TABLE IF NOT EXISTS `aplicaciones` (
 -- Volcado de datos para la tabla `aplicaciones`
 --
 
-INSERT INTO `aplicaciones` (`idAplicacion`, `Nombre`, `Descripcion`, `Foto`, `idUsuario`) VALUES
-(1, 'Aplicacion prueba 1', 'Aplicacion de Prueba numero 1', '', 1),
-(2, 'Aplicacion prueba 2', 'Aplicacion de prueba 2', '', 1),
-(3, 'Aplicacion prueba 3', 'Aplicacion de prueba 3', '', 1),
-(4, 'Aplicacion prueba 4', 'Aplicacion de prueba 4', '', 1),
-(5, 'Aplicacion prueba 5', 'Aplicacion de prueba 5', '', 1),
-(6, 'Aplicacion prueba 6', 'Aplicacion de prueba 6', '', 1);
+INSERT INTO `aplicaciones` (`idAplicacion`, `Nombre`, `Descripcion`, `Foto`, `idUsuario`, `tipo`) VALUES
+(1, 'Aplicacion prueba 1', 'Aplicacion de Prueba numero 1', '', 1, 'Imagen'),
+(2, 'Aplicacion prueba 2', 'Aplicacion de prueba 2', '', 1, 'Internet'),
+(3, 'Aplicacion prueba 3', 'Aplicacion de prueba 3', '', 1, 'Personalizacion'),
+(4, 'Aplicacion prueba 4', 'Aplicacion de prueba 4', '', 1, 'Otros'),
+(5, 'Aplicacion prueba 5', 'Aplicacion de prueba 5', '', 1, 'Utilidades'),
+(6, 'Aplicacion prueba 6', 'Aplicacion de prueba 6', '', 1, 'Seguridad');
 
 -- --------------------------------------------------------
 
@@ -62,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `juegos` (
   `Descripcion` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `Foto` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `idUsuario` int(10) unsigned NOT NULL,
+  `tipo` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`idJuego`),
   KEY `FK_evento_1` (`idUsuario`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
@@ -70,12 +72,12 @@ CREATE TABLE IF NOT EXISTS `juegos` (
 -- Volcado de datos para la tabla `juegos`
 --
 
-INSERT INTO `juegos` (`idJuego`, `Nombre`, `Descripcion`, `Foto`, `idUsuario`) VALUES
-(1, 'Juego de prueba 1', 'Juego de prueba 1', '', 1),
-(2, 'Juego de prueba 2', 'Juego de prueba 2', '', 1),
-(3, 'Juego de prueba 3', 'Juego de prueba 3', '', 1),
-(4, 'Juego de prueba 4', 'Juego de prueba 4', '', 1),
-(5, 'Juego de prueba 5', 'Juego de prueba 5', '', 1);
+INSERT INTO `juegos` (`idJuego`, `Nombre`, `Descripcion`, `Foto`, `idUsuario`, `tipo`) VALUES
+(1, 'Juego de prueba 1', 'Juego de prueba 1', '', 1, 'Accion'),
+(2, 'Juego de prueba 2', 'Juego de prueba 2', '', 1, 'Simulacion'),
+(3, 'Juego de prueba 3', 'Juego de prueba 3', '', 1, 'Aventura'),
+(4, 'Juego de prueba 4', 'Juego de prueba 4', '', 1, 'Rpg'),
+(5, 'Juego de prueba 5', 'Juego de prueba 5', '', 1, 'Estrategia');
 
 -- --------------------------------------------------------
 
@@ -103,9 +105,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `nick`, `pass`, `mail`, `fechaRegistro`, `nombre`, `apellidos`, `poblacion`, `provincia`, `codigoPostal`, `sexo`) VALUES
-(1, 'Juanky', '1234', 'JuanC.Prieto.Silos@gmail.com', '2012-01-01', 'Juan Carlos', 'Prieto', 'Camas', 'Sevilla', 41900, 'hombre'),
-(2, 'Javi', '12345', 'jeje@jeje.es', '2012-01-18', 'Javi', 'Juan', 'Sevilla', 'Sevill', 51001, 'hombre'),
-(3, 'juan', '1234', 'jeje@jeje.es', '2012-01-18', '', '', '', '', 0, 'hombre');
+(1, 'Juanky', '1234', 'JuanC.Prieto.Silos@gmail.com', '2012-01-01', 'Juan Carlos', 'Prieto', 'Camas', 'Sevilla', 41900, 'hombre');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

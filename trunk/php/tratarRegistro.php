@@ -24,7 +24,7 @@
 					array_push($_SESSION["erroresRegistro"],"Se ha producido un error, intenrelo de nuevo");
 					header("Location: ../registro.php");
 				}else{
-					header("Location: ../index.php");
+					header("Location: ../php/logout.php");
 				}
 			}else{
 				if(!insertarUsuario($registro)){

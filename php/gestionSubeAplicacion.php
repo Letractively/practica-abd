@@ -37,7 +37,7 @@
 			subirFoto($_FILES['imagen'],"img_apli");
 			$estasDentro=$_SESSION["estasDentro"];//Cogemos el nombre del usuario logueado 
 			if(!isset($_SESSION["modificar"]))
-				crearEvento($aplicacion["titulo"],$aplicacion["fecha"],$aplicacion["hora"],$aplicacion["ciudad"],$aplicacion["direccion"],$aplicacion["imagen"],$aplicacion["descripcion"],
+				subeAplicacion($aplicacion["titulo"],$aplicacion["fecha"],$aplicacion["hora"],$aplicacion["ciudad"],$aplicacion["direccion"],$aplicacion["imagen"],$aplicacion["descripcion"],
 				$aplicacion["recomendar"],$estasDentro["idUsuario"],$conexion);//Creamos el aplicacion
 			else{
 				$ev=getEvento($aplicacion["idaplicacion"],$conexion);//Recupero los datos del aplicacion

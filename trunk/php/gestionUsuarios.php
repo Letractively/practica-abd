@@ -7,7 +7,6 @@
 		$conexion=crearConexionBD();
 		$insertado=false;
 		$fecha= date("Y-m-d",time());
-		//$insertado=uploadImagen($registro);
 		try{
 			$query="insert into usuarios (nick, pass, mail, fechaRegistro, nombre, apellidos, poblacion, 
 			provincia, codigoPostal, sexo) values ('$registro[nick]', '$registro[password]', '$registro[mail]', 
@@ -28,7 +27,6 @@
 		$conexion=crearConexionBD();
 		$insertado=false;
 		$fecha= date("Y-m-d",time());
-		//$insertado=uploadImagen($registro);
 		try{
 			$query="update usuarios set nick='$registro[nick]', pass='$registro[password]', mail='$registro[mail]', 
 			nombre='$registro[nombre]', apellidos='$registro[apellidos]', poblacion='$registro[poblacion]', 
@@ -44,26 +42,6 @@
 		cerrarConexionBD($conexion);
 		return $insertado;
 	}
-		
-	//Modifica la imagen del usuario
-	function cambiarFoto($idusuario,$fotoAnt,$fotoAct,$conexion){
-		if($fotoAnt!="default.jpg" && file_exists("../imagenes/fotosUsuarios/".$fotoAnt))
-			unlink("../imagenes/fotosUsuarios/".$fotoAnt);
-		$stmt=null;
-		if(file_exists("../imagenes/fotosUsuarios/".$fotoAct)){
-			try{
-				$stmt=$conexion->prepare("UPDATE usuarios SET foto=:foto WHERE idUsuario=:idUsuario");
-				$stmt->bindParam(':idUsuario',$idusuario);
-				$stmt->bindParam(':foto',$fotoAct);
-				$stmt->execute();
-			}catch(PDOException $e){
-				$_SESSION["exception"]="Error al cambiar la foto del usuario";
-				header("Location: ../exception.php");
-				die();
-			}
-		}
-		return $stmt;
-	}
 	
 	//Elimina el usuario asociado al id de la BD y su foto
 	function eliminarUsuario($idusuario,$foto,$conexion){
@@ -72,8 +50,6 @@
 			$stmt=$conexion->prepare("delete from usuarios where idUsuario=:idUsuario");
 			$stmt->bindParam(':idUsuario',$idusuario);
 			$stmt->execute();
-			if($foto!="default.jpg" && file_exists("../imagenes/fotosUsuarios/".$foto))
-				unlink("../imagenes/fotosUsuarios/".$foto);
 		}catch(PDOException $e){
 			$_SESSION["exception"]="Error al eliminar el usuario";
 			header("Location: ../exception.php");

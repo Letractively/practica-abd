@@ -66,7 +66,9 @@
 
 
 
-			<legend><?php echo "$juego[Nombre]"?></legend>
+			<center>
+			<h2><?php echo "$juego[Nombre]"?></h2>
+			</center>
 		
 		<br/>
 		

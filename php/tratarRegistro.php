@@ -15,7 +15,6 @@
 		$registro["provincia"]=$_REQUEST["provincia"];
 		$registro["codigoPostal"]=$_REQUEST["codigoPostal"];
 		$registro["sexo"]=$_REQUEST["sexo"];
-		$registro["foto"]=$_FILES["foto"];
 		$_SESSION["registro"]=$registro;
 		if(verificaDatos($registro)){
 			if(isset($_SESSION["estasDentro"])){
@@ -80,25 +79,8 @@
 			array_push($errores,"Debe introducir una direccion de correo valida");
 			$verificado=false;
 		}
-		if($_FILES["foto"]["name"]!=null && $_FILES["foto"]["name"]!=""){
-			if ($_FILES["foto"]["type"]!="image/jpeg" && $_FILES["foto"]["type"]!="image/png"){
-				$tipo= $_FILES["foto"]["type"];
-				array_push($errores,"Solo son valida imagenes en formato jpeg o png. El tipo insertado es $tipo");
-				$verificado=false;	
-			}
-		}
 		$_SESSION["erroresRegistro"]=$errores;
 		return $verificado;
-	}
-	
-	function uploadImagen($registro){
-		$nombre= $registro["nick"];
-		if($_FILES["foto"]["type"]!="image/jpeg"){
-			move_uploaded_file($_FILES["foto"]["tmp_name"], "../imagenes/fotosUsuarios/" . $nick . ".jpg");	
-		}
-		if($_FILES["foto"]["type"]!="image/png"){
-			move_uploaded_file($_FILES["foto"]["tmp_name"], "../imagenes/fotosUsuarios/" . $nick . ".png");
-		}	
 	}
 	
 	function iniciarSesion($nick){
@@ -108,7 +90,6 @@
 		$estasDentro=array();//Creamos una variable para saber que nos hemos logueado
 		$estasDentro["idUsuario"]=$usuario["idUsuario"];//Guardamos los datos que utilizaremos una vez dentro
 		$estasDentro["usuario"]=$usuario["nick"];
-		$estasDentro["foto"]=$usuario["foto"];
 		$_SESSION["estasDentro"]=$estasDentro;
 	}
 ?>

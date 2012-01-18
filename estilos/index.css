@@ -94,7 +94,7 @@ ul.menu li:hover ul {
 
 
 #centro{
-	clear: both
+	/*clear: both;*/
 	background-color: white;
 	float:right; 
 	width:740px; /*anchura del fono del menu derecho*/

@@ -17,40 +17,74 @@
 <html>
 
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link rel="stylesheet" type="text/css"  href="estilos/cambiar.css" />
-		<link rel="stylesheet" type="text/css"  href="estilos/cabecera.css" />
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<link rel="stylesheet" type="text/css"  href="estilos/index.css" />
 		<title>Borrar Perfil</title>	
 	</head>
 	
-	<body>
+<body> 
+<div id="pagina_entera">
+	<?php 
+		      include_once("php/gestionarConexionBD.php");
+	          include_once("php/gestionUsuarios.php");
+			  include_once("php/gestionAplicaciones.php");
+			  include_once("php/gestionJuegos.php");
+			  session_start();
+			    		
+    		if(!isset($_SESSION["login"])){//Comprobamos si tenemos la variable de sesion creada
+    			$login=array();
+    			$_SESSION["login"]=$login;
+    		}
+    	?>
+		
+		
+		<!--  div con la logotipo de fondo y login-->
+    	
+    		<?php 
+    			if (!isset($_SESSION["estasDentro"])){
+    				include_once("cabecera.php");	
+    			}else{
+    				$dentro= $_SESSION["estasDentro"];
+    				include_once("cabeceralogueado.php");
+    			}
+			?>
+    		 
+         
+        
+  
+	
+	<?php 
+	include_once("menu.php");
+	?>
+	
 			
-	<div id="centro"> 
+	<div id="centro"> <center>
 		<h1>ATENCI&Oacute;N <?php echo $estasDentro["usuario"]?></h1>
 		
 		
 		<?php 
 			
-			echo "<img class='cambiarotro' src='imagenes/fotosUsuarios/$estasDentro[foto]' alt='fotopersonal' title='mi foto'/>";
+			
 				
 			echo "<h2>Est&aacute;s a punto de darte de baja en nuestro portal, si continuas perder&aacute;s todos tus datos y no 
-						podr&aacute;s acceder en nuestra p&aacute;gina con este usuario y contrase&ntilde;a.�Deseas continuar?</h2>";
+						podr&aacute;s acceder en nuestra p&aacute;gina con este usuario y contrase&ntilde;a. ¿Desea continuar?</h2>";
 	
 		?>
 			
-		<div id="div_form">
-			<form method="post" action="php/procesoBorrar.php"> 	
-				<div id="div_submit">
-					<button id="submit">Confirmar</button>
-				</div> 		
-			</form>			
-		</div>
 		
-		<div id="div_cancelar">  	
-			<a href="index.php">
-				<span><img alt="cancelar" src="imagenes/cancelar.jpg" title="cancelar"/></span>
-			</a> 
-		</div>
+			<form method="post" action="php/procesoBorrar.php"> 	
+				
+					<button id="submit">Confirmar</button>
+					
+			</form>			
+	
+		<form method="post" action="index.php"> 	
+				
+					<button id="submit">Cancelar</button>
+					
+			
+			
+		</form>	
 		<?php //En caso de que halla errores se creara un div para mostrarlos
 			if(!isset($_SESSION["errores_foto"])){
 				$errores= array();
@@ -67,14 +101,10 @@
 				}
 			}
         ?>
-       <div id="div_valcss">
-        <a href="http://jigsaw.w3.org/css-validator/check/referer">
-        <img class="valua"
-            src="http://jigsaw.w3.org/css-validator/images/vcss"
-            alt="�CSS V�lido!" />
-   		 </a>
-        </div>
-        
+     </center>
 		</div>	
+	</div>
+		
+	
 	</body>
 </html>

@@ -91,13 +91,7 @@
 				<label for="mujer">Mujer</label>
 			</fieldset>
 		</div>
-		<div id="avatar">
-			<fieldset>
-				<label for="foto">Avatar:</label>
-				<input id="foto" name="foto" type="file" title="Ruta del la imagen para el avatar" onchange="validarImagen()"/>
-				<img src="images/emptyAvatar.png" alt="Avatar vacio" />
-			</fieldset>
-		</div>
+		
 		<div id="botonera">
 			<input id="enviar" name="enviar" type="submit" value="Enviar Datos"/>
      		<input value="Limpiar formulario" type="reset" />

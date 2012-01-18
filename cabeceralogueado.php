@@ -21,7 +21,6 @@
     				
     					<li><a href="#">Editar tu perfil</a>
       						<ul> 
-        						<li>&nbsp;&nbsp;  <a href="cambiarFoto.php"> Cambia tu foto</a></li> 
         						<li>&nbsp;&nbsp;  <a href="registro.php">Cambia tus datos</a></li> 
         						<li>&nbsp;&nbsp;  <a href="borrar.php">Borrate</a></li> 
       						</ul> 

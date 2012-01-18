@@ -25,9 +25,16 @@
 				
 		if(isset($_FILES['imagen']) && ($_FILES['imagen']['error']==UPLOAD_ERR_OK)){
 			if(!validaFoto($aplicacion["imagen"]))
-				array_push($errores,"Debes subir una foto");
+				array_push($errores,"Debes subir una foto para la aplicacion.");
 			else if(file_exists("../imagenes/img_apli/".$_FILES['imagen']['name']))
 				array_push($errores,"Ya existe una imagen/aplicacion con el mismo nombre, por favor cambielo");
+				
+		if(isset($_FILES['aaplicacion']) && ($_FILES['aaplicacion']['error']==UPLOAD_ERR_OK)){
+			if(!validaAaplicacion($aplicacion["aaplicacion"]))
+				array_push($errores,"Debes subir una aplicacion.");
+			else if(file_exists("../aplicaciones/".$_FILES['aaplicaciones']['name']))
+				array_push($errores,"Ya existe una aplicacion con el mismo nombre.");		
+				
 		}
 		
 		$_SESSION["errores_aplicacion"]=$errores;

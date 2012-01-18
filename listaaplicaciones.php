@@ -37,7 +37,8 @@
     				include_once("cabeceralogueado.php");
     			}
 			?>
-    	</div> 
+    	</div>
+    	<HR> 
     <div>
 	<?php 
 	include_once("menu.php");

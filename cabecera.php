@@ -13,14 +13,14 @@
 					<label id="label_password" for="password">Contrase&ntilde;a</label>
 					<input id="password" type="password" value="" name="password" size="10" maxlength="8"/>
 												
-					
+				
 						<button id="submit">Entrar</button>
 					
         		
         		
         	</form>
 			</br>
-			
+			<b>
 				<a href="registro.php">Registrate</a>
 			</br>
 			
@@ -28,7 +28,7 @@
 			<a href="recupera.php">¿Olvidaste tu contraseña? </a>
 			
 			</center>
-			
+			</b>	
 			
         </div>
     	

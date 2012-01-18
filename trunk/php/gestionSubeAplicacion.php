@@ -10,13 +10,13 @@
 	if(isset($aplicacion)){//Si no existe la variable quiere decir que no venimos de alli
 		if(isset($_SESSION["modificar"]))
 			$aplicacion["idAplicacion"]=$_SESSION["modificar"];
-		$aplicacion["nombre"]=$_REQUEST["nombre"];
-		$aplicacion["descripcion"]=$_REQUEST["descripcion"];
+		$aplicacion["Nombre"]=$_REQUEST["Nombre"];
+		$aplicacion["Descripcion"]=$_REQUEST["Descripcion"];
 		
-		$aplicacion["imagen"]=$_FILES['imagen']['name'];
-		$aplicacion["aaplicacion"]=$_FILES['aaplicacion']['name'];
+		$aplicacion["Imagen"]=$_FILES['Imagen']['name'];
+		$aplicacion["Aaplicacion"]=$_FILES['Aaplicacion']['name'];
 		
-		$_SESSION["aplicacion"]=$aplicacion;
+		$_SESSION["Aplicacion"]=$aplicacion;
 		if(esNulo($aplicacion,"nombre"))
 			array_push($errores,"Introduzca el nombre de la aplicacion");
 
@@ -37,7 +37,7 @@
 			subirFoto($_FILES['imagen'],"img_apli");
 			$estasDentro=$_SESSION["estasDentro"];//Cogemos el nombre del usuario logueado 
 			if(!isset($_SESSION["modificar"]))
-				subeAplicacion($aplicacion["Nombre"],$aplicacion["Descripcion"],$aplicacion["Imagen"],$aplicacion["idUsuario"],$aplicacion["aaplicacion"],,$conexion);
+				subeAplicacion($aplicacion["Nombre"],$aplicacion["Descripcion"],$aplicacion["Imagen"],$aplicacion["idUsuario"],$aplicacion["Aaplicacion"],$conexion);
 			else{
 				modificarAplicacion($aplicacion,$conexion);
 			}

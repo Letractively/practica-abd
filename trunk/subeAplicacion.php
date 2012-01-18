@@ -9,19 +9,6 @@
 	if(!isset($_SESSION["estasDentro"])){
 		session_destroy();
 		header("Location: index.php");
-	}else{
-		$estasDentro=$_SESSION["estasDentro"];
-		if (isset($_SESSION["aplicacion"]["idAplicacion"])){
-			$idAplicacion=$_SESSION["aplicacion"]["idAplicacion"];	
-		}
-		if(isset($idAplicacion) && !esNulo($_REQUEST,"index")){
-			$conexion=CrearConexionBD();
-			$apli=getAplicacion($idAplicacion,$conexion);
-			CerrarConexionBD($conexion);
-			if(isset($apli) && ($apli["idUsuario"]==$estasDentro["idUsuario"])){
-				$_SESSION["modificar"]=$apli["idAplicacion"];//Guardo el id en la sesion para poder utilizarla en tratamientoAplicacion.php
-			}
-		}
 	}
 ?>
 
@@ -29,12 +16,7 @@
 <html>
 	<head>
 		<title>
-		<?php 
-			if(isset($modificar))
-				echo "Modificar Aplicacion";
-			else
-				echo "Subir Aplicacion";
-		?>
+		 Subir Aplicacion
 		</title>
 		<link rel="stylesheet" type="text/css" href="estilos/index.css" />
 		<script type="text/javascript" src="javascript/aplicacion.js" charset="utf-8"></script>
@@ -42,31 +24,9 @@
 	</head>
 	<body>
 		<div id="paginaentera">
-
-		<?php
-			$aplicacion=$_SESSION["aplicacion"];
-			if(!isset($aplicacion) && !isset($modificar)){
-				$aplicacion=array();
-				$_SESSION["aplicacion"]=$aplicacion;
-			}else if(!isset($aplicacion) && isset($modificar)){
-				$aplicacion=$apli;
-				$_SESSION["aplicacion"]=$aplicacion;
-			}
-		?>
-		
-		<div id="centro">
-		
-		<?php 
-			if(isset($modificar)){
-				echo "<div class='modificartuaplicacion'>"; 
-					echo "<img src='imagenes/modificartuaplicacion.JPG'  alt='aplicaciones' title='modifica tu aplicacion'/>";
-				echo "</div>";
-			}else{
-				echo "<div class='subetuaplicacion'>"; 
-					echo "<img src='imagenes/subetuaplicacion.JPG'  alt='aplicacion' title='sube tu aplicacion'/>";
-				echo "</div>";	
-			}
-		?>
+		    <div id="centro">
+	            <div class='subetuaplicacion'>
+					<img src='imagenes/subetuaplicacion.JPG'  alt='aplicacion' title='sube tu aplicacion'/>
 		
    		<div id="div_form">
 		
@@ -88,9 +48,21 @@
 	  							<label id="label_imagen" for="imagen">Seleccione imagen: </label>
 								<input id="imagen" type="file" name="imagen" value="" />
 							</div> 
+							
+							<div id="div_tipo">
+				             	<label id="label_tipo" for="tipo">Tipo</label>
+                	            <select id="tipo"  name="tipo">
+							          <option>imagen/audio/video</option>
+							          <option>Internet</option>
+							          <option>Utilidades</option>
+							          <option>Seguridad</option>
+							          <option>Personalizacion</option>
+							          <option>Otros</option>
+				            </div>
+						
 							<div id="div_aaplicacion">
-	  							<label id="label_aaplicacion" for="aaplicacion">Seleccione Aplicacion: </label>
-								<input id="aaplicacion" type="file" name="aaplicacion" value="" />
+							    <label for="archivo">  Archivo:  </label>
+		                         <input type="file" name="archivo" id="archivo" />
 							</div>
 				    </fieldset>
 	

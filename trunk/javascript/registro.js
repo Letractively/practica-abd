@@ -1,6 +1,4 @@
-/**
- * @author Juanky
- */
+
 function validarFormulario() {
         var nick= document.getElementById("nick").value;
         var password= document.getElementById("pass").value;
@@ -29,15 +27,5 @@ function verificarContraseña(){
         if (password!=passwordBis){
                 alert ("Las contraseñas deben de ser identicas: "+password+"!="+passwordBis);
                 return false;
-        }
-}
-
-function validarImagen(){
-        var ext = document.getElementById("foto").value;
-        ext = ext.substring(ext.length-3,ext.length);
-        ext = ext.toLowerCase();
-        if(ext != "jpg" && ext!="jpeg" && ext!="png") {
-                alert("Solo son valida imagenes en formato jpeg o png");
-                document.getElementById("foto").value="";
         }
 }

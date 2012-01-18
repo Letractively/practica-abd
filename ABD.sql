@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-01-2012 a las 02:46:08
+-- Tiempo de generación: 18-01-2012 a las 07:47:33
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -95,16 +95,17 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `provincia` varchar(30) DEFAULT NULL,
   `codigoPostal` int(5) DEFAULT NULL,
   `sexo` varchar(6) DEFAULT NULL,
-  `foto` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idUsuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`idUsuario`, `nick`, `pass`, `mail`, `fechaRegistro`, `nombre`, `apellidos`, `poblacion`, `provincia`, `codigoPostal`, `sexo`, `foto`) VALUES
-(1, 'Juanky', '1234', 'JuanC.Prieto.Silos@gmail.com', '2012-01-01', 'Juan Carlos', 'Prieto', 'Camas', 'Sevilla', 41900, 'hombre', NULL);
+INSERT INTO `usuarios` (`idUsuario`, `nick`, `pass`, `mail`, `fechaRegistro`, `nombre`, `apellidos`, `poblacion`, `provincia`, `codigoPostal`, `sexo`) VALUES
+(1, 'Juanky', '1234', 'JuanC.Prieto.Silos@gmail.com', '2012-01-01', 'Juan Carlos', 'Prieto', 'Camas', 'Sevilla', 41900, 'hombre'),
+(2, 'Javi', '12345', 'jeje@jeje.es', '2012-01-18', 'Javi', 'Juan', 'Sevilla', 'Sevill', 51001, 'hombre'),
+(3, 'juan', '1234', 'jeje@jeje.es', '2012-01-18', '', '', '', '', 0, 'hombre');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

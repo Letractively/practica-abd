@@ -84,7 +84,7 @@
  			    
  				    <?php 
  					  $conexion=crearConexionBD();
- 					  $Aplicaciones=listaTodasaplicaciones($conexion);//Devuelve todos los Juegos subidos.
+ 					  $Aplicaciones=listaTodasAplicacionesTipo($tipo,$conexion);//Devuelve todos los Juegos subidos.
  					  CerrarConexionBD($conexion);
  					  foreach ($Aplicaciones as $row){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
  						 echo "<div>";

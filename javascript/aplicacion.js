@@ -10,7 +10,6 @@
 			cadena+="Debes de pones una descripcion de la aplicacion\n";	
 		validaImagen();
 		validaAaplicacion();
-		}
 	}
 
 	

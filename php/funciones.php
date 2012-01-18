@@ -46,10 +46,19 @@
 		return $valido;
 	}
 	
+	//Comprueba que el formato de el archivo es valido
+	function validaAaplicacion($aaplicacion){
+		$patron='/^(.+)\.(exe|zip|rar|tar)$/';
+		$valido=false;
+		if(preg_match($patron,$aaplicacion))
+			$valido=true;
+		return $valido;
+	}
+	
 	//Permite subir una imagen, dependiendo de $carpeta sera en img_Apli o img_juego
 	function subirFoto($imagen,$carpeta){
 		$subida=false;
-		if(!file_exists("../imagenes/mg_Apli/".$imagen['name'])){
+		if(!file_exists("../imagenes/img_aplicaciones/".$imagen['name'])){
 			$ruta="C:\\xampplite\\htdocs\\ABD\\imagenes\\$carpeta/".basename($imagen['name']);
 			move_uploaded_file($imagen['tmp_name'],$ruta);
 			$subida=true;

@@ -5,16 +5,16 @@
 	include_once("gestionAplicaciones.php");
 	include_once("gestionUsuarios.php");
 	
-	$aplicacion=$_SESSION["aplicacion"];//Recuperamos la variable creada en aplicacion.php
+	$aplicacion=$_SESSION["aplicacion"];//Recuperamos la variable creada en subeAplicacion.php
 	$errores=array();
 	if(isset($aplicacion)){//Si no existe la variable quiere decir que no venimos de alli
 		if(isset($_SESSION["modificar"]))
 			$aplicacion["idAplicacion"]=$_SESSION["modificar"];
-		$aplicacion["Nombre"]=$_REQUEST["Nombre"];
-		$aplicacion["Descripcion"]=$_REQUEST["Descripcion"];
+		$aplicacion["nombre"]=$_REQUEST["nombre"];
+		$aplicacion["descripcion"]=$_REQUEST["descripcion"];
 		
-		$aplicacion["Imagen"]=$_FILES['Imagen']['name'];
-		$aplicacion["Aaplicacion"]=$_FILES['Aaplicacion']['name'];
+		$aplicacion["imagen"]=$_FILES['imagen']['name'];
+		$aplicacion["aaplicacion"]=$_FILES['aaplicacion']['name'];
 		
 		$_SESSION["Aplicacion"]=$aplicacion;
 		if(esNulo($aplicacion,"nombre"))
@@ -37,7 +37,7 @@
 			subirFoto($_FILES['imagen'],"img_apli");
 			$estasDentro=$_SESSION["estasDentro"];//Cogemos el nombre del usuario logueado 
 			if(!isset($_SESSION["modificar"]))
-				subeAplicacion($aplicacion["Nombre"],$aplicacion["Descripcion"],$aplicacion["Imagen"],$aplicacion["idUsuario"],$aplicacion["Aaplicacion"],$conexion);
+				subeAplicacion($aplicacion["nombre"],$aplicacion["descripcion"],$aplicacion["imagen"],$aplicacion["idUsuario"],$aplicacion["aaplicacion"],$conexion);
 			else{
 				modificarAplicacion($aplicacion,$conexion);
 			}

@@ -2,16 +2,16 @@
 	
 	
 	//Crea aplicacion.
-	function crearAplicacion($Nombre,$Descripcion,$Imagen,$idUsuario,$conexion){
+	function subirAplicacion($Nombre,$Descripcion,$Imagen,$idUsuario,$Aaplicacion,$conexion){
 		if($imagen=="")
 			$imagen="default_aplicacion.jpg";
 		$stmt=null;
 		try{
-			$SQL="INSERT INTO aplicaciones (idAplicacion,Nombre,Descripcion,Imagen,idUsuario) 
-			VALUES('NULL','$Nombre','$Descripcion','$Imagen','$idUsuario')";
+			$SQL="INSERT INTO aplicaciones (idAplicacion,Nombre,Descripcion,Imagen,idUsuario,Aaplicacion) 
+			VALUES('NULL','$Nombre','$Descripcion','$Imagen','$idUsuario','$Aaplicacion')";
 			$stmt=$conexion->exec($SQL);	
 		}catch(PDOException $e){
-			$_SESSION["exception"]="Error al insertar la aplicacion.";
+			$_SESSION["exception"]="Error al subir la aplicacion.";
 			header("Location: ../exception.php");
 			die();
 		}
@@ -22,12 +22,13 @@
 	function modificarAplicacion($aplicacion,$conexion){
 		$stmt=null;
 		try{
-			$stmt=$conexion->prepare("UPDATE aplicaciones SET Nombre=:Nombre, Descripcion=:Descripcion, Imagen=:Imagen
+			$stmt=$conexion->prepare("UPDATE aplicaciones SET Nombre=:Nombre, Descripcion=:Descripcion, Imagen=:Imagen, Aaplicacion:= Aaplicacion
 			WHERE idAplicacion=:idAplicacion");
 			$stmt->bindParam(':idAplicacion',$aplicacion["idAplicacion"]);
 			$stmt->bindParam(':Nombre',$aplicacion["Nombre"]);
 			$stmt->bindParam(':Descripcion',$aplicacion["Descripcion"]);
 			$stmt->bindParam(':Imagen',$aplicacion["Imagen"]);
+			$stmt->bindParam(':Aaplicacion',$aplicacion["Aaplicacion"]);
 			$stmt->execute();
 		}catch(PDOException $e){
 			$_SESSION["exception"]="Error al modificar los datos de la aplicacion.";
@@ -41,6 +42,8 @@
 	function borrarAplicacion($idAplicacion,$imagen,$conexion){
 		if($imagen!="default_aplicacion.jpg" && file_exists("../imagenes/img_Aplicaciones/".$imagen))
 			unlink("../imagenes/Img_aplicaciones/".$imagen);
+		if( file_exists("../aplicaciones/".$aaplicacion))
+			unlink("../aplicaciones/".$aaplicacion);	
 		$stmt=null;
 		try{
 			$stmt=$conexion->prepare("DELETE FROM aplicaciones WHERE idAplicacion=:idAplicacion");

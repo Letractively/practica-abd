@@ -37,21 +37,14 @@
 			subirFoto($_FILES['imagen'],"img_apli");
 			$estasDentro=$_SESSION["estasDentro"];//Cogemos el nombre del usuario logueado 
 			if(!isset($_SESSION["modificar"]))
-				subeAplicacion($aplicacion["titulo"],$aplicacion["fecha"],$aplicacion["hora"],$aplicacion["ciudad"],$aplicacion["direccion"],$aplicacion["imagen"],$aplicacion["descripcion"],
-				$aplicacion["recomendar"],$estasDentro["idUsuario"],$conexion);//Creamos el aplicacion
+				subeAplicacion($aplicacion["Nombre"],$aplicacion["Descripcion"],$aplicacion["Imagen"],$aplicacion["idUsuario"],$aplicacion["aaplicacion"],,$conexion);
 			else{
-				$ev=getEvento($aplicacion["idaplicacion"],$conexion);//Recupero los datos del aplicacion
-				if($aplicacion["imagen"]==""){//Si el campo imagen lo he dejado vacio
-					$aplicacion["imagen"]=$ev["imagen"];//Mantengo la foto que tenia
-				}else if($ev["imagen"]!="default.jpg" && file_exists("../imagenes/fotosEventos/".$ev["imagen"])) //Si voy a cambiar la foto
-					unlink("../imagenes/fotosEventos/".$ev["imagen"]);//Borro la anterior si no es la foto por defecto
-					
-				modificarEvento($aplicacion,$conexion);
+				modificarAplicacion($aplicacion,$conexion);
 			}
 			CerrarConexionBD($conexion);
 			unset($_SESSION["aplicacion"]);//Borramos la variable aplicacion de la sesion para no dejar datos sueltos
 			unset($_SESSION["modificar"]);//Ya no la necesitaremos mas
-			header("Location: ../portada.php");
+			header("Location: ../index.php");
 		}else
 				header("Location: ../aplicacion.php?idaplicacion=$_SESSION[modificar]");		
 			

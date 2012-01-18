@@ -84,8 +84,24 @@
 		return $juego;
 	}
 	
+	//Devuelve todas los juegos creadas de un tipo
+	function listaTodosJuegosTipo($tipo,$conexion){
+		$stmt=null;
+		try{
+			$stmt=$conexion->prepare("SELECT * FROM juegos WHERE tipo=:tipo");
+			$stmt->bindParam(':tipo',$tipo);
+			$stmt->execute();
+			
+		}catch(PDOException $e){
+			$_SESSION["exception"]="Error al obtener la lista de todas las aplicaciones";
+			header("Location: ../exception.php");
+			die();
+		}
+		return $stmt;
+	}
+	
 	//Devuelve todas los juegos creadas.
-	function listaTodasjuegos($conexion){
+	function listaTodosjuegos($conexion){
 		$stmt=null;
 		try{
 			$stmt=$conexion->query("SELECT * FROM juegos ORDER BY idjuego DESC");

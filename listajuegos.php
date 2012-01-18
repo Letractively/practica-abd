@@ -89,9 +89,12 @@
  			    
  				    <?php 
  					  $conexion=crearConexionBD();
- 					  $Juegos=listaTodasjuegos($conexion);//Devuelve todos los Juegos subidos.
+ 					  $Juegos=listaTodosjuegosTipo($tipo,$conexion);//Devuelve todos los Juegos subidos.
  					  CerrarConexionBD($conexion);
+					  
+					  
  					  foreach ($Juegos as $row){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
+ 						
  						 echo "<div>";
  						 echo "<fieldset>";
  						 echo "<legend><a href='masinfojuegos.php?idJuego=$row[idJuego]'>$row[Nombre]</a></legend>";
@@ -101,7 +104,8 @@
  						 echo "$row[Descripcion]";
  						 echo "<br>";
  						 echo "</fieldset>";
- 						 echo"</div>";
+ 						 echo "</div>";
+						 
  						 }
  				     ?>
   			   

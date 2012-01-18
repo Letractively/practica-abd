@@ -87,6 +87,23 @@
 		return $aplicacion;
 	}
 	
+	
+	//Devuelve todas las aplicaciones creadas de un tipo
+	function listaTodasAplicacionesTipo($tipo,$conexion){
+		$stmt=null;
+		try{
+			$stmt=$conexion->prepare("SELECT * FROM aplicaciones WHERE tipo=:tipo");
+			$stmt->bindParam(':tipo',$tipo);
+			$stmt->execute();
+			
+		}catch(PDOException $e){
+			$_SESSION["exception"]="Error al obtener la lista de todas las aplicaciones";
+			header("Location: ../exception.php");
+			die();
+		}
+		return $stmt;
+	}
+	
 	//Devuelve todas las aplicaciones creadas.
 	function listaTodasAplicaciones($conexion){
 		$stmt=null;

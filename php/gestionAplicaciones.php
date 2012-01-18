@@ -1,6 +1,5 @@
 <?php
-	
-	
+
 	//Crea aplicacion.
 	function subirAplicacion($nombre,$descripcion,$imagen,$idUsuario,$aaplicacion,$conexion){
 		if($imagen=="")
@@ -18,45 +17,6 @@
 		return $stmt;	
 	}
 	
-	//Modifica los datos de una aplicacion.
-	function modificarAplicacion($aplicacion,$conexion){
-		$stmt=null;
-		try{
-			$stmt=$conexion->prepare("UPDATE aplicaciones SET Nombre=:Nombre, Descripcion=:Descripcion, Imagen=:Imagen, Aaplicacion:= Aaplicacion
-			WHERE idAplicacion=:idAplicacion");
-			$stmt->bindParam(':idAplicacion',$aplicacion["idAplicacion"]);
-			$stmt->bindParam(':Nombre',$aplicacion["Nombre"]);
-			$stmt->bindParam(':Descripcion',$aplicacion["Descripcion"]);
-			$stmt->bindParam(':Imagen',$aplicacion["Imagen"]);
-			$stmt->bindParam(':Aaplicacion',$aplicacion["Aaplicacion"]);
-			$stmt->execute();
-		}catch(PDOException $e){
-			$_SESSION["exception"]="Error al modificar los datos de la aplicacion.";
-			header("Location: ../exception.php");
-			die();
-		}
-			return $stmt;		
-	}
-		
-	//Borra la aplicacion correspondiente al id pasado tambien su imagen.
-	function borrarAplicacion($idAplicacion,$imagen,$conexion){
-		if($imagen!="default_aplicacion.jpg" && file_exists("../imagenes/img_Aplicaciones/".$imagen))
-			unlink("../imagenes/Img_aplicaciones/".$imagen);
-		if( file_exists("../aplicaciones/".$aaplicacion))
-			unlink("../aplicaciones/".$aaplicacion);	
-		$stmt=null;
-		try{
-			$stmt=$conexion->prepare("DELETE FROM aplicaciones WHERE idAplicacion=:idAplicacion");
-			$stmt->bindParam(':idAplicacion',$idAplicacion);
-			$stmt->execute();
-		}catch(PDOException $e){
-			$_SESSION["exception"]="Error al borrar la aplicacion";
-			header("Location: ../exception.php");
-			die();
-		}
-		return $stmt;
-	}
-	
 	//Devuelve las 5 ultimos aplicaciones insertadas
 	function getAplicacion($conexion){
 		$stmt=null;
@@ -70,23 +30,6 @@
 		}
 		return $stmt;
 	}
-	
-	//Devuelve la aplicacion asociado al id
-	function getAplicacionId($idAplicacion,$conexion){
-		$stmt=null;
-		try{
-			$stmt=$conexion->prepare("SELECT * FROM aplicaciones WHERE idAplicacion=:idAplicacion");
-			$stmt->bindParam(':idAplicacion',$idAplicacion);
-			$stmt->execute();
-			$aplicacion=$stmt->fetch();
-		}catch(PDOException $e){
-			$_SESSION["exception"]="Error al obtener los datos de la aplicacion";
-			header("Location: ../exception.php");
-			die();
-		}
-		return $aplicacion;
-	}
-	
 	
 	//Devuelve todas las aplicaciones creadas de un tipo
 	function listaTodasAplicacionesTipo($tipo,$conexion){
@@ -132,10 +75,4 @@
 		}
 		return $stmt;
 	}
-	
-
-
-	
-	
-	
 ?>

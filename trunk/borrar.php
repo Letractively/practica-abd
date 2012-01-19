@@ -1,27 +1,14 @@
-<?php
-	session_start();
-	include_once("php/gestionarConexionBD.php");
-	include_once("php/gestionAplicaciones.php");
-	include_once("php/funciones.php");
-	
-	if(!isset($_SESSION["estasDentro"])){
-		session_destroy();
-		header("Location: index.php");
-	  }else{
-		$estasDentro=$_SESSION["estasDentro"];
-	}
-		
-?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+     <link rel="stylesheet" type="text/css"  href="estilos/index.css" />
+     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	 
+	 <title>Borrar Perfil</title>
+	 	
+</head>
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<link rel="stylesheet" type="text/css"  href="estilos/index.css" />
-		<title>Borrar Perfil</title>	
-	</head>
-	
 <body> 
 <div id="pagina_entera">
 	<?php 
@@ -31,14 +18,17 @@
 			  include_once("php/gestionJuegos.php");
 			  session_start();
 			    		
-    		if(!isset($_SESSION["login"])){//Comprobamos si tenemos la variable de sesion creada
-    			$login=array();
-    			$_SESSION["login"]=$login;
-    		}
+    		if(!isset($_SESSION["estasDentro"])){
+			session_destroy();
+			header("Location: index.php");
+	  		}else{
+			$estasDentro=$_SESSION["estasDentro"];
+	}
+    		
     	?>
 		
 		
-		<!--  div con la logotipo de fondo y login-->
+		<!--  Cabecera y login -->
     	
     		<?php 
     			if (!isset($_SESSION["estasDentro"])){
@@ -50,12 +40,16 @@
 			?>
     		 
          
-        <HR>
+        <hr/>
   
 	
 	<?php 
 	include_once("menu.php");
 	?>
+	
+
+
+
 	
 			
 	<div id="centro"> <center>

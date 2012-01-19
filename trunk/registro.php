@@ -1,23 +1,25 @@
- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Registro</title>
-	<link rel="stylesheet" type="text/css"  href="estilos/index.css" />
-	<meta charset="utf-8"/>
-	<script type="text/javascript" src="javascript/registro.js"></script>
+     <link rel="stylesheet" type="text/css"  href="estilos/index.css" />
+     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	 <script type="text/javascript" src="javascript/registro.js"></script>
+	 <title>Registro</title>
+	 	
 </head>
 
+
+ 
 <body>
 <div id="pagina_entera">	
 	
-	<div>
+	
 	<?php
 		session_start(); 
     	if (!isset($_SESSION["estasDentro"])){
     		include_once("cabecera.php");
-			if(!isset($_SESSION["registro"])){//Creamos la variable formularioRegistro si es la primera vez que accedemos a esta pagina
+			if(!isset($_SESSION["registro"])){//Variable para el formulario de registro
 	  			$registro=array();
 	  			$_SESSION["registro"]=$registro;
 	  		}else{
@@ -31,13 +33,13 @@
 			$_SESSION["registro"]=$registro;
     	}
 	?>
-	</div>
-	<HR>
-	<div>
+	<hr/>
+  
+	
 	<?php 
 	include_once("menu.php");
 	?>
-	</div>
+	
 			
 	<div id="centro">
 		

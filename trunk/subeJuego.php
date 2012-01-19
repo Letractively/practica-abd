@@ -1,17 +1,18 @@
 
-
 <?php
 	session_start();
 	include_once("php/gestionarConexionBD.php");
-	include_once("php/gestionJuegos.php");
+	include_once("php/gestionAplicaciones.php");
 	include_once("php/funciones.php");
 	
 	if(!isset($_SESSION["estasDentro"])){
 		session_destroy();
 		header("Location: index.php");
+	}else{
+		$estasDentro=$_SESSION["estasDentro"];
+		}
 	
 ?>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
@@ -72,8 +73,13 @@
 	
 				<div id="div_submit">
 					<button id="submit">Enviar</button>
-				</div>	
+				</div>				 
 			</form>
+			<div id="div_atras">				
+				<form method="post" action="index.php"> 	
+				   <button id="submit">Atras</button>
+				 </form>
+                </div>
 		</div>
 		
 		<div id="div_valcss">
@@ -99,6 +105,5 @@
 				echo "</div>";
 			}
     	?>
-	</div>
 	</body>
 </html>

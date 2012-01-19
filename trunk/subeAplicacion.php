@@ -30,12 +30,7 @@
 <html>
 	<head>
 		<title>
-		<?php 
-			if(isset($modificar))
-				echo "Modificar Aplicacion";
-			else
-				echo "Subir Aplicacion";
-		?>
+		 Subir Aplicacion
 		</title>
 		<link rel="stylesheet" type="text/css" href="estilos/index.css" />
 		<script type="text/javascript" src="javascript/aplicacion.js" charset="utf-8"></script>
@@ -55,19 +50,12 @@
 			}
 		?>
 		
-		<div id="centro">
+		<div id="centro_aplicacion">
 		
-		<?php 
-			if(isset($modificar)){
-				echo "<div class='modificartuaplicacion'>"; 
-					echo "<img src='imagenes/modificartuaplicacion.JPG'  alt='aplicaciones' title='modifica tu aplicacion'/>";
-				echo "</div>";
-			}else{
-				echo "<div class='subetuaplicacion'>"; 
-					echo "<img src='imagenes/subetuaplicacion.JPG'  alt='aplicacion' title='sube tu aplicacion'/>";
-				echo "</div>";	
-			}
-		?>
+	         <div class='subetuaplicacion'>
+			 <img src='imagenes/subetuaplicacion.JPG'  alt='aplicacion' title='sube tu aplicacion'/>
+			</div>
+		
 		
    		<div id="div_form">
 		

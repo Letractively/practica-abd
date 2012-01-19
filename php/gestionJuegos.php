@@ -2,13 +2,13 @@
 	
 	
 	//Crea juego.
-	function crearJuego($Nombre,$Descripcion,$Imagen,$idUsuario,$conexion){
+	function crearJuego($Nombre,$Descripcion,$Imagen,$idUsuario,$ajuego,$tipo,$conexion){
 		if($imagen=="")
 			$imagen="default_juego.jpg";
 		$stmt=null;
 		try{
-			$SQL="INSERT INTO juegoes (idjuego,Nombre,Descripcion,Imagen,idUsuario) 
-			VALUES('NULL','$Nombre','$Descripcion','$Imagen','$idUsuario')";
+			$SQL="INSERT INTO juegos (idjuego,Nombre,Descripcion,Imagen,idUsuario,ajuego,tipo) 
+			VALUES('NULL','$Nombre','$Descripcion','$Imagen','$idUsuario','$ajuego','$tipo')";
 			$stmt=$conexion->exec($SQL);	
 		}catch(PDOException $e){
 			$_SESSION["exception"]="Error al insertar la juego.";
@@ -17,42 +17,7 @@
 		}
 		return $stmt;	
 	}
-	
-	//Modifica los datos de una juego.
-	function modificarJuego($juego,$conexion){
-		$stmt=null;
-		try{
-			$stmt=$conexion->prepare("UPDATE juegos SET Nombre=:Nombre, Descripcion=:Descripcion, Imagen=:Imagen
-			WHERE idjuego=:idjuego");
-			$stmt->bindParam(':idjuego',$juego["idjuego"]);
-			$stmt->bindParam(':Nombre',$juego["Nombre"]);
-			$stmt->bindParam(':Descripcion',$juego["Descripcion"]);
-			$stmt->bindParam(':Imagen',$juego["Imagen"]);
-			$stmt->execute();
-		}catch(PDOException $e){
-			$_SESSION["exception"]="Error al modificar los datos de la juego.";
-			header("Location: ../exception.php");
-			die();
-		}
-			return $stmt;		
-	}
-		
-	//Borra la juego correspondiente al id pasado tambien su imagen.
-	function borrarjuego($idjuego,$imagen,$conexion){
-		if($imagen!="default_juego.jpg" && file_exists("../imagenes/img_juegoes/".$imagen))
-			unlink("../imagenes/Img_juegoes/".$imagen);
-		$stmt=null;
-		try{
-			$stmt=$conexion->prepare("DELETE FROM juegos WHERE idjuego=:idjuego");
-			$stmt->bindParam(':idjuego',$idjuego);
-			$stmt->execute();
-		}catch(PDOException $e){
-			$_SESSION["exception"]="Error al borrar el juego";
-			header("Location: ../exception.php");
-			die();
-		}
-		return $stmt;
-	}
+
 	
 	//Devuelve las 5 ultimos juegos insertados
 	function getJuegos($conexion){

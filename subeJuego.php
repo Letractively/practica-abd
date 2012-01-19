@@ -3,34 +3,20 @@
 <?php
 	session_start();
 	include_once("php/gestionarConexionBD.php");
-	include_once("php/gestionAplicaciones.php");
+	include_once("php/gestionJuegos.php");
 	include_once("php/funciones.php");
 	
 	if(!isset($_SESSION["estasDentro"])){
 		session_destroy();
 		header("Location: index.php");
-	}else{
-		$estasDentro=$_SESSION["estasDentro"];
-		$idJuego=$_REQUEST["idJuego"];
-		
-		
-		if(isset($idJuego) && !esNulo($_REQUEST,"index")){
-			$conexion=CrearConexionBD();
-			$apli=getAplicacionId($idAplicacion,$conexion);
-			CerrarConexionBD($conexion);
-			if(isset($apli) && ($apli["idUsuario"]==$estasDentro["idUsuario"])){
-				$modificar=true;   
-				$_SESSION["modificar"]=$apli["idAplicacion"];//Guardo el id en la sesion para poder utilizarla en tratamientoAplicacion.php
-			}
-		}
-	}
+	
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<title>
-		 Subir Aplicacion
+		 Subir Juego
 		</title>
 		<link rel="stylesheet" type="text/css" href="estilos/index.css" />
 		<script type="text/javascript" src="javascript/juego.js" charset="utf-8"></script>
@@ -38,21 +24,9 @@
 	</head>
 	<body>
 		<div id="paginaentera">
-
-		<?php
-			$aplicacion=$_SESSION["aplicacion"];
-			if(!isset($aplicacion) && !isset($modificar)){
-				$aplicacion=array();
-				$_SESSION["aplicacion"]=$aplicacion;
-			}else if(!isset($aplicacion) && isset($modificar)){
-				$aplicacion=$apli;
-				$_SESSION["aplicacion"]=$aplicacion;
-			}
-		?>
-		
-		<div id="centro">
+		<div id="centro_juego">
 	
-				<div class='subetujuego'>"
+				<div class='subetujuego'>
 					<img src='imagenes/subetujuego.JPG'  alt='juego' title='sube tu juego'/>
 				</div>
 		

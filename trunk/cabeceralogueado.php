@@ -4,10 +4,8 @@
 			  
 			 <div id="div_logeo">
 			 	<center> 
-			<?
-			$nombre=$dentro["usuario"];
-					echo "<h3>Bienvenido $nombre </h3>";
-			?>
+			<h3>Bienvenido</h3>
+			
 			
 			<form id='logout' method='post' action='php/logout.php'>
 								<button id='submit'>Salir</button>

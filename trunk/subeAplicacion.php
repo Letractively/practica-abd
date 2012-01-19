@@ -9,6 +9,20 @@
 	if(!isset($_SESSION["estasDentro"])){
 		session_destroy();
 		header("Location: index.php");
+	}else{
+		$estasDentro=$_SESSION["estasDentro"];
+		$idAplicacion=$_REQUEST["idAplicacion"];
+		
+		
+		if(isset($idAplicacion) && !esNulo($_REQUEST,"index")){
+			$conexion=CrearConexionBD();
+			$apli=getAplicacionId($idAplicacion,$conexion);
+			CerrarConexionBD($conexion);
+			if(isset($apli) && ($apli["idUsuario"]==$estasDentro["idUsuario"])){
+				$modificar=true;   
+				$_SESSION["modificar"]=$apli["idAplicacion"];//Guardo el id en la sesion para poder utilizarla en tratamientoAplicacion.php
+			}
+		}
 	}
 ?>
 
@@ -16,7 +30,12 @@
 <html>
 	<head>
 		<title>
-		 Subir Aplicacion
+		<?php 
+			if(isset($modificar))
+				echo "Modificar Aplicacion";
+			else
+				echo "Subir Aplicacion";
+		?>
 		</title>
 		<link rel="stylesheet" type="text/css" href="estilos/index.css" />
 		<script type="text/javascript" src="javascript/aplicacion.js" charset="utf-8"></script>
@@ -24,13 +43,35 @@
 	</head>
 	<body>
 		<div id="paginaentera">
-		    <div id="centro">
-	            <div class='subetuaplicacion'>
-					<img src='imagenes/subetuaplicacion.jpg'  alt='aplicacion' title='sube tu aplicacion'/>
+
+		<?php
+			$aplicacion=$_SESSION["aplicacion"];
+			if(!isset($aplicacion) && !isset($modificar)){
+				$aplicacion=array();
+				$_SESSION["aplicacion"]=$aplicacion;
+			}else if(!isset($aplicacion) && isset($modificar)){
+				$aplicacion=$apli;
+				$_SESSION["aplicacion"]=$aplicacion;
+			}
+		?>
+		
+		<div id="centro">
+		
+		<?php 
+			if(isset($modificar)){
+				echo "<div class='modificartuaplicacion'>"; 
+					echo "<img src='imagenes/modificartuaplicacion.JPG'  alt='aplicaciones' title='modifica tu aplicacion'/>";
+				echo "</div>";
+			}else{
+				echo "<div class='subetuaplicacion'>"; 
+					echo "<img src='imagenes/subetuaplicacion.JPG'  alt='aplicacion' title='sube tu aplicacion'/>";
+				echo "</div>";	
+			}
+		?>
 		
    		<div id="div_form">
 		
-	    	<form id="form_aplicacion" method="post" onsubmit="return principal()" action="php/gestionSubeAplicacion.php" enctype="multipart/form-data">
+	    	<form id="form_aplicacion" method="post" onsubmit="return principal()" action="PHP/gestionSubeAplicacion.php" enctype="multipart/form-data">
 		  
 	        	<div id="div_datos_aplicacion">	
 	          		<fieldset>
@@ -48,21 +89,9 @@
 	  							<label id="label_imagen" for="imagen">Seleccione imagen: </label>
 								<input id="imagen" type="file" name="imagen" value="" />
 							</div> 
-							
-							<div id="div_tipo">
-				             	<label id="label_tipo" for="tipo">Tipo</label>
-                	            <select id="tipo"  name="tipo">
-							          <option>imagen/audio/video</option>
-							          <option>Internet</option>
-							          <option>Utilidades</option>
-							          <option>Seguridad</option>
-							          <option>Personalizacion</option>
-							          <option>Otros</option>
-				            </div>
-						
 							<div id="div_aaplicacion">
-							    <label for="archivo">  Archivo:  </label>
-		                         <input type="file" name="archivo" id="archivo" />
+	  							<label id="label_aaplicacion" for="aaplicacion">Seleccione Aplicacion: </label>
+								<input id="aaplicacion" type="file" name="aaplicacion" value="" />
 							</div>
 				    </fieldset>
 	

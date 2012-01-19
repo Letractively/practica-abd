@@ -55,7 +55,7 @@
 	}
 	
 	//Devuelve las 5 ultimos juegos insertados
-	function getJuego($conexion){
+	function getJuegos($conexion){
 		$stmt=null;
 		try{
 			$stmt=$conexion->query("SELECT * FROM juegos ORDER BY idjuego DESC LIMIT 5");

@@ -11,18 +11,7 @@
 		header("Location: index.php");
 	}else{
 		$estasDentro=$_SESSION["estasDentro"];
-		$idAplicacion=$_REQUEST["idAplicacion"];
 		
-		
-		if(isset($idAplicacion) && !esNulo($_REQUEST,"index")){
-			$conexion=CrearConexionBD();
-			$apli=getAplicacionId($idAplicacion,$conexion);
-			CerrarConexionBD($conexion);
-			if(isset($apli) && ($apli["idUsuario"]==$estasDentro["idUsuario"])){
-				$modificar=true;   
-				$_SESSION["modificar"]=$apli["idAplicacion"];//Guardo el id en la sesion para poder utilizarla en tratamientoAplicacion.php
-			}
-		}
 	}
 ?>
 
@@ -38,19 +27,7 @@
 	</head>
 	<body>
 		<div id="paginaentera">
-
-		<?php
-			$aplicacion=$_SESSION["aplicacion"];
-			if(!isset($aplicacion) && !isset($modificar)){
-				$aplicacion=array();
-				$_SESSION["aplicacion"]=$aplicacion;
-			}else if(!isset($aplicacion) && isset($modificar)){
-				$aplicacion=$apli;
-				$_SESSION["aplicacion"]=$aplicacion;
-			}
-		?>
-		
-		<div id="centro_aplicacion">
+        <div id="centro_aplicacion">
 		
 	         <div class='subetuaplicacion'>
 			 <img src='imagenes/subetuaplicacion.JPG'  alt='aplicacion' title='sube tu aplicacion'/>
@@ -98,7 +75,13 @@
 				<div id="div_submit">
 					<button id="submit">Enviar</button>
 				</div>	
-			</form>
+				</form>
+				
+				<div id="div_atras">				
+				<form method="post" action="index.php"> 	
+				   <button id="submit">Atras</button>
+				 </form>
+                </div>
 		</div>
 		
 		<div id="div_valcss">

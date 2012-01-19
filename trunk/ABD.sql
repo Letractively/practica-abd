@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-01-2012 a las 19:42:36
+-- Tiempo de generación: 19-01-2012 a las 02:24:01
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -32,24 +32,27 @@ CREATE TABLE IF NOT EXISTS `aplicaciones` (
   `idAplicacion` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(45) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `Descripcion` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
-  `Foto` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `Imagen` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `idUsuario` int(10) unsigned NOT NULL,
+  `Aaplicacion` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `tipo` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`idAplicacion`),
   KEY `FK_evento_1` (`idUsuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `aplicaciones`
 --
 
-INSERT INTO `aplicaciones` (`idAplicacion`, `Nombre`, `Descripcion`, `Foto`, `idUsuario`, `tipo`) VALUES
-(1, 'Aplicacion prueba 1', 'Aplicacion de Prueba numero 1', '', 1, 'Imagen'),
-(2, 'Aplicacion prueba 2', 'Aplicacion de prueba 2', '', 1, 'Internet'),
-(3, 'Aplicacion prueba 3', 'Aplicacion de prueba 3', '', 1, 'Personalizacion'),
-(4, 'Aplicacion prueba 4', 'Aplicacion de prueba 4', '', 1, 'Otros'),
-(5, 'Aplicacion prueba 5', 'Aplicacion de prueba 5', '', 1, 'Utilidades'),
-(6, 'Aplicacion prueba 6', 'Aplicacion de prueba 6', '', 1, 'Seguridad');
+INSERT INTO `aplicaciones` (`idAplicacion`, `Nombre`, `Descripcion`, `Imagen`, `idUsuario`, `Aaplicacion`, `tipo`) VALUES
+(1, 'Aplicacion prueba 1', 'Aplicacion de Prueba numero 1', '', 1, '', 'Imagen'),
+(2, 'Aplicacion prueba 2', 'Aplicacion de prueba 2', '', 1, '', 'Internet'),
+(3, 'Aplicacion prueba 3', 'Aplicacion de prueba 3', '', 1, '', 'Personalizacion'),
+(4, 'Aplicacion prueba 4', 'Aplicacion de prueba 4', '', 1, '', 'Otros'),
+(5, 'Aplicacion prueba 5', 'Aplicacion de prueba 5', '', 1, '', 'Utilidades'),
+(6, 'Aplicacion prueba 6', 'Aplicacion de prueba 6', '', 1, '', 'Seguridad'),
+(7, 'aplicacion guay', 'aplicaicom subidaa', '2u5dqj4.jpg', 0, 'aad1f_v108.zip', ''),
+(8, 'Apliii', 'fsef', '2u5dqj.jpg', 0, 'aad1f_v108.zip', '');
 
 -- --------------------------------------------------------
 

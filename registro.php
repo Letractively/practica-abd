@@ -44,7 +44,7 @@
 	<div id="centro">
 		
 	<center>
-	<a href="index.php">Volver a portada</a>
+	
 	<form id="registroUsuario" enctype="multipart/form-data" method="post" onsubmit="return validarFormulario()" 
 	action="php/tratarRegistro.php">
 		<div id="imprescindibles">
@@ -112,7 +112,8 @@
 			}	
 		}
     ?>
-		</center>    
+		</center>  
+		<p><center><a href="index.php"><img src="imagenes/volver.jpg"></a></p>			  
        </div>					
   	</div>
 </body>

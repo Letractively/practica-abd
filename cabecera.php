@@ -19,14 +19,16 @@
         		
         		
         	</form>
-			</br>
+			<p>
+			
 			<b>
 				<a href="registro.php">Registrate</a>
-			</br>
+			</p>
 			
 			
+			<p>
 			<a href="recupera.php">¿Olvidaste tu contraseña? </a>
-			
+			</p>
 			</center>
 			</b>	
 			

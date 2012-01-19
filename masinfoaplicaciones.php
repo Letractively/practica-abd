@@ -89,7 +89,7 @@
 				</fieldset>
 				
 		
-			
+			<p><center><a href="index.php"><img src="imagenes/volver.jpg"></a></p>			
 		</div>
 		
 		</html>

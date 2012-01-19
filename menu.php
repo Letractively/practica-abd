@@ -3,26 +3,26 @@
 					<ul> 
     				
     					<a><img src="imagenes/juegos.jpg" alt="Juegos"/></a>
-      						<ul> <b>
-        						<li><a href="listajuegos.php?tipo=accion">Accion</a></li> 
-        						<li><a href="listajuegos.php?tipo=simulacion">Simulacion</a></li> 
-        						<li><a href="listajuegos.php?tipo=aventura">Aventura Grafica</a></li> 
-        						<li><a href="listajuegos.php?tipo=rpg">RPG</a></li> 
-        						<li><a href="listajuegos.php?tipo=estrategia">Estrategia</a></li> 
-        						<li><a href="listajuegos.php?tipo=deportes">Deportes</a></li>       						
-      						    <li><a href="listajuegos.php?tipo=infantil">Infantil</a></li> 
-								<li><a href="listajuegos.php?tipo=otros">Otros</a></li> 
-       						</ul> </b>
-    					 
+      						 <b>
+        						<li><a href="listajuegos.php?tipo=accion">&nbsp;Accion</a></li> 
+        						<li><a href="listajuegos.php?tipo=simulacion">&nbsp;Simulacion</a></li> 
+        						<li><a href="listajuegos.php?tipo=aventura">&nbsp;Aventura Grafica</a></li> 
+        						<li><a href="listajuegos.php?tipo=rpg">&nbsp;RPG</a></li> 
+        						<li><a href="listajuegos.php?tipo=estrategia">&nbsp;Estrategia</a></li> 
+        						<li><a href="listajuegos.php?tipo=deportes">&nbsp;Deportes</a></li>       						
+      						    <li><a href="listajuegos.php?tipo=infantil">&nbsp;Infantil</a></li> 
+								<li><a href="listajuegos.php?tipo=otros">&nbsp;Otros</a></li> 
+       						 </b>
+    					
     					<a><img src="imagenes/aplicaciones.jpg" alt="Aplicaciones"/></a>
-      						<ul> <b>
-       							<li><a href="listaaplicaciones.php?tipo=imagen/audio/video">Imagen/Audio/Video</a></li> 
-        						<li><a href="listaaplicaciones.php?tipo=internet">Internet</a></li> 
-								<li><a href="listaaplicaciones.php?tipo=utilidades">Utilidades</a></li> 
-								<li><a href="listaaplicaciones.php?tipo=seguridad">Seguridad</a></li>
-								<li><a href="listaaplicaciones.php?tipo=personalizacion">Personalizacion</a></li>
-								<li><a href="listaaplicaciones.php?tipo=otros">Otros</a></li>
-      						</ul> </b>
+      						 <b>
+       							<li><a href="listaaplicaciones.php?tipo=imagen/audio/video">&nbsp;Imagen/Audio/Video</a></li> 
+        						<li><a href="listaaplicaciones.php?tipo=internet">&nbsp;Internet</a></li> 
+								<li><a href="listaaplicaciones.php?tipo=utilidades">&nbsp;Utilidades</a></li> 
+								<li><a href="listaaplicaciones.php?tipo=seguridad">&nbsp;Seguridad</a></li>
+								<li><a href="listaaplicaciones.php?tipo=personalizacion">&nbsp;Personalizacion</a></li>
+								<li><a href="listaaplicaciones.php?tipo=otros">&nbsp;Otros</a></li>
+      						 </b>
     					
     			</b>
   					</ul>	

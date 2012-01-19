@@ -52,7 +52,7 @@
  			    <ul>
  				    <?php 
  					  $conexion=crearConexionBD();
- 					  $aplicaciones=getAplicacion($conexion);//Devuelve las 5 ultimos aplicaciones subidas.
+ 					  $aplicaciones=getAplicaciones($conexion);//Devuelve las 5 ultimos aplicaciones subidas.
  					  CerrarConexionBD($conexion);
  					  foreach ($aplicaciones as $row1){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
  						 echo "<li>";
@@ -79,7 +79,7 @@
  			    <ul>
  				    <?php 
  					  $conexion=crearConexionBD();
- 					  $Juegos=getJuego($conexion);//Devuelve los 5 ultimos Juegos subidos.
+ 					  $Juegos=getJuegos($conexion);//Devuelve los 5 ultimos Juegos subidos.
  					  CerrarConexionBD($conexion);
  					  foreach ($Juegos as $row2){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
  						 echo "<li>";

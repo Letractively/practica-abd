@@ -25,7 +25,7 @@ function verificarContraseña(){
         var password= document.getElementById("pass").value;
         var passwordBis= document.getElementById("passwordBis").value;
         if (password!=passwordBis){
-                alert ("Las contraseñas deben de ser identicas");
+                alert ("Las contraseñas deben de ser identicas: "+password+"!="+passwordBis);
                 return false;
         }
 }

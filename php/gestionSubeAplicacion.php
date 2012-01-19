@@ -16,7 +16,7 @@
 		$aplicacion["imagen"]=$_FILES['imagen']['name'];
 		$aplicacion["aaplicacion"]=$_FILES['aaplicacion']['name'];
 		
-		$_SESSION["Aplicacion"]=$aplicacion;
+		$_SESSION["aplicacion"]=$aplicacion;
 		if(esNulo($aplicacion,"nombre"))
 			array_push($errores,"Introduzca el nombre de la aplicacion");
 
@@ -28,15 +28,13 @@
 				array_push($errores,"Debes subir una foto para la aplicacion.");
 			else if(file_exists("../imagenes/img_apli/".$_FILES['imagen']['name']))
 				array_push($errores,"Ya existe una imagen/aplicacion con el mismo nombre, por favor cambielo");
-				
+		}		
 		if(isset($_FILES['aaplicacion']) && ($_FILES['aaplicacion']['error']==UPLOAD_ERR_OK)){
 			if(!validaAaplicacion($aplicacion["aaplicacion"]))
 				array_push($errores,"Debes subir una aplicacion.");
 			else if(file_exists("../aplicaciones/".$_FILES['aaplicaciones']['name']))
 				array_push($errores,"Ya existe una aplicacion con el mismo nombre.");		
-				
-		}
-		
+		}		
 		$_SESSION["errores_aplicacion"]=$errores;
 		
 		if(count($errores)==0){//Si no hay errores nos conectamos a la BD
@@ -44,7 +42,7 @@
 			subirFoto($_FILES['imagen'],"img_apli");
 			$estasDentro=$_SESSION["estasDentro"];//Cogemos el nombre del usuario logueado 
 			if(!isset($_SESSION["modificar"]))
-				subeAplicacion($aplicacion["nombre"],$aplicacion["descripcion"],$aplicacion["imagen"],$aplicacion["idUsuario"],$aplicacion["aaplicacion"],$conexion);
+				subirAplicacion($aplicacion["nombre"],$aplicacion["descripcion"],$aplicacion["imagen"],$aplicacion["idUsuario"],$aplicacion["aaplicacion"],$conexion);
 			else{
 				modificarAplicacion($aplicacion,$conexion);
 			}
@@ -53,9 +51,9 @@
 			unset($_SESSION["modificar"]);//Ya no la necesitaremos mas
 			header("Location: ../index.php");
 		}else
-				header("Location: ../aplicacion.php?idaplicacion=$_SESSION[modificar]");		
+				header("Location: ../masinfoaplicaciones.php?idaplicacion=$_SESSION[modificar]");		
 			
 	}else
 		header("Location: ../index.php");
-	}
+	
 ?>

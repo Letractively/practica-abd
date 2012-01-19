@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	
 	//Crea aplicacion.
 	function subirAplicacion($nombre,$tipo,$descripcion,$imagen,$idUsuario,$aaplicacion,$conexion){

@@ -48,7 +48,10 @@
 		
 		<p>
 	<?php 
-	$tipo=$_REQUEST["tipo"]; 
+	$tipo=$_REQUEST["tipo"];
+	$index=$_REQUEST["index"];
+	$idUsuario= $_SESSION["estasDentro"]["idUsuario"];
+    	
 			echo "<h2>Lista de aplicaciones de $tipo:</h2>";
 		?>
 	
@@ -61,8 +64,9 @@
  			    
  				    <?php 
  					  $conexion=crearConexionBD();
- 					  $Aplicaciones=listaTodasAplicacionesTipo($tipo,$conexion);
- 					  CerrarConexionBD($conexion);
+					  if($index="mios"){
+					  
+					  $Aplicaciones=getAplicacionesSubidas($idUsuario,$conexion);
  					  foreach ($Aplicaciones as $aplis){
  						 
  						 echo "<fieldset>";
@@ -75,6 +79,24 @@
  						 echo "</fieldset>";
  						 
  						 }
+					    
+					  }
+					  else{
+ 					  $Aplicaciones=listaTodasAplicacionesTipo($tipo,$conexion);
+ 					  foreach ($Aplicaciones as $aplis){
+ 						 
+ 						 echo "<fieldset>";
+ 						 echo "<legend><a href='masinfoaplicaciones.php?idAplicacion=$aplis[idAplicacion]'>$aplis[Nombre]</a></legend>";
+ 						 echo "<img id='tamano' src='imagenes/img_juegos$aplis[Foto]' alt='img_aplicacion'>";
+ 						 echo "<br>";
+ 						 echo "<br>";
+ 						 echo "$aplis[Descripcion]";
+ 						 echo "<br>";
+ 						 echo "</fieldset>";
+ 						 
+ 						 }
+				    }
+					CerrarConexionBD($conexion);
  				     ?>
   			   
   			    

@@ -24,11 +24,6 @@
 			<b>
 				<a href="registro.php">Registrate</a>
 			</p>
-			
-			
-			<p>
-			<a href="recupera.php">¿Olvidaste tu contraseña? </a>
-			</p>
 			</center>
 			</b>	
 			

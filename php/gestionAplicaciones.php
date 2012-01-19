@@ -2,13 +2,13 @@
 	session_start();
 	
 	//Crea aplicacion.
-	function subirAplicacion($nombre,$descripcion,$imagen,$idUsuario,$aaplicacion,$conexion){
+	function subirAplicacion($nombre,$tipo,$descripcion,$imagen,$idUsuario,$aaplicacion,$conexion){
 		if($imagen=="")
 			$imagen="default_aplicacion.jpg";
 		$stmt=null;
 		try{
-			$SQL="INSERT INTO aplicaciones (idAplicacion,Nombre,Descripcion,Imagen,idUsuario,Aaplicacion) 
-			VALUES('NULL','$nombre','$descripcion','$imagen','$idUsuario','$aaplicacion')";
+			$SQL="INSERT INTO aplicaciones (idAplicacion,Nombre,Descripcion,Imagen,idUsuario,Aaplicacion,tipo) 
+			VALUES('NULL','$nombre','$descripcion','$imagen','$idUsuario','$aaplicacion','$tipo')";
 			$stmt=$conexion->exec($SQL);	
 		}catch(PDOException $e){
 			$_SESSION["exception"]="Error al subir la aplicacion.";

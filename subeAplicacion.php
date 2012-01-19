@@ -80,10 +80,22 @@
 	              				<label id="label_nombre" for="nombre">Nombre de la aplicacion</label>
 	              				<input id="nombre" name="nombre" type="text" maxlength="50" value=""/>
 	              			</div>
+	              			<div id="div_tipo">
+				             	<label id="label_tipo" for="tipo">Tipo</label>
+                	            <select id="tipo"  name="tipo" value=""/>
+							          <option>Imagen/Audio/Video</option>
+							          <option>Internet</option>
+							          <option>Utilidades</option>
+							          <option>Seguridad</option>
+							          <option>Personalizacion</option>
+							          <option>Otros</option>
+							          </select> 
+				            </div>
+							
 							<div id="div_descripcion">
 				             	<label id="label_descripcion" for="descripcion">Descripci&oacute;n </label>
 				              	<input id="descripcion" name="descripcion" type="text" value=""/>
-				            </div>
+				       </div>
 							
 							<div id="div_imagen">
 	  							<label id="label_imagen" for="imagen">Seleccione imagen: </label>

@@ -69,8 +69,8 @@ ul.menu li:hover ul {
 #div_logo{
 	
 	
-	width:980px; /*anchura del fono del menu derecho*/
-	height:220px; /*altura del fondo del menu derecho*/	
+	width:980px; 
+	height:180px;
 	
 }	
 
@@ -78,15 +78,15 @@ ul.menu li:hover ul {
 #div_login{
 	
 	float:right;
-	width:220px; /*anchura del fono del menu derecho*/
-	height:220px; /*altura del fondo del menu derecho*/	
+	width:220px; 
+	height:180px; 
 }	
 
 #div_logeo{
 	
 	float:right;
-	width:220px; /*anchura del fono del menu derecho*/
-	height:220px; /*altura del fondo del menu derecho*/	
+	width:220px; 
+	height:180px; 
 	text-align: left;
 	
 }
@@ -94,11 +94,11 @@ ul.menu li:hover ul {
 
 
 #centro{
-	/*clear: both;*/
+	
 	background-color: white;
 	float:right; 
-	width:740px; /*anchura del fono del menu derecho*/
-	height:auto; /*altura del fondo del menu derecho*/	
+	width:740px; 
+	height:auto; 	
 	
 }
 
@@ -106,8 +106,8 @@ ul.menu li:hover ul {
 	
 	background-color: white;
 	float:left;
-	width:370px; /*anchura del fono del menu derecho*/
-	height:auto; /*altura del fondo del menu derecho*/	
+	width:370px; 
+	height:auto; 
 	
 }
 
@@ -115,8 +115,8 @@ ul.menu li:hover ul {
 	
 	background-color: white;
 	float:right;
-	width:370px; /*anchura del fono del menu derecho*/
-	height:auto; /*altura del fondo del menu derecho*/	
+	width:370px; 
+	height:auto; 
 	
 }
 

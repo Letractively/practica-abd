@@ -47,26 +47,29 @@
 			
 	<div id="centro">
 		<div id="centro_izq">
-	        
- 			    
+	        	<center>
+ 			    <img src="imagenes/ultimos_juegos.jpg"</img>
+ 			    </center>
  				    <?php 
  					  $conexion=crearConexionBD();
- 					  $aplicaciones=getAplicaciones($conexion);
+ 					  $Juegos=getJuegos($conexion);
  					  CerrarConexionBD($conexion);
- 					  foreach ($aplicaciones as $row1){
- 						 echo "<li>";
- 						 echo "<div>";
+ 					  foreach ($Juegos as $jues){
+ 						 
+ 						 
  						 echo "<fieldset>";
- 						 echo "<legend>$row1[Nombre]</legend>";
- 						 echo "<img id='tamano' src='imagenes/img_aplicaciones$row1[Foto]' alt='img_apli'>";
- 						 echo "<br>";
- 						 echo "<br>";
- 						 echo "$row1[Descripcion]";
- 						 echo "<br>";
-						 echo "<a href='masInfoAplicaciones.php?idAplicacion=$row1[idAplicacion]'>Mas info</a>";
+ 						 echo "<legend><h3>$jues[Nombre]</h3></legend>";
+ 						 echo "$jues[Descripcion]";
+ 						 echo "<br><br>";
+ 						 echo "<center>";
+ 						 echo "<a href='masInfoJuegos.php?idJuego=$jues[idJuego]'>";
+ 						 echo "<img src='imagenes/masinfo.jpg'>";
+						 echo "</a>";
+						 echo "</center>";
  						 echo "</fieldset>";
- 						 echo"</div>";
- 						 echo "</li>";
+						 echo "<br>";
+ 						 
+ 						 
  					    }
  				     ?>
   			  
@@ -74,28 +77,30 @@
             </div>	
             
        <div id="centro_der">
-           
- 			   
- 				    <?php 
+       			<center>
+           			<img src="imagenes/ultimas_aplicaciones.jpg"</img>
+           		</center>
+ 			    <?php 
  					  $conexion=crearConexionBD();
- 					  $Juegos=getJuegos($conexion);
+ 					  $aplicaciones=getAplicaciones($conexion);
  					  CerrarConexionBD($conexion);
- 					  foreach ($Juegos as $row2){
- 						 echo "<li>";
- 						 echo "<div>";
+ 					  foreach ($aplicaciones as $aplis){
+ 						 
  						 echo "<fieldset>";
- 						 echo "<legend>$row2[Nombre]</legend>";
- 						 echo "<img id='tamano' src='imagenes/img_juegos$row2[Foto]' alt='img_juego'>";
- 						 echo "<br>";
- 						 echo "<br>";
- 						 echo "$row2[Descripcion]";
- 						 echo "<br>";
- 						 echo "<a href='masInfoJuegos.php?idJuego=$row2[idJuego]'>Mas info</a>";
+ 						 echo "<legend><h3>$aplis[Nombre]</h3></legend>";
+ 						 echo "$aplis[Descripcion]";
+ 						 echo "<br><br>";
+ 						 echo "<center>";
+						 echo "<a href='masInfoAplicaciones.php?idAplicacion=$aplis[idAplicacion]'>";
+						 echo "<img src='imagenes/masinfo.jpg'>";
+						 echo "</a>";
+						 echo "</center>";
  						 echo "</fieldset>";
- 						 echo"</div>";
- 						 echo "</li>";
+						 echo "<br>";
+ 						 
  					    }
  				     ?>
+ 				    
   			   	
           	
            </div>					

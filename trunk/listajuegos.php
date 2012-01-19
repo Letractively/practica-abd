@@ -49,37 +49,10 @@
 		<p>
 	<?php 
 	$tipo=$_REQUEST["tipo"];
-			switch($tipo){
-	 			case "accion":
-	 				echo "<img src='imagenes/listaaccion.JPG' alt='listaaccion' title='lista de juegos de accion'/>";
-					echo "Accion";
-	 				break;
-	 			case "simulacion":
-	 				echo "<img src='imagenes/listasimulacion.JPG' alt='listasimulacion' title='lista de juegos de simulacion'/>";
-	 				echo "Simulacion";
-	 				break;
-				case "aventura":
-	 				echo "<img src='imagenes/listaaventura.JPG' alt='listaaventura' title='lista de juegos de aventuras graficas'/>";
-	 				break;
-	 			case "rpg":
-	 				echo "<img src='imagenes/listarpg.JPG' alt='listarpg' title='lista de Juegos de RPG'/>";
-	 				break;
-	 			case "estrategia":
-	 				echo "<img src='imagenes/listaestrategia.JPG' alt='listaestrategia' title='lista de juegos de estrategia'/>";
-	 				break;
-	 			case "deportes":
-	 				echo "<img src='imagenes/listadeportes.JPG' alt='listadeportes' title='lista de juegos de deportes'/>";
-	 				break;
-				case "infantil":
-	 				echo "<img src='imagenes/listainfantil.JPG' alt='listainfantil' title='lista de juegos infantiles'/>";
-	 				break;	
-				case "otros":
-	 				echo "<img src='imagenes/listaotros.JPG' alt='listaotros' title='lista de otros'/>";
-	 				break;		
-			}
-		?>
+			echo "<h2>Lista de juegos de $tipo:</h2>";
+	?>
 	
-	<a href="index.php">Volver a portada</a>
+	
 	
 		</p>
 			<center>	
@@ -88,28 +61,29 @@
  			    
  				    <?php 
  					  $conexion=crearConexionBD();
- 					  $Juegos=listaTodosjuegosTipo($tipo,$conexion);//Devuelve todos los Juegos subidos.
+ 					  $Juegos=listaTodosjuegosTipo($tipo,$conexion);
  					  CerrarConexionBD($conexion);
 					  
 					  
- 					  foreach ($Juegos as $row){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
- 						
- 						 echo "<div>";
+ 					  foreach ($Juegos as $jues){
+ 					  	 						
+ 						 
  						 echo "<fieldset>";
- 						 echo "<legend><a href='masinfojuegos.php?idJuego=$row[idJuego]'>$row[Nombre]</a></legend>";
- 						 echo "<img id='tamano' src='imagenes/img_juegos$row[Foto]' alt='img_juego'>";
+ 						 echo "<legend><a href='masinfojuegos.php?idJuego=$jues[idJuego]'>$jues[Nombre]</a></legend>";
+ 						 echo "<img id='tamano' src='imagenes/img_juegos$jues[Foto]' alt='img_juego'>";
  						 echo "<br>";
  						 echo "<br>";
- 						 echo "$row[Descripcion]";
+ 						 echo "$jues[Descripcion]";
  						 echo "<br>";
  						 echo "</fieldset>";
- 						 echo "</div>";
+ 						 
 						 
  						 }
  				     ?>
   			   
             
-           	 </center>				
+           	 </center>
+           	 <p><center><a href="index.php"><img src="imagenes/volver.jpg"></a></p>							
   	</div>
 		
 			

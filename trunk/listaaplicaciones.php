@@ -49,32 +49,10 @@
 		<p>
 	<?php 
 	$tipo=$_REQUEST["tipo"]; 
-			switch($tipo){
-	 			case "imagen":
-	 				echo "<img src='imagenes/listaimagen.JPG' alt='listaimagen' title='lista de aplicaciones de imagen/audio/video'/>";
-					echo "Imagen/Audio/Video";
-	 				break;
-	 			case "internet":
-	 				echo "<img src='imagenes/listainternet.JPG' alt='listainternet' title='lista de aplicaciones de internet'/>";
-	 				echo "Internet";
-	 				break;
-				case "utilidades":
-	 				echo "<img src='imagenes/listautilidades.JPG' alt='listautilidades' title='lista de utilidades'/>";
-	 				break;
-	 			case "seguridad":
-	 				echo "<img src='imagenes/listaseguridad.JPG' alt='listaseguridad' title='lista de aplicaciones de seguridad'/>";
-	 				break;
-	 			case "personalizacion":
-	 				echo "<img src='imagenes/listapersonalizacion.JPG' alt='listapersonalizacion' title='lista de aplicaciones de personalizacion'/>";
-	 				break;
-	 			case "otros":
-	 				echo "<img src='imagenes/listaotros.JPG' alt='listaotros' title='lista de otros'/>";
-	 				break;		
-	 		
-			}
+			echo "<h2>Lista de aplicaciones de $tipo:</h2>";
 		?>
 	
-	<a href="index.php">Volver a portada</a>
+	
 	
 		</p>
 			<center>	
@@ -83,25 +61,26 @@
  			    
  				    <?php 
  					  $conexion=crearConexionBD();
- 					  $Aplicaciones=listaTodasAplicacionesTipo($tipo,$conexion);//Devuelve todos los Juegos subidos.
+ 					  $Aplicaciones=listaTodasAplicacionesTipo($tipo,$conexion);
  					  CerrarConexionBD($conexion);
- 					  foreach ($Aplicaciones as $row){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
- 						 echo "<div>";
+ 					  foreach ($Aplicaciones as $aplis){
+ 						 
  						 echo "<fieldset>";
- 						 echo "<legend><a href='masinfoaplicaciones.php?idAplicacion=$row[idAplicacion]'>$row[Nombre]</a></legend>";
- 						 echo "<img id='tamano' src='imagenes/img_juegos$row[Foto]' alt='img_juego'>";
+ 						 echo "<legend><a href='masinfoaplicaciones.php?idAplicacion=$aplis[idAplicacion]'>$aplis[Nombre]</a></legend>";
+ 						 echo "<img id='tamano' src='imagenes/img_juegos$aplis[Foto]' alt='img_aplicacion'>";
  						 echo "<br>";
  						 echo "<br>";
- 						 echo "$row[Descripcion]";
+ 						 echo "$aplis[Descripcion]";
  						 echo "<br>";
  						 echo "</fieldset>";
- 						 echo"</div>";
+ 						 
  						 }
  				     ?>
   			   
   			    
             
-           	 </center>				
+           	 </center>	
+           	 <p><center><a href="index.php"><img src="imagenes/volver.jpg"></a></p>			
   	</div>
 		
 			
@@ -119,6 +98,8 @@
 				echo "</div>";
 			}
          ?>
+         
+         
      </div>   
 		
 		

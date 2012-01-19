@@ -50,6 +50,13 @@
 	
 			
 	<div id="centro">
-		
+		<h1>Bienvenid@:</h1>
+		<p>OpenDown es una página web para el intercambio de juegos y aplicaciones Open Source.</p><br>
+		<p>Como usuario anónimo, tienes acceso a la descarga de todo el contenido disponible en nuestra web, sin limitaciones.</p>
+		<p>Si deseas compartir tu propio contenido (seas o no el autor), deberas llevar a cabo el proceso de registro en la web.</p>
+		<p>El registro es completamente gratuito y una vez completado este e identificado, se habilitará automáticamente un menu especial para llevar a cabo todas las tareas relacionadas
+			con la compartición de contendo, donde podrás subir aplicaciones o juegos, modificar antiguas subidas, o si te arrepientes, eliminarlas de la web.</p>	
+		<br><p>Un saludo y disfruta del contenido ofrecido en estas páginas.</p>	
+		<p><center><a href="index.php"><img src="imagenes/volver.jpg"></a></p>			
 	</div>
 </html>

@@ -11,6 +11,7 @@
 		if(isset($_SESSION["modificar"]))
 			$aplicacion["idAplicacion"]=$_SESSION["modificar"];
 		$aplicacion["nombre"]=$_REQUEST["nombre"];
+		$aplicacion["tipo"]=$_REQUEST["tipo"];
 		$aplicacion["descripcion"]=$_REQUEST["descripcion"];
 		
 		$aplicacion["imagen"]=$_FILES['imagen']['name'];
@@ -42,7 +43,7 @@
 			subirFoto($_FILES['imagen'],"img_apli");
 			$estasDentro=$_SESSION["estasDentro"];//Cogemos el nombre del usuario logueado 
 			if(!isset($_SESSION["modificar"]))
-				subirAplicacion($aplicacion["nombre"],$aplicacion["descripcion"],$aplicacion["imagen"],$aplicacion["idUsuario"],$aplicacion["aaplicacion"],$conexion);
+				subirAplicacion($aplicacion["nombre"],$aplicacion["tipo"],$aplicacion["descripcion"],$aplicacion["imagen"],$aplicacion["idUsuario"],$aplicacion["aaplicacion"],$conexion);
 			else{
 				modificarAplicacion($aplicacion,$conexion);
 			}

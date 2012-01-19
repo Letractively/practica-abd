@@ -16,7 +16,7 @@
     					</li> 
     					<li><a>Aplicaciones</a>
       						<ul> <b>
-       							<li><a href="listaaplicaciones.php?tipo=imagen">Imagen/Audio/Video</a></li> 
+       							<li><a href="listaaplicaciones.php?tipo=imagen/audio/video">Imagen/Audio/Video</a></li> 
         						<li><a href="listaaplicaciones.php?tipo=internet">Internet</a></li> 
 								<li><a href="listaaplicaciones.php?tipo=utilidades">Utilidades</a></li> 
 								<li><a href="listaaplicaciones.php?tipo=seguridad">Seguridad</a></li>

@@ -80,7 +80,7 @@
 	}
 	
 	//Devuelve las juegoes subidas por el usuario al que corresponde el id
-	function getjuegoesSubidas($idusuario,$conexion){
+	function getjuegosSubidos($idusuario,$conexion){
 		$stmt=null;
 		try{
 			$stmt=$conexion->prepare("SELECT * FROM juegoes WHERE idjuego=:idjuego");

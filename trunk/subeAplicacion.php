@@ -26,11 +26,11 @@
 		<div id="paginaentera">
 		    <div id="centro">
 	            <div class='subetuaplicacion'>
-					<img src='imagenes/subetuaplicacion.JPG'  alt='aplicacion' title='sube tu aplicacion'/>
+					<img src='imagenes/subetuaplicacion.jpg'  alt='aplicacion' title='sube tu aplicacion'/>
 		
    		<div id="div_form">
 		
-	    	<form id="form_aplicacion" method="post" onsubmit="return principal()" action="PHP/gestionSubeAplicacion.php" enctype="multipart/form-data">
+	    	<form id="form_aplicacion" method="post" onsubmit="return principal()" action="php/gestionSubeAplicacion.php" enctype="multipart/form-data">
 		  
 	        	<div id="div_datos_aplicacion">	
 	          		<fieldset>

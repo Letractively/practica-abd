@@ -26,13 +26,13 @@
     					<li><a href="#">Aplicaciones</a>
       						<ul> 
        							<li>&nbsp;&nbsp;  <a href="subeAplicacion.php">Subir aplicacion</a></li> 
-        						<li>&nbsp;&nbsp;  <a href="listaAplicaciones.php?index=verME"> Mis aplicaciones</a></li>  
+        						<li>&nbsp;&nbsp;  <a href="listaAplicaciones.php?index=mios"> Mis aplicaciones</a></li>  
       						</ul> 
     					</li>
 						<li><a href="#">Juegos</a>
       						<ul> 
-       							<li>&nbsp;&nbsp;  <a href="subeAplicacion.php">Subir juego</a></li> 
-        						<li>&nbsp;&nbsp;  <a href="listaAplicaciones.php?index=verME"> Mis juegos</a></li>  
+       							<li>&nbsp;&nbsp;  <a href="subeJuego.php">Subir juego</a></li> 
+        						<li>&nbsp;&nbsp;  <a href="listaJuegos.php?index=mios"> Mis juegos</a></li>  
       						</ul> 
     					</li>
     			

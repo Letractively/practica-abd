@@ -49,6 +49,8 @@
 		<p>
 	<?php 
 	$tipo=$_REQUEST["tipo"];
+	$index=$_REQUEST["index"];
+	$idUsuario= $_SESSION["estasDentro"]["idUsuario"];
 			echo "<h2>Lista de juegos de $tipo:</h2>";
 	?>
 	
@@ -61,10 +63,26 @@
  			    
  				    <?php 
  					  $conexion=crearConexionBD();
+					 
+					  if($index="mios"){
+					  
+					  $Juegos=getjuegosSubidos($idUsuario,$conexion);
+ 					  foreach ($Juegos as $jues){ 
+ 						 echo "<fieldset>";
+ 						 echo "<legend><a href='masinfojuegos.php?idJuego=$jues[idJuego]'>$jues[Nombre]</a></legend>";
+ 						 echo "<img id='tamano' src='imagenes/img_juegos$jues[Foto]' alt='img_juego'>";
+ 						 echo "<br>";
+ 						 echo "<br>";
+ 						 echo "$jues[Descripcion]";
+ 						 echo "<br>";
+ 						 echo "</fieldset>";
+ 						 
+ 						 
+ 						 }
+					    
+					  }
+					  else{
  					  $Juegos=listaTodosjuegosTipo($tipo,$conexion);
- 					  CerrarConexionBD($conexion);
-					  
-					  
  					  foreach ($Juegos as $jues){
  					  	 						
  						 
@@ -79,6 +97,7 @@
  						 
 						 
  						 }
+						  CerrarConexionBD($conexion);
  				     ?>
   			   
             

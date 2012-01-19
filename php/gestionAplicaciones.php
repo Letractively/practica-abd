@@ -121,7 +121,7 @@
 	function getAplicacionesSubidas($idusuario,$conexion){
 		$stmt=null;
 		try{
-			$stmt=$conexion->prepare("SELECT * FROM aplicaciones WHERE idAplicacion=:idAplicacion");
+			$stmt=$conexion->prepare("SELECT * FROM aplicaciones WHERE idUsuario=:idUsuario");
 			$stmt->bindParam(':idUsuario',$idusuario);
 			$stmt->execute();
 		}catch(PDOException $e){

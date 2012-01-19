@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-01-2012 a las 02:24:01
+-- Tiempo de generación: 19-01-2012 a las 02:49:37
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -35,10 +35,10 @@ CREATE TABLE IF NOT EXISTS `aplicaciones` (
   `Imagen` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `idUsuario` int(10) unsigned NOT NULL,
   `Aaplicacion` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
-  `tipo` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `tipo` varchar(20) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`idAplicacion`),
   KEY `FK_evento_1` (`idUsuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Volcado de datos para la tabla `aplicaciones`
@@ -52,7 +52,10 @@ INSERT INTO `aplicaciones` (`idAplicacion`, `Nombre`, `Descripcion`, `Imagen`, `
 (5, 'Aplicacion prueba 5', 'Aplicacion de prueba 5', '', 1, '', 'Utilidades'),
 (6, 'Aplicacion prueba 6', 'Aplicacion de prueba 6', '', 1, '', 'Seguridad'),
 (7, 'aplicacion guay', 'aplicaicom subidaa', '2u5dqj4.jpg', 0, 'aad1f_v108.zip', ''),
-(8, 'Apliii', 'fsef', '2u5dqj.jpg', 0, 'aad1f_v108.zip', '');
+(8, 'Apliii', 'fsef', '2u5dqj.jpg', 0, 'aad1f_v108.zip', ''),
+(9, 'fsf', 'aplicaicom subidaa', '2u5dqj.jpg', 0, 'aad1f_v108.zip', 'Imagen'),
+(10, 'Apliii', 'fsef', 'default_aplicacion.jpg', 0, '', 'Imagen/Audio/Vi'),
+(11, 'efsfs', 'grege', 'default_aplicacion.jpg', 0, '', 'Imagen/Audio/Video');
 
 -- --------------------------------------------------------
 

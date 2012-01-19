@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
      <link rel="stylesheet" type="text/css"  href="estilos/index.css" />
      <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	 <script type="text/javascript" src="javascript/login.js" charset="utf-8"></script>
-	 <title>Informacion</title>
+	 <title>Información</title>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
 	 	
 </head>
 
@@ -19,14 +22,14 @@
 			  include_once("php/gestionJuegos.php");
 			  session_start();
 			    		
-    		if(!isset($_SESSION["login"])){//Comprobamos si tenemos la variable de sesion creada
+    		if(!isset($_SESSION["login"])){
     			$login=array();
     			$_SESSION["login"]=$login;
     		}
     	?>
 		
 		
-		<!--  div con la logotipo de fondo y login-->
+		<!--  Cabecera y login -->
     	
     		<?php 
     			if (!isset($_SESSION["estasDentro"])){
@@ -38,7 +41,7 @@
 			?>
     		 
          
-        <HR>
+        <hr/>
   
 	
 	<?php 

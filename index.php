@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,14 +18,14 @@
 			  include_once("php/gestionJuegos.php");
 			  session_start();
 			    		
-    		if(!isset($_SESSION["login"])){//Comprobamos si tenemos la variable de sesion creada
+    		if(!isset($_SESSION["login"])){
     			$login=array();
     			$_SESSION["login"]=$login;
     		}
     	?>
 		
 		
-		<!--  div con la logotipo de fondo y login-->
+		<!--  Cabecera y login -->
     	
     		<?php 
     			if (!isset($_SESSION["estasDentro"])){
@@ -38,7 +37,7 @@
 			?>
     		 
          
-        <HR>
+        <hr/>
   
 	
 	<?php 
@@ -49,12 +48,12 @@
 	<div id="centro">
 		<div id="centro_izq">
 	        
- 			    <ul>
+ 			    
  				    <?php 
  					  $conexion=crearConexionBD();
- 					  $aplicaciones=getAplicaciones($conexion);//Devuelve las 5 ultimos aplicaciones subidas.
+ 					  $aplicaciones=getAplicaciones($conexion);
  					  CerrarConexionBD($conexion);
- 					  foreach ($aplicaciones as $row1){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
+ 					  foreach ($aplicaciones as $row1){
  						 echo "<li>";
  						 echo "<div>";
  						 echo "<fieldset>";
@@ -70,18 +69,18 @@
  						 echo "</li>";
  					    }
  				     ?>
-  			    </ul>	
+  			  
             
             </div>	
             
        <div id="centro_der">
            
- 			    <ul>
+ 			   
  				    <?php 
  					  $conexion=crearConexionBD();
- 					  $Juegos=getJuegos($conexion);//Devuelve los 5 ultimos Juegos subidos.
+ 					  $Juegos=getJuegos($conexion);
  					  CerrarConexionBD($conexion);
- 					  foreach ($Juegos as $row2){//Por cada iteracion crea un elemento en la lista con los datos de la aplicacion subida
+ 					  foreach ($Juegos as $row2){
  						 echo "<li>";
  						 echo "<div>";
  						 echo "<fieldset>";
@@ -97,7 +96,7 @@
  						 echo "</li>";
  					    }
  				     ?>
-  			    </ul>	
+  			   	
           	
            </div>					
   	</div>
@@ -116,7 +115,7 @@
 				}	
 			}
          ?>
-     </div> 
+    </div> 
     
 		
 		
